@@ -1424,7 +1424,6 @@ function erpal_basic_field_default_field_instances() {
     'comment_alter' => 0,
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Categorise this contact',
     'display' => array(
       'default' => array(
         'label' => 'above',
