@@ -1,0 +1,31 @@
+.attachment-before {
+  background-color: #D4D4D4;
+  fieldset {
+    border: none;
+	border-top: 1px solid $silver_grey;
+	padding: 5px 0 0 0;
+	legend {
+	  display: none;
+	}
+	div.form-checkboxes-horizontal {
+	  .form-item {
+	    float: left;
+	    width: auto;
+		margin-left: 10px;
+		a {
+		  font-weight: normal;
+		}
+	  }
+	}
+	#edit-delete {
+	  clear: none !important;
+	  margin: 2px 2px 7px 10px !important;
+	}
+  }
+}
+
+#views-savedsearches-save-search-form {
+  .form-item {
+    margin-bottom: 0;
+  }
+}

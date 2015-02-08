@@ -1,0 +1,56 @@
+div.ctools-modal-content {
+  border: 1px solid $drab;
+  @include border-radius(4px);
+  overflow: hidden;
+  .modal-header {
+    @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+    padding: 13px;
+    @include border-radius(4px 4px 0 0);
+    .modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: black;
+    }
+  }
+  a.close {
+    font-size: 0;
+    display: block;
+    height: 15px;
+    width: 15px;
+    @include content_icons-sprite(close);
+    &:hover {
+      @include content_icons-sprite(close_hover);
+    }
+    img {
+      display: none;
+    }
+  }
+  
+  // CONTENT STYLES
+  
+  h1 {
+    color: $orange;
+    font-weight: bold;
+  }
+  h2 {
+    color: $green;
+    font-weight: normal;
+  }
+  h3 {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  a {
+    color: $green;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+}

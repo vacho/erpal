@@ -1,0 +1,3 @@
+@mixin font-size($value){
+  @include rem('font-size', $value);
+}

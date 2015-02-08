@@ -1,0 +1,50 @@
+.node-type-erpal-crm-activity{
+
+  //panel on the right side
+  #mini-panel-activity_status_panel{
+    ul.field-items{
+      margin-top: 0;
+      #edit-actions-hack-editable{
+        margin: 0;
+      }
+    }
+    .form-type-date-combo{
+      margin: 0;
+      .date-padding{
+        padding: 0;
+        .form-item input{
+          max-width: 80px;
+        }
+      }
+    }
+  }
+
+  //contact rendered in activity
+  .node-erpal-contact.view-mode-in_activity{
+    .group-right{
+      min-width: 200px;
+    }
+  }
+
+  //comment
+  #comment-form{
+    .field-type-datetime{
+      width: auto;
+    }
+    .form-type-date-popup .form-type-textfield{
+      clear: none;
+    }
+
+  }
+  .group-comment{
+    .field-name-field-activity-status-term{
+      .form-select{
+        margin-top: 16px;
+      }
+    }
+    .date-padding{
+      padding: 0;
+      width: 310px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.node-erpal_working_time-form {
+
+  .field-name-field-date-time-form {
+    .date-float{
+      width: 150px;
+      input{
+        margin-bottom: 4px;
+      }
+      .form-type-checkbox label {
+        margin: 0 5px 0 0;
+      }
+    }
+    .form-item{
+      margin-right: 20px;
+      .description{
+        margin:0;
+      }
+    }
+    .end-date-wrapper{
+      margin-left: 0px;
+      .form-item label:after{
+        content: '';
+      }
+    }
+  }
+  .date-padding{
+    padding: 10px 0 0px 0;
+  }
+
+  .field-name-field-date-times-form{
+    @extend %multi-table;
+    @extend %field-collection;
+    .form-item{
+      margin-right: 20px;
+      .description{
+        margin:0;
+      }
+    }
+  }
+  #edit-field-date-times {
+    padding-left: 0;
+  }
+
+
+}

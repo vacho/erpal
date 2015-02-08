@@ -1,0 +1,24 @@
+<h1>Working with contracts</h1>
+<h2>Automate recurring revenue and project budget allocation</h2>
+<p>
+The “Contracts” area helps you manage budgets and recurring invoices to reduce administration overhead. The overview is split across the following tabs: 
+<ul>
+<li>In progress: Ongoing contracts that are still in progress</li>
+<li>Closed: All closed contracts</li> 
+<li>All: Overview of all contracts</li>
+</ul>
+</p>
+<p>
+You can filter the overview or search directly for a specific contract. 
+Create a new contract by clicking the "Create a new contract" button. 
+Click on the contract’s title to see its details page. 
+Edit the contract via the "Actions" button.
+</p>
+To learn how to manage recurring invoices, monitor monthly time budgets in projects and tasks, and set up a contract, please take a look at our screencast.
+</p>
+<p>
+<h2>Managing contracts in ERPAL</h2>
+<div class="help_video">
+<iframe width="480" height="360" src="//www.youtube.com/embed/uOPK6s4eLXI" frameborder="0" allowfullscreen></iframe>
+</div>
+</p>

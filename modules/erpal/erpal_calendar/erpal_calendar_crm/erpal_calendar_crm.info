@@ -1,0 +1,22 @@
+name = ERPAL Calendar CRM
+description = Integrate CRM with calendar
+core = 7.x
+package = ERPAL
+php = 5.2.4
+version = 7.x-1.0-dev
+project = erpal_calendar_crm
+dependencies[] = erpal_calendar
+dependencies[] = erpal_crm
+features[features_api][] = api:2
+features[features_override_items][] = field_instance.node-erpal_crm_activity-field_expected_date
+features[features_override_items][] = field_instance.node-erpal_crm_activity-field_next_contact
+features[features_overrides][] = field_instance.node-erpal_crm_activity-field_expected_date.date_item
+features[features_overrides][] = field_instance.node-erpal_crm_activity-field_next_contact.date_item
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_calendar"
+datestamp = "1413471919"
+

@@ -1,0 +1,54 @@
+<?php
+/**
+ *  @file screenshot_paste/screenshot_paste.module
+ *  @author Thiemo Müller
+ *  @version 1.0
+ *  
+ *  Define all public functions, hooks and globally available (i.e. reused) private functions
+ */
+
+/**
+ *  Implements hook_ckeditor_plugin
+ */
+function screenshot_paste_ckeditor_plugin() {
+  $name     = 'screenshot_paste';
+  $library  = libraries_detect( $name );
+  
+  return array(
+    'screenshot_paste'  => array(
+      'name'    => 'screenshot_paste',
+      'desc'    => t('Plugin allowing users to paste screenshots right into the editor'),
+      'path'    => $library['library path'].'/',
+      'buttons' => array(
+        'ScreenshotPaste' => array(
+          'icon'    => 'click.png',
+          'label'   => 'Click to paste screenshot',
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ *  Implements hook_libraries_info
+ */
+function screenshot_paste_libraries_info() {
+  
+  $libraries['screenshot_paste'] = array(
+    'name'          => 'Screenshot Paste',
+    'vendor url'    => 'http://www.brightsolutions.de/',
+    'download url'  => 'https://github.com/BrightSolutions/screenshot_paste',
+    'files'         => array(
+      'js'            => array(
+        'plugin.js',
+      ),
+    ),
+    'version arguments' => array(
+      'file'              => 'plugin.js',
+      'pattern'           => '@version\s+([0-9a-zA-Z\.-]+)@',
+    ),
+  );
+  
+  return $libraries;
+  
+}

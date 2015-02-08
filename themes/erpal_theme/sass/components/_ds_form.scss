@@ -1,0 +1,388 @@
+/****************************
+	General
+****************************/
+
+.group-form-left,
+.group-form-right,
+.group-form-advanced-onecolumn,
+.group-form-advanced-left,
+.group-form-advanced-right {
+  padding: 10px;
+  border: 1px solid $silver_light;
+}
+
+#erpal-project-node-form,
+#erpal-task-node-form {
+  max-width: 1070px;
+  margin-top: 20px;
+}
+
+div.group-form-left:empty,
+div.group-form-right:empty,
+div.group-form-advanced-onecolumn:empty,
+div.group-form-advanced-left:empty,
+div.group-form-advanced-right:empty {
+	display: none;
+}
+
+.erpal-forms table td {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+/****************************
+	Group top
+****************************/
+
+.group-form-left {
+  width: 68%;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.group-form-right {
+  width: 25%;
+  float: right;
+  margin-bottom: 30px;
+}
+
+/* fields in group left */
+.group-form-left .form-item-title {
+  margin-top: 0px;
+}
+
+.group-form-left #edit-title {
+  width: 100%;
+}
+
+/* fields in group right */
+
+.form-item-group-content-access-und {
+  margin-top: 0px;
+}
+
+.group-form-right select,
+.group-form-right input:not([type='checkbox']),
+.group-form-advanced-right select,
+.group-form-advanced-right input:not([type='checkbox']){
+  max-width: 200px;
+}
+
+.edit-field-customer-ref-und-0-target-id ul.references-dialog-links li a {
+  display: block;
+}
+
+.group-form-right,
+.group-form-advanced-right {
+  &>.form-wrapper {
+    max-width: 250px;
+	&>.form-wrapper {
+	  max-width: 200px;
+	  &>.field-multiple-table {
+        max-width: 240px;
+      }
+	}
+  }
+  &>.form-wrapper.collapsible {
+    max-width: 240px;
+  }
+  .field-multiple-table {
+    max-width: 250px;
+  }
+  #field-phone-values {
+    input {
+	  width: 50px;
+	}
+  }
+  .token-tree {
+    table-layout: fixed;
+	word-wrap: break-word;
+	.token-key {
+	  white-space: normal; 
+	  padding-left: 3px;
+	  padding-right: 3px;
+	}
+  }
+}
+
+
+/****************************
+	Group advanced
+****************************/
+
+.group-advanced {
+  clear: both;
+  border: none;
+  border-top: 1px solid $silver;
+}
+
+.group-advanced > legend {
+  font-size: 16px;
+}
+
+.group-advanced h3 {
+  border-bottom: 1px solid $grey_dark;
+  padding: 20px 5px 10px;
+}
+
+.group-advanced h3 a{
+  background: url(../../images/forms-advanced-arrow-open.png) no-repeat 2px 50%;
+  padding-left: 15px;
+}
+.group-advanced.collapsed h3 a{
+  background: url(../../images/forms-advanced-arrow-collapsed.png) no-repeat 2px 50%;
+  padding-left: 15px;
+}
+.group-form-advanced-onecolumn {
+  margin-bottom: 20px;
+}
+.group-form-advanced-left {
+  width: 68%;
+  float: left;
+}
+
+.group-form-advanced-right {
+  width: 25%;
+  float: right;
+}
+
+/* only visible for admin */
+
+.vertical-tabs {
+  clear: both;
+}
+
+
+/****************************
+	Invoices
+****************************/
+
+/*** Group left ***/
+
+.group-invoice-left {
+  width: 50%;
+  float: left;
+}
+
+/*** Group right ***/
+
+.group-invoice-right {
+  width: 50%;
+  float: right;
+}
+
+/*** Group bottom ***/
+
+.group-invoice-bottom {
+	clear: both;
+}
+
+.group-invoice-sonstiges {
+	clear: both;
+	display: none;
+}
+
+/*** Contacts ***/
+#field-phone-values #edit-field-phone-und-0-field-number-type-terms-und {
+	float: left;
+    margin-top: 17px;
+}
+
+.page-node-add-erpal-invoice,
+.node-type-erpal-invoice {
+  .field-multiple-table {
+    .field-multiple-drag {
+	  width: 20px;
+      a.tabledrag-handle {
+	    padding-right: 0px;
+		width: 25px;
+		margin-left: -10px;
+		.handle {
+		  margin-right: 0;
+		}
+	  }
+    }
+    .form-wrapper {
+      float: left;
+    }
+    .remove_group {
+	  .form-wrapper {
+		padding: 0;
+		border: none;
+		font-size: 10px;
+		margin-top: 20px;
+		.form-submit {
+		  margin: 0;
+		}
+      }
+	}
+    .form-type-billable-element {
+      margin-left: 5px;
+      float: left;
+	  label {
+	    font-size: 10px;
+		line-height: 10px;
+		margin-bottom: 10px;
+	  }
+	  .field-type-taxonomy-term-reference {
+	    float: left;
+		select {
+		  width: 84px;
+		}
+      }
+	  .form-item {
+	    margin-right: 4px;
+	    float: left;
+		.subject {
+		  width: 165px;
+		}
+	  }
+	  .form-select {
+	    padding: 3px 3px 3px 0;
+	  }
+	  .form-type-textfield {
+	    float: left;
+	    input {
+	      width: 80px;
+	    }
+	  }
+	  .date-year {
+	    select {
+		  width: 56px;
+		}
+	  }
+	  .date-month {
+	    select {
+		  width: 50px;
+		}
+	  }
+	  .date-day {
+	    select {
+		  width: 43px;
+		}
+	  }
+	  input.quantity {
+	    width: 36px;
+	  }
+	  input.single_price {
+	    width: 56px;
+	  }
+	  .container-inline-date {
+	    float: left;
+		clear: none;
+		label {
+		  margin-bottom: 0;
+		}
+		.form-type-date-select {
+		  margin-right: 0;
+		    .date-padding {
+		    padding: 0;
+		    select {
+		      margin-right: 0;
+		    }
+		  }
+		}
+		
+	  }
+    }
+  }
+}
+
+#field-date-times-values {
+  tr.odd .form-item, 
+  tr.even .form-item {
+    white-space: normal;
+  }
+}
+#edit-actions {
+  clear: both;
+}
+#field-phone-values {
+  select {
+    max-width: 50px;
+  }
+  #edit-field-phone-und-0-remove-button {
+    margin-top: 22px;
+    padding: 4px 0;
+  }
+}
+.draggable a.tabledrag-handle {
+  height: 1.6em;
+}
+
+#field-bank-accounts-values {
+  input.form-text {
+    width: 100px;
+    max-width: 100px;
+  }
+}
+
+/*** --- contact form styles --- ***/
+/*
+#field-contact-relations-values {
+  .irf-container {
+	.field-type-datetime { 
+	  .date-float {
+	    width: 114px;
+	    .form-type-checkbox {
+	      width: 101px;
+	    }
+	  }
+	  .container-inline-date {
+		float: left;
+		clear: none;
+		width: 194px;
+		.form-type-date-popup {
+		  margin-right: 0;
+		  .date-padding {
+	        padding: 0;
+			.form-type-textfield {
+			  width: 97px;
+			  input {
+			    width: 90px;
+			  }
+			}
+		  }
+	    }
+	  }
+	}
+
+	.field-type-taxonomy-term-reference {
+	  float: right;
+	  width: 45%;
+	  input {
+	    width: 100%;
+	  }
+	  margin-top: 0;
+	}
+	.irf-targets {
+	  position: relative;
+	  margin-bottom: 0;
+	  margin-top: 15px;
+	  .form-item {
+	    float: left;
+		&.form-type-textfield {
+		  width: 70%;
+		  margin-left: 9px;
+		}
+		select {
+		  height: 25px;
+		}
+	  }
+	  .ajax-progress-throbber {
+	    position: absolute;
+		top: 25px;
+		left: 0px;
+	  }
+	  .dialog-links {
+	    margin-top: 25px;
+		text-align: right;
+		ul {
+		  margin-bottom: 0;
+		}
+	  }
+	  
+	}
+  }
+}
+*/

@@ -1,0 +1,147 @@
+%horizontal-tab-button {
+
+  @include single-box-shadow(rgba(#000, .3), 0, 1px, 3px);
+  background-color: $light;
+  border: 1px solid $border;
+  @include border-corner-radius(top, right);
+  @include border-corner-radius(top, left);
+  display: inline-block;
+  float: none;
+  padding: 0;
+  position: relative;
+
+  a {
+    padding: 5px 12px 3px;
+
+    &:hover {
+      background-color: transparent;
+    }
+    strong:before {
+      display: block;
+      float: left;
+      margin-right: 5px;
+    }
+  }
+
+  &:focus {
+    background-color: $contentBackground;
+    outline: none;
+  }
+
+  &:hover {
+    background-color: lighten($light, 2);
+
+    a {
+      color: $copyColor;
+    }
+  }
+
+  & + li {
+    margin-left: -5px;
+  }
+
+  // faking tabs being placed behind another
+  $max: 10;
+  @for $i from 1 through $max {
+    &:nth-child(#{$i}) {
+      z-index: $max - $i;
+    }
+  }
+
+  &.selected {
+    background-color: $contentBackground;
+    border-bottom-color: $contentBackground;
+    z-index: 20;
+  }
+}
+
+.field-group-htabs-wrapper {
+  div.horizontal-tabs {
+    border: none;
+    margin: 0;
+
+    //tab buttons
+    ul.horizontal-tabs-list {
+      background-color: transparent;
+      border: 0;
+      display: block;
+      margin: 0 10px -1px 0;
+      text-align: right;
+      overflow: hidden;
+      padding: 0 3px;
+      width: auto;
+
+      //all tab buttons for erpal contacts
+      $labels: ('basics', 'user'), // ~ .-label-{1}:before{ @include font-awesome-content( {2} ); }
+        ('addresses', 'home'),
+        ('banking', 'dollar'),
+        ('relations', 'link'),
+        ('files', 'paper-clip');
+      //iterate over tab buttons
+      @each $label in $labels {
+        .horizontal-tab-button {
+          @extend %horizontal-tab-button;
+
+          &.group_contact_#{nth($label, 1)} a strong:before {
+            @include font-awesome-content(nth($label, 2));
+          }
+        }
+      }
+    }
+
+    //tabs content
+    .horizontal-tabs-panes{
+      border: 1px solid $border;
+      background-color:$contentBackground;
+      @include border-radius();
+      padding:$pd;
+      position:relative;
+
+      &:after{
+        $side: 2px;
+
+        @include border-radius();
+        background-color:darken($light, 11);
+        border:1px solid $border;
+        content:'';
+        display:block;
+        height:20px;
+        left:$side;
+        position:absolute;
+        right:$side;
+        top:-3px;
+        z-index:-1;
+      }
+
+      > fieldset{
+        padding:0;
+
+        section > h2{
+          margin:{
+            top:0;
+            right:$pd;
+          }
+          width:130px;
+        }
+
+        a{
+          text-decoration:underline;
+
+          &:hover{text-decoration:none;}
+        }
+
+        p{
+          margin:0;
+
+          & + p{margin-top:.5em;}
+        }
+
+//         .field + .field{margin-top:.75em;}
+        > .field {margin-bottom: .75em;}
+
+      }
+    }
+
+
+  }
+}

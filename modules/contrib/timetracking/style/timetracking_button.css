@@ -1,0 +1,15 @@
+.timetracking a {
+  cursor:default !important;
+}
+.timetracking .timetracking_text {
+  display:none;
+}
+.timetracking img {
+  display:none;
+}
+html.js .timetracking a {
+  cursor:pointer !important;
+}
+html.js .timetracking img {
+  display:inline-block;
+}

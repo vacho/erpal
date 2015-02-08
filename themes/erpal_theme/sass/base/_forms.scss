@@ -1,0 +1,445 @@
+$pd: 15px;
+// padding default
+$pdn: 0 - $pd;
+// negative
+$labelWidth: 150px;
+$fieldWidth: 250px;
+$fieldBorderRadius: 3px;
+
+@mixin textfields {
+  select,
+  textarea,
+  [type="text"],
+  [type="email"],
+  [type="number"],
+  [type="password"] {
+    @content;
+  }
+}
+
+.node-type-erpal-contact #comment-form {
+  border: none;
+  padding: 0;
+}
+
+//hide multitable headers if group supplies a headline
+.field-group-format .field-multiple-table thead {
+  display: none;
+}
+
+//.group-form-left{
+//.node-type-erpal-crm-activity,
+//.page-node-add-erpal-crm-activity,
+//.node-type-erpal-contact,
+//.page-node-add-erpal-contact,
+//.node-type-erpal-task,
+//.page-node-add-erpal-task,
+//.node-type-erpal-project,
+//.page-node-add-erpal-project{
+.node-form{
+  .group-form-left {
+    div.form-wrapper, div.form-item-title {
+      @extend %form-wrap-labelpadding;
+      clear: left;
+      @include clearfix();
+
+      & + div {
+        margin-top: 1em;
+      }
+      // input-to-input-margin
+    }
+    div.form-item-title {
+      #edit-title {
+        width: 250px;
+      }
+    }
+
+    > .form-wrapper,
+    > .field-group-format {
+      & + div {
+        //        @include rem('margin-top', 50px);
+      }
+      // group-to-group-margin moved to _form-labels.scss
+    }
+
+    div.field-type-field-collection-form {
+      @extend %multi-table;
+    }
+
+    .form-type-radio label {
+      font-weight: normal;
+    }
+
+    .form-item {
+      margin: 0;
+
+      label[for] {
+        cursor: pointer;
+
+        &:hover {
+          color: rgba($copyColor, .75);
+        }
+      }
+
+      &:not(.form-type-radio) > label {
+        @extend %form-field-left;
+        display: inline-block;
+        float: left;
+        max-width: $labelWidth;
+
+        &:after {
+          content: ':';
+        }
+      }
+
+      @include textfields() {
+        @include border-radius($fieldBorderRadius);
+        display: inline-block;
+        padding: 4px;
+        width: $fieldWidth;
+
+        &:focus {
+          @include single-box-shadow(rgba($orange, .5), 0, 0, 5px);
+          border-color: $orange;
+          outline: none;
+        }
+      }
+
+      .date-clear {
+        position: relative;
+        width: 75px;
+      }
+
+      .date-padding label {
+        display: none;
+      }
+
+      [type="radio"] {
+        margin-right: 2px;
+        position: relative;
+        top: -2px;
+      }
+
+      select {
+        width: auto;
+      }
+      textarea{
+        width: 100%;
+      }
+
+      .description, .counter {
+        color: $grey;
+        display: inline-block;
+        margin-left: $pd;
+        font-size: 0.85em;
+      }
+    }
+
+    .field-type-datetime-form {
+      padding-left: 0;
+
+      fieldset {
+        @extend %form-wrap-labelpadding;
+        border: none;
+        padding: {
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        legend {
+          @extend %form-field-left;
+          float: left;
+          font-weight: bold;
+
+          &:after {
+            content: ':';
+          }
+        }
+      }
+
+      .fieldset-wrapper {
+        display: inline-block;
+        float: left;
+
+        label {
+          display: none;
+        }
+      }
+
+      .form-type-date-popup {
+        margin: 0;
+      }
+
+      .date-padding {
+        padding: 0;
+      }
+
+      .date-no-float {
+        clear: none;
+        float: left;
+        width: auto;
+      }
+    }
+
+    .form-type-radio + .form-type-radio {
+      margin-top: .3em;
+    }
+
+    // notes - just fixing the view...
+    .group_body > div,
+    .group-notes > div {
+      padding-left: 0;
+
+      .form-type-textarea > label {
+        display: none;
+      }
+
+      .ckeditor_links {
+        border: 0 solid $border;
+        border-width: 0 1px;
+        display: block;
+        padding: 5px 10px;
+      }
+
+      fieldset {
+        margin-left: 0;
+        padding: 5px 0;
+
+        .filter-guidelines {
+          padding-left: $pd;
+        }
+      }
+
+      &.field-type-text-long-form .form-type-textarea {
+        padding-left: $labelWidth + $pd;
+
+        label {
+          display: block;
+        }
+
+        textarea {
+          width: 100%;
+        }
+      }
+    }
+
+    .group_chance > div {
+      input[size="14"] {
+        text-align: right;
+        width: 7em;
+      }
+    }
+
+    // files - also just fixing
+    .group_contacts > div,
+    .group-files > div,
+    .group-invoice-billables > div,
+    .group-invoice-pdf > div{
+      padding-left: 0;
+
+      @extend %multi-table;
+      @extend %field-collection;
+
+    }
+
+    .group-communication,
+    .group-addresses,
+    .group-banking{
+      @extend %field-collection;
+    }
+
+    // relations
+    div.group-relations > div {
+      @extend %multi-table;
+      @extend %field-collection;
+
+      .form-type-select, .form-type-checkbox {
+        $minor-padding: $labelWidth + $pd - 6px;
+
+        padding-left: $minor-padding;
+
+        label {
+          margin-left: 0 - $minor-padding;
+        }
+
+        & + div {
+          margin-top: 1em;
+          padding-left: $minor-padding;
+
+          label {
+            margin-left: 0 - $minor-padding;
+          }
+
+          #messages {
+            margin: {
+              bottom: 1em;
+              left: 0 - $minor-padding;
+            }
+
+            div {
+              margin: 0;
+            }
+          }
+
+          .form-item {
+            display: inline-block;
+          }
+
+          .dialog-links {
+            display: inline-block;
+            margin: {
+              top: 0;
+              bottom: 0;
+            }
+          }
+
+          .form-item-field-contact-relations-und-0-relation-options-field-date-und-0-show-todate {
+            padding: 0;
+          }
+          .field-type-datetime,
+          .field-type-datetime + div {
+            margin-left: 0 - $labelWidth - $pd;
+
+            > label {
+              margin-left: 0 - $minor-padding;
+            }
+
+            .form-type-date-combo {
+              .date-padding {
+                margin-top: 1em;
+                padding: 0;
+              }
+
+              .date-float {
+                label {
+                  float: none;
+                  margin: 0 0 0 5px;
+
+                  &:after {
+                    display: none;
+                  }
+                }
+              }
+
+              .date-no-float {
+                label {
+                  display: block;
+                }
+
+                & + .date-no-float {
+                  label {
+                    display: none;
+
+                    &:after {
+                      display: none;
+                    }
+                  }
+
+                  & > div > label {
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /*
+      thead{display:none;}
+
+      .field-multiple-table fieldset{
+        border-width: 0;
+        padding: 0;
+
+        .form-wrapper{
+          display:block;
+          float:none;
+          margin:{
+            left:0;
+            right:0;
+          }
+          width:auto;
+
+          label{display: block;}
+        }
+      }
+
+      fieldset > .fieldset-wrapper > div > div{
+        padding-left:$labelWidth + $pd;
+
+        .form-type-select.form-item{
+          display:inline-block;
+          margin-left:0 - $labelWidth - $pd;
+          width:$labelWidth;
+          margin-right:$pd;
+        }
+
+        .form-type-date-combo{
+          > label{display:none;}
+
+          div{
+            float:none;
+
+            &.end-date-wrapper{
+              label:after,
+              .date-padding label{display:none;}
+            }
+
+            & + div > div{margin-top:1em;}
+          }
+        }
+      }
+
+      > div > div > .description{display:none;}
+      */
+    }
+
+    // specials...
+    #field-contact-relations-values thead {
+      display: none;
+    }
+  }
+
+}
+
+//for text formats under a body or comment field
+.text-format-wrapper {
+  position: relative;
+
+  fieldset {
+    .filter-help, .form-type-select {
+      //      display: none;
+    }
+    .filter-help {
+      display: none;
+    }
+  }
+
+  .ckeditor_links {
+    color: rgba($copyColor, .5);
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 5px;
+    position: absolute;
+    right: $pd * 2;
+    text-decoration: underline;
+
+    &:before {
+      //  @include single-transition(all, 0s);
+      @include font-awesome-content('refresh');
+      margin-right: 5px;
+      float: left;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      &:before {
+        @include rotate(180deg);
+        @include single-transition(all, .3s, ease-in-out);
+      }
+    }
+  }
+}

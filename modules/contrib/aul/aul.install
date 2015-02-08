@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the aul module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function aul_schema() {
+  $schema['aul'] = array(
+    'description' => 'The base Access User Lists table.',
+    'fields' => array(
+      'aul_id' => array(
+        'description' => 'Primary key: unique AUL ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'module' => array(
+        'description' => 'The name of the module that created this AUL entry.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'description' => 'A name (or other identifying information) for this AUL entry, given by the module that created it.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'number' => array(
+        'description' => "A number for this AUL entry, given by the module that created it; use either 'name' or 'number'.",
+        'type' => 'int',
+      ),
+    ),
+    'primary key' => array('aul_id'),
+    'indexes' => array(
+      'module_name_number' => array(
+        array(
+          'module', 64,
+        ),
+        array(
+          'name', 64,
+        ),
+        'number'),
+      'module_number' => array(array('module', 64), 'number'),
+    ),
+  );
+  $schema['aul_node'] = array(
+    'description' => 'Identifies {nodes} to which the referenced {aul} entry applies.',
+    'fields' => array(
+      'aul_id' => array(
+        'description' => 'The {aul}.aul_id of the entry.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'nid' => array(
+        'description' => 'The {node}.nid to which this {aul} entry applies.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('aul_id', 'nid'),
+    'indexes' => array(
+      'nid' => array('nid'),
+    ),
+  );
+  $schema['aul_user'] = array(
+    'description' => 'Identifies {users}s to which the referenced {aul} entry applies and defines the permissions granted.',
+    'fields' => array(
+      'aul_id' => array(
+        'description' => 'The {aul}.aul_id of the entry.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'uid' => array(
+        'description' => 'The {user}.uid to grant permissions for.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'grant_view' => array(
+        'description' => 'Whether to grant "view" permission.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'grant_update' => array(
+        'description' => 'Whether to grant "update" permission.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'grant_delete' => array(
+        'description' => 'Whether to grant "delete" permission.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'priority' => array(
+        'description' => 'The priority of this grant record (for hook_node_access_records()).',
+        'type' => 'int',
+        'size' => 'small',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('aul_id', 'uid'),
+    'indexes' => array(
+      'uid' => array('uid'),
+    ),
+  );
+  return $schema;
+}

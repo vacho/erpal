@@ -1,0 +1,20 @@
+@mixin button($base:true, $color:false, $background-color:false, $border-color:false, $border-radius:false){
+  @if $base == true{@extend %button;}
+
+  @if $background-color != false {
+    background-color: $background-color;
+    @if $border-color == false { border-color: darken($background-color, 10); }
+
+    &.hover,
+    &:hover{background-color: darken($background-color, 10);}
+  }
+
+  &.disabled,
+  &[disabled]{
+    @if $background-color != false { background-color: lighten($background-color, 15); }
+    @if $color != false { color: darken($color, 10); }
+  }
+  @if $border-color != false { border-color: $border-color; }
+  @if $border-radius != false { @include border-radius($border-radius); }
+  @if $color != false { color: $color; }
+}

@@ -1,0 +1,18 @@
+name = ERPAL Dashboard
+description = ERPAL Dashboard Module
+core = 7.x
+package = ERPAL UI
+version = 7.x-1.0-dev
+project = erpal_dashboard
+dependencies[] = erpal_dashboard_helper
+dependencies[] = front_page
+dependencies[] = homebox
+features[features_api][] = api:2
+features[homebox][] = user_dashboard
+
+; Information added by Drupal.org packaging script on 2014-10-16
+version = "7.x-2.1"
+core = "7.x"
+project = "erpal"
+datestamp = "1413471848"
+

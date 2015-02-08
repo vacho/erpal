@@ -1,0 +1,67 @@
+%form-head-label{
+  //margin between groups
+  @include rem('margin-bottom', 50px);
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  > h2{
+    @include font-size(20px);
+    font-weight: normal;
+    line-height: 1.2em;
+    margin: 0 0 .5em;
+
+    span:before{
+      color: $copyColor;
+      display: block;
+      float: left;
+      margin-right: 8px;
+    }
+  }
+}
+
+$labels: ('user', 'user'), // ~ .-label-{1}:before{ @include font-awesome-content( {2} ); }
+  ('communication', 'phone'),
+  ('banking', 'dollar'),
+  ('info', 'info-sign'),
+  ('link', 'link'),
+  ('address', 'home'),
+  ('file', 'folder-open'),
+  ('chat', 'comments'),
+  ('finance', 'dollar'),
+  ('activity', 'comment'),
+  ('chance', 'briefcase'),
+  ('contacts', 'user'),
+  ('body', 'exclamation-sign'),
+  ('next-contact', 'bell-alt'),
+  ('advanced', 'cogs'),
+  ('pricing', 'money'),
+  ('task', 'wrench'),
+  ('specs', 'book'),
+  ('team', 'group'),
+  ('project', ''),
+  ('progress', 'check'),
+  ('pricing', 'money'),
+  ('url', 'link'),
+  ('billable', 'dollar'),
+  ('pdf', 'file-text'),
+  ('order-numbers', 'ticket'),
+  ('document', 'file-text'),
+  ('contract', 'suitcase'),
+  ('cancel', 'remove'),
+  ('automation', 'play-sign'),
+  ('invoice', 'file-alt'),
+  ('skonto', 'calendar'),
+  ('notes', 'file'),
+  ('date', 'calendar'),
+  ('participants', 'user'),
+  ('working-time', 'time'),
+  ('breaks', 'off');
+
+@each $label in $labels{
+  .-label-#{nth($label, 1)}{
+    @extend %form-head-label;
+
+    h2 span:before{@include font-awesome-content(nth($label, 2));}
+  }
+}

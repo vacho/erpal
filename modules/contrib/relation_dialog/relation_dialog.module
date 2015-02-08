@@ -1,0 +1,169 @@
+<?php
+/**
+ *  @file relation_dialog/relation_dialog.module
+ *  @author Thiemo Müller
+ *  @version 1.0
+ *  
+ *  Define all public functions, hooks and globally available (i.e. reused) private functions
+ */
+
+/**
+ *  Implements hook_form_alter
+ */
+function relation_dialog_form_alter( &$form, &$form_state, $form_id ) {
+
+  if( $form_id=='relation_add_block_form' || isset($form_state['values']['relation_type']) || isset($form_state['relation_add']) ) {
+    
+    if( !empty($form_state['values']['relation_type']) ) {
+      
+      // Remove ':reverse' suffix if it exists, and set reverse flag
+      $type_array     = explode( ':', $form_state['values']['relation_type'] );
+      $type           = $type_array[0];
+      
+      _relation_dialog_add_links( $form, $type, $form_state['relation_reverse'] );
+      
+    }
+    
+  }
+  elseif( $form_id=='views_ui_edit_display_form' ) {
+    $display_id = $form_state['display_id'];
+    $display    = $form_state['view']->display[ $display_id ];
+    
+    if( $display->display_plugin=='references_dialog' && $form_state['section']=='attach' ) {
+      
+      $bundles    = node_type_get_types();
+      foreach( $bundles as $bundle_name=>$type ) {
+        $form['options']['attach']['#options']['node::'.$bundle_name]  = t( 'Relation to any @type', array('@type'=>$type->name) );
+      }
+      
+    }
+    
+  }
+  
+  //dpm( $form );
+  
+}
+
+/**
+ *  Implements hook_field_widget_form_alter for widget inline_relation_form
+ */
+function relation_dialog_field_widget_inline_relation_form_form_alter( &$element, &$form_state, $context ) {
+  _relation_dialog_add_links( $element, $element['#relation_type'], $element['#relation_reverse'] );
+}
+
+/**
+ *  Implements hook_field_widget_form_alter for widget relation_add
+ */
+function relation_dialog_field_widget_relation_add_form_alter( &$element, &$form_state, $context ) {
+  
+  // Check relation type.
+  if (!empty($element['relation_type']['#default_value'])) {
+    $value = $element['relation_type']['#default_value'];
+  }
+  else {
+    $value = key($element['relation_type']['#options']);
+  }
+
+  // Check if reverse of relation
+  if ($relation_type = strstr($value, ':reverse', true)) {
+    $reverse = TRUE;
+  }
+  else {
+    $relation_type = $value;
+    $reverse = FALSE;
+  }
+  _relation_dialog_add_links($element, $relation_type, $reverse);
+}
+
+/**
+ *  Inject links for given entity type/bundle
+ */
+function _relation_dialog_add_links( &$form, $type, $reverse ) {
+  $relation_type  = relation_type_load( $type );
+  
+  $direction    = $reverse ? 'source_bundles' : 'target_bundles';
+  $bundle_info  = $relation_type->$direction;
+  if( !$bundle_info ) {
+    $direction    = !$reverse ? 'source_bundles' : 'target_bundles';
+    $bundle_info  = $relation_type->$direction;
+  }
+  $add_links    = array();
+  for( $i=0; $i<count($bundle_info); $i++ ) {
+    list($entity_type, $bundle_name)     = explode(':', $bundle_info[$i], 2);
+    
+    if( $entity_type!='node' )
+      continue;
+    
+    $node_type  = node_type_load( $bundle_name );
+    if( !node_access( 'create', $node_type->type ) )
+      continue;
+    
+    $add_links[]  = array(
+      'title' => t('Create @type', array('@type' => $node_type->name)),
+      'href'  => 'node/add/' . strtr($node_type->type, array('_' => '-')),
+    );
+    
+    $attachable = $entity_type . '::' . $bundle_name;
+    $views	    = references_dialog_get_search_views( $attachable );
+    foreach( $views as $view_name=>$view ) {
+      
+      $add_links[]  = references_dialog_link( array(
+        'title'       => $view['title'],
+        'href'        => 'references-dialog/search/' . $view_name . '/' . $view['display'] . '/' . $attachable,
+      ) );
+      
+    }
+  }
+  
+  $dialog_links = array();
+  foreach( $add_links as $link ) {
+    $link['attributes']['class'][] = 'add-dialog relation-dialog';
+    $dialog_links[] = $link;
+  }
+  
+  for( $i=2; $i<=$relation_type->max_arity; $i++ ) {
+    $info         = $bundle_info[$i-2];
+    $element      = &$form['relation_options']['targets']['target_' . $i];
+    $links        = $dialog_links;
+    foreach( $links as $n=>$link ) {
+      //$links[$n]['attributes']['referencing'] = '#edit-target-'.$i;
+      $links[$n]['attributes']['format']      = '$label [node:$entity_id]';
+    }
+    $element['#suffix']   = '<div class="dialog-links">' . theme( 'links', array( 'links'=>$links, 'attributes'=>array( 'class'=>'references-dialog-links' ) ) ) . '</div>';
+    
+    
+    $element['#attached'] = references_dialog_attached();
+    $element['#attached']['js'][] = drupal_get_path( 'module', 'relation_dialog' ) . '/js/relation-dialog.js';
+    
+  }
+}
+
+/**
+ *  Filter by bundle (nothing to do here, view is already doing it all)
+ *
+ *  @param view The view being processed
+ */
+function relation_dialog_attachable_query( $view ) {
+}
+
+/**
+ * Implements hook_references_dialog_search_attachables().
+ */
+function relation_dialog_references_dialog_search_attachables() {
+  
+  $applicable_instances = array();
+  
+  $bundles    = node_type_get_types();
+  foreach( $bundles as $bundle_name=>$type ) {
+    
+    $applicable_instances['node']['node::' . $bundle_name] = array(
+      'label'   => $type->name,
+      'query'   => 'relation_dialog_attachable_query',
+      'widget'  => NULL,
+    );
+    
+  }
+  
+  return $applicable_instances;
+  
+}

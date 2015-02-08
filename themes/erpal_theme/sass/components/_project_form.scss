@@ -1,0 +1,139 @@
+.node-erpal_project-form {
+  .field-name-field-asset-files-form, .field-name-field-books-ref-form, .field-name-field-project-team-form {
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  .field-name-field-project-team-form {
+    .form-text.form-autocomplete {
+      padding-right: 18px;
+      max-width: 100px;
+    }
+    #field-project-team-values {
+      thead {
+        display: table-header-group;
+        th {
+          padding-left: 10px;
+          &:first-child {
+            width: 0;
+            display: block;
+            overflow: hidden;
+            padding: 0;
+          }
+        }
+      }
+      td + td {
+        vertical-align: bottom;
+        padding: 10px 0 10px 10px;
+        &:last-child{
+          padding-right: 10px;
+        }
+        .form-submit {
+          position: relative;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+    div.field-name-field-user, div.field-type-list-text, div.field-name-field-project-role-tags {
+      padding: 0;
+      button {
+        max-width: 140px;
+      }
+      .form-item {
+        input {
+          display: block;
+        }
+      }
+    }
+
+    input {
+      position: relative;
+    }
+  }
+
+  .field-name-field-customer-ref-form {
+    input {
+      max-width: 200px;
+    }
+  }
+
+  .field-name-field-budgets, .field-name-field-users {
+    .field-multiple-table.sticky-table {
+      thead {
+        display: table-header-group;
+      }
+      thead th {
+        padding: 5px;
+      }
+      tbody td {
+        padding: 5px;
+        &:first-child {
+          padding: 0;
+        }
+      }
+    }
+    .clearfix {
+      @extend %form-add-box;
+    }
+  }
+
+  .field-name-field-date-form {
+    .date-float {
+      width: 130px;
+      input {
+        margin-bottom: 4px;
+      }
+      .form-type-checkbox label {
+        margin: 0 5px 0 0;
+      }
+    }
+    .end-date-wrapper {
+      margin-left: 15px;
+    }
+    .form-item .description {
+      margin-left: 0;
+    }
+  }
+
+  #edit-field-asset-files, #edit-field-books-ref {
+    padding-left: 0;
+  }
+
+  .field-name-field-customer-ref-form {
+    .description {
+      display: none;
+    }
+    .form-item {
+      float: left;
+    }
+    .dialog-links {
+      float: left;
+      margin-left: 10px;
+      ul {
+        margin: 0;
+        li {
+          float: left;
+        }
+      }
+    }
+  }
+
+  .group-advanced {
+    display: none;
+  }
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+
+}

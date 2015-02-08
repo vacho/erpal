@@ -1,0 +1,36 @@
+<?php
+/**
+ *  @file screenshot_paste/screenshot_paste.install
+ *  @author Thiemo Müller
+ *  @version 1.0
+ *  
+ *  Define all install/enabled hooks
+ */
+
+function screenshot_paste_requirements( $phase ) {
+  
+  drupal_load( 'module', 'screenshot_paste' );
+  
+  $requirements = array();
+  
+  $t  = get_t();
+  if( $phase=='runtime' ) {
+    
+    $name       = 'screenshot_paste';
+    $library    = libraries_detect( $name );
+    $installed  = $library['installed'];
+    
+    $requirements['screenshot_paste'] = array(
+      'title'       => $t( 'Screenshot Paste' ),
+      'value'       => $installed ? $library['version'] : $t( 'not installed' ),
+      'description' => $installed ? '' : $t('Please install the !link!',array('!link'=>l($t('Screenshot Paste library'),$library['download url']))).($library['error message']?' '.$library['error message']:''),
+      'severity'    => $installed ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+    );
+    
+  }
+  
+  return $requirements;
+  
+}
+
+?>

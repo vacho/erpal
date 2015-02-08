@@ -1,0 +1,19 @@
+core = "7.x"
+description = "Integrates ERPAL files into FileJS."
+
+name = "Erpal File Drag & Drop"
+package = "ERPAL UI"
+version = "7.x-1.0-dev"
+
+dependencies[] = erpal_docs
+dependencies[] = filejs
+dependencies[] = boxjs
+
+stylesheets[all][]  = erpal_file_drag_drop.css
+
+; Information added by Drupal.org packaging script on 2014-10-16
+version = "7.x-2.1"
+core = "7.x"
+project = "erpal"
+datestamp = "1413471848"
+

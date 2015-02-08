@@ -1,0 +1,116 @@
+.node-erpal_invoice-form {
+  .group-form-left {
+
+    .group-invoice-billables {
+      .remove_group {
+        float: right;
+        .form-wrapper .fieldset-wrapper {
+          input[type="submit"] {
+            float: none;
+          }
+          input[type="checkbox"] {
+            //          display: none;
+
+          }
+          label {
+            display: inline;
+          }
+        }
+      }
+      div.form-wrapper {
+        padding: 0;
+      }
+      .form-item:not(.form-type-radio) {
+        margin-top: 0;
+        label {
+          float: none;
+          display: block;
+          margin-left: 0;
+          &:after {
+            content: '';
+          }
+        }
+        .date-padding.clearfix {
+          background-color: transparent;
+          border-top: 0;
+          label {
+            text-align: left;
+          }
+        }
+      }
+    }
+    .group-invoice-pdf {
+      div {
+        //        padding: 0;
+      }
+    }
+
+    select {
+      max-width: 527px;
+    }
+
+    .field-name-field-customer-ref-form {
+      .description {
+        display: none;
+      }
+      .form-item {
+        float: left;
+      }
+      .dialog-links {
+        float: left;
+        margin-left: 10px;
+        ul {
+          margin: 0;
+          li {
+            float: left;
+          }
+        }
+      }
+    }
+
+    .field-name-field-invoice-date-form {
+      .date-no-float {
+        clear: none;
+        .date-padding {
+          padding: 0;
+        }
+      }
+    }
+
+    .field-name-field-skonto-form {
+      .element-invisible {
+        background: blue;
+        position: relative;
+      }
+    }
+
+    div.field-name-field-note-form {
+      .form-item.form-type-textarea {
+        padding-left: 0;
+        label {
+          display: none;
+        }
+      }
+      textarea {
+        max-width: 100%;
+      }
+      div.description {
+        margin: 0;
+      }
+    }
+
+  }
+
+  fieldset.form-wrapper {
+    padding: 0;
+    border: none;
+    legend {
+      display: none;
+    }
+  }
+
+  .group-advanced {
+    display: none;
+  }
+
+}

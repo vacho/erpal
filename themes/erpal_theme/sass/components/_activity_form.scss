@@ -1,0 +1,65 @@
+.node-type-erpal-crm-activity,
+.page-node-add-erpal-crm-activity{
+
+  //activity edit form
+  .form-item-field-next-contact-und-0-value {
+    .form-item {
+      float: none;
+    }
+    .form-item-field-next-contact-und-0-value-time {
+      margin-top: 15px;
+    }
+  }
+  .group_activity_form_contacts {
+    @extend %multi-table;
+    @extend %field-collection;
+    div.field-name-field-contacts-ref-form {
+      padding-left: 0;
+    }
+  }
+  .field-name-field-customer-ref-form{
+    .form-item {
+      float: left;
+    }
+    .dialog-links{
+      float: left;
+      margin-left: 10px;
+      ul {
+        margin: 0;
+        li{
+          float: left;
+        }
+      }
+    }
+  }
+
+  .field-name-field-asset-files-form{
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+
+  #edit-field-asset-files{
+    padding-left: 0;
+  }
+
+  .field-name-field-contacts-ref-form {
+    @extend %form-multi-table-inline-dialog-links;
+  }
+  .field-name-field-expected-date-form .container-inline-date {
+    display: inline-block;
+    #edit-field-expected-date-und-0-value {
+      padding: 0;
+    }
+  }
+  .group-activity-form-body {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper{
+        padding-left: 1.5em;
+      }
+    }
+  }
+}

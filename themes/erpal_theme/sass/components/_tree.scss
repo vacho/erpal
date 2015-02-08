@@ -1,0 +1,187 @@
+.jstree-default li.filter_matching a{
+  color: #000 !important;
+}
+
+.erpal_task {
+  .views-field {
+    padding-right: 20px;
+  }
+}
+
+.jstree-default li.no_filter_matching a{
+  color: #999;
+}
+
+.jstree-default {
+  background-color: $white;
+  width: 1019px;
+  &.jstree-focused {
+    background-color: $white !important;
+  }
+  li:last-child,
+  li.jstree-last {
+	background: url(../../images/tree_last.png) no-repeat 0 -4px !important;
+  }
+  .erpal_task { 
+    border-bottom: 1px solid $silver;
+	min-height: 25px;
+	padding: 0 20px 0 0;
+	ul {
+	  li:first-child {
+	    border-top: 1px solid $silver;
+	  }
+	  li:last-child {
+	    border-bottom: none;
+	  }
+	}
+    > a {
+      width: 100%;
+	  height: 19px;
+	  padding: 4px 2px 3px 0;
+	  ins.jstree-icon {
+        display: none;
+	  }
+	  &:hover {
+	    background-color: $light_grey;
+		background-position: -20px;
+		border: none;
+		.username a:hover {
+		  color: red;
+		}
+	  }
+	  .field-content {
+	    img {
+	      color: $grey_dark;
+	 	  margin-right: 3px;
+		  margin-bottom: -3px;
+	    }
+	    .title {
+	      font-weight: bold;
+	    }
+	    .username,
+        .estimation, 
+		.percent {
+	      margin-left: 10px;
+		  font-size: 10px;
+	    }
+		.tree-icons-left {
+	      position: absolute;
+		  right: 32px;
+	  	  img {
+		    margin-left: 10px;
+		  }
+	    }
+	  }
+	  .views-field-edit-node {
+	    color: $grey_dark;
+  	    .field-content {
+	      a {
+		    color: $grey_dark !important;
+		  }
+	    }
+	  }
+    }
+	&.jstree-open {
+	  ul {
+	    width: 100%;
+	  }
+	}
+	.jstree-loading {
+	  & > .jstree-icon {
+	    display: inline-block;
+		float: left;	
+	  }
+	}
+	.jstree-clicked {
+	  border: none;
+	}
+  }
+}
+
+/* ERPAL Documents Pages Tree */
+.node-type-erpal-book-page,
+.node-type-erpal-book {
+  .jstree-default {
+    max-width: 250px;
+	& > ul > .erpal_book_page {
+	  max-width: 230px;
+	}
+    .erpal_book_page {
+	  ins {
+	    float: left;
+	  }
+	  a {
+		white-space: normal;
+		height: auto;
+		font-size: 11px;
+	    ins {
+	      float: left;
+	    }
+        .views-field {
+          float: left;
+        }
+		.views-field-edit-node {
+		  margin-left: 21px;
+		  font-size: 10px;
+		  clear: left;
+		}
+	  }
+	  &.jstree-last {
+	    
+	  }
+    }
+  }
+}
+
+/*max-widths title */
+.jstree-default {
+  & > ul > li.erpal_book_page {
+    & > a {
+      .views-field-title {
+	    max-width: 205px;
+	  }
+    }
+    & > ul > li.erpal_book_page {
+      & > a {
+	    .views-field-title {
+		  max-width: 185px;
+		}
+	  }
+	  & > ul > li.erpal_book_page {
+	    & > a {
+		  .views-field-title {
+		    max-width: 165px;
+		  }
+		}
+		& > ul > li.erpal_book_page {
+		  & > a {
+		    .views-field-title {
+		      max-width: 145px;
+			}
+		  }
+		  & > ul > li.erpal_book_page {
+		    & > a {
+              .views-field-title {			  
+			    max-width: 125px;
+			  }
+			}
+			& > ul > li.erpal_book_page {
+			  & > a {
+			    .views-field-title {
+				  max-width: 105px;
+				}
+			  }
+			  & > ul > li.erpal_book_page {
+			    & > a {
+			      .views-field-title {
+				    max-width: 85px; 
+				  }
+			    }
+			  }
+			}
+		  }
+		}
+	  }
+    }	
+  }
+}

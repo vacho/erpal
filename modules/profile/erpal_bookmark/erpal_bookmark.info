@@ -1,0 +1,21 @@
+name = ERPAL Bookmark
+description = ERPAL Bookmark Module
+core = 7.x
+package = ERPAL
+version = 7.x-1.0-dev
+project = erpal_bookmark
+dependencies[] = cat
+dependencies[] = erpal_bookmark_helper
+dependencies[] = flag
+dependencies[] = draggableviews
+features[cat_items][] = erpal_bookmarks_my_bookmarks
+features[ctools][] = cat:cat:1
+features[features_api][] = api:2
+features[flag][] = bookmark_flag
+
+; Information added by Drupal.org packaging script on 2014-10-16
+version = "7.x-2.1"
+core = "7.x"
+project = "erpal"
+datestamp = "1413471848"
+

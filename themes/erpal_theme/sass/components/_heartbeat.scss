@@ -1,0 +1,87 @@
+.view-erpal-heartbeat {
+  .view-content {
+    margin-top: 10px;
+    a {
+      &:hover {
+        color: $orange;
+      }
+    }
+    .message-erpal-heartbeat-node-message,
+    .message-erpal-heartbeat-comment-message {
+      @include border-radius;
+      border: 1px solid $border;
+      margin-bottom: 10px;
+      margin-top: 4px;
+      position: relative;
+      padding: 5px 5px 5px 48px;
+      min-height: 37px;
+      @include clearfix();
+      @include single-box-shadow(rgba(#000, .05), 1px, 3px);
+      font-size: 10px;
+      font-weight: bold;
+      @include single-transition(border-color, .3s);
+      
+      &:hover {
+        border-color: darken($border, 20);
+      } 
+
+      a {
+        font-weight: normal;
+        font-size: 13px;
+        color: $dark_black;
+        &:hover {
+          color: $orange;
+        }
+      }
+      
+      // user avatar 
+      .user-picture {
+        max-width: 26px;
+        max-height: 35px;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        background-color: #fff;
+        @include single-box-shadow(rgba(#000, .33), 0, 1px, 3px);
+        z-index: 2;
+        text-align: center;
+            
+        img {
+          float: left;
+          max-height: 100%;
+          max-width: 100%;
+        }
+    
+        &.no-avatar {
+          min-height: 26px;
+        }
+      }
+
+      // content of comment
+      .hb_message_content {
+        font-weight: normal; 
+        border-top: 1px solid $border;
+        margin-top: 5px;
+        padding-top: 5px;
+      }  
+    
+      &:after {
+        background-color: rgba(#000, .05);
+        @include border-corner-radius(top, left);
+        @include border-corner-radius(bottom, left);
+        border-right: 1px solid $border;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        width: 38px;
+        z-index: 1;
+        visibility: visible;
+        height: 100%;
+      }
+    }
+  }
+}

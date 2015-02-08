@@ -1,0 +1,445 @@
+$menu_tabs_icons-layout: vertical;
+$menu_tabs_icons-spacing: 15px;
+
+ul.primary li a{
+  background-color: transparent;
+
+  &:hover{background-color: transparent;}
+}
+
+.erpal-region-tabs{height:34px;}
+
+#erpal_wrapper .panel-panel.panel-col-last {
+  float: left;
+  width: $value100;
+  height: 100%;
+
+  .inside {
+    margin-left: 141px;
+    min-width: 440px;
+    height: 100%;
+
+    .ctools-collapsible-content {
+      .inside {
+        margin-left: 0px;
+        min-width: 0px;
+      }
+    }
+
+    .pane-page-tabs {
+      margin-bottom: 0;
+      width: $value100;
+
+      ul.primary {
+        @include dist_zero;
+        *zoom: 1;
+        list-style: none;
+        white-space: nowrap;
+        border: none;
+
+        li {
+          margin: 0 3px 0 0;
+          float: left;
+          display: block;
+          background-color: $drub_light;
+          @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+          @include box-shadow($grey 0 -2px 1px 0);
+          @include border-radius(5px 5px 0 0);
+          text-align: center;
+          position: relative;
+          z-index: 1;
+
+          &.active {
+            background: $white;
+            position: relative;
+            z-index: 10;
+            &:hover {
+              background: $white;
+            }
+          }
+
+          a {
+            @include a_black;
+            position: relative;
+            z-index: 1;
+            color: $black;
+            @include border-radius(5px 5px 0 0);
+            text-align: center;
+            min-width: 100px;
+            &:visited {
+              @include a_black;
+              color: $black;
+            }
+            &:hover {
+              color: rgba($orange, 0.8);
+              text-shadow: 1px 1px 1px $silver, 0 0 0 $black, 1px 1px 1px $silver;
+            }
+            &.active {
+              color: $black;
+              border: medium none;
+              z-index: 10;
+              color: $orange;
+              &:hover{
+                color: $orange;
+                text-shadow: 1px 1px 1px $white, 0 0 0 $black, 1px 1px 1px $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#erpal_wrapper .erpal-top  .panel-panel.panel-col-last{
+  float:right;
+  width:auto;
+
+  .inside{min-width:0;}
+}
+
+
+/*--------------------------begin icons for tabs------------------------*/
+#erpal_wrapper .panel-panel.panel-col-last .inside .pane-page-tabs ul.primary {
+  li {
+    &.timekeeping a,
+    &.all-timekeeping a,
+    &.timekeeping-offset a {
+      @include menu_tabs_icons-sprite(timekeeping, $offset-y: 6px, $offset-x: 6px);
+      &:hover {
+        @include menu_tabs_icons-sprite(timekeeping_hover, $offset-y: 6px, $offset-x: 6px);
+      }
+    }
+    &.timekeeping-active-tab a,
+    &.all-timekeeping-active-tab a,
+    &.timekeeping-offset-active-tab a {
+      @include menu_tabs_icons-sprite(timekeeping_hover, $offset-y: 6px, $offset-x: 6px);
+    }
+    &.active-timetrackings a,
+    &.timetrackings a {
+      @include menu_tabs_icons-sprite(active_timetracking, $offset-y: 5px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(active_timetracking_hover, $offset-y: 5px, $offset-x: 8px);
+      }
+    }
+    &.active-timetrackings-active-tab a,
+    &.timetrackings-active-tab a{
+      @include menu_tabs_icons-sprite(active_timetracking_hover, $offset-y: 5px, $offset-x: 8px);
+    }
+    &.fixed-price-items a,
+    &.billables a {
+      @include menu_tabs_icons-sprite(billable, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(billable_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.fixed-price-items-active-tab  a,
+    &.billables-active-tab a {
+      @include menu_tabs_icons-sprite(billable_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.time-budgets a {
+      @include menu_tabs_icons-sprite(budget, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(budget_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.time-budgets-active-tab a {
+      @include menu_tabs_icons-sprite(budget_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.project-list a,
+    &.summary a {
+      @include menu_tabs_icons-sprite(projects, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(projects_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.project-list-active-tab a,
+    &.summary-active-tab a {
+      @include menu_tabs_icons-sprite(projects_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.home a {
+      @include menu_tabs_icons-sprite(home, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(home_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.home-active-tab a {
+      @include menu_tabs_icons-sprite(home_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.documents a {
+      @include menu_tabs_icons-sprite(document, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(document_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.documents-active-tab a {
+      @include menu_tabs_icons-sprite(document_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.files a {
+      @include menu_tabs_icons-sprite(files, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(files_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.files-active-tab a {
+      @include menu_tabs_icons-sprite(files_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.contracts a {
+      @include menu_tabs_icons-sprite(contract, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(contract_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.contracts-active-tab a {
+      @include menu_tabs_icons-sprite(contract_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.contact a {
+      @include menu_tabs_icons-sprite(contact, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(contact_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.contact-active-tab a {
+      @include menu_tabs_icons-sprite(contact_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.heartbeat a,
+    &.own-heartbeat a {
+      @include menu_tabs_icons-sprite(log, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(log_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.heartbeat-active-tab a,
+    &.own-heartbeat-active-tab a {
+      @include menu_tabs_icons-sprite(log_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.crm a,
+    &.projekte a,
+    &.projects.report a {
+      @include menu_tabs_icons-sprite(reports, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(reports, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.crm-active-tab a,
+    &.projekte-active-tab  a,
+    &.crm a.active,
+    &.projects.report a.active {
+      @include menu_tabs_icons-sprite(reports_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.tasks a,
+    &.my-assigned-tasks a,
+    &.all-assigned-tasks a{
+      @include menu_tabs_icons-sprite(task, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(task_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.tasks-active-tab a,
+    &.my-assigned-tasks-active-tab a,
+    &.all-assigned-tasks-active-tab a{
+      @include menu_tabs_icons-sprite(task_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.templates a {
+      @include menu_tabs_icons-sprite(template, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(template_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.templates-active-tab a {
+      @include menu_tabs_icons-sprite(template_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.edit a {
+      @include menu_tabs_icons-sprite(edit, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(edit_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.edit-active-tab a {
+      @include menu_tabs_icons-sprite(edit_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.notifications a {
+      @include menu_tabs_icons-sprite(notify, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(notify_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.notifications-active-tab a {
+      @include menu_tabs_icons-sprite(notify_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.view a {
+      @include menu_tabs_icons-sprite(user, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(user_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.view-active-tab a {
+      @include menu_tabs_icons-sprite(user_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.calendar {
+      width: auto;
+      a {
+          @include menu_tabs_icons-sprite(calendar, $offset-y: 6px, $offset-x: 8px);
+        &:hover {
+          @include menu_tabs_icons-sprite(calendar_hover, $offset-y: 6px, $offset-x: 8px);
+        }
+      }
+    }
+    &.calendar-active-tab a {
+      @include menu_tabs_icons-sprite(calendar_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.invoices {
+      width: auto;
+      a {
+        @include menu_tabs_icons-sprite(invoice, $offset-y: 6px, $offset-x: 8px);
+        &:hover {
+          @include menu_tabs_icons-sprite(invoice_hover, $offset-y: 6px, $offset-x: 8px);
+        }
+      }
+    }
+    &.invoices-active-tab a{
+      @include menu_tabs_icons-sprite(invoice_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.tickets,
+    &.all-assigned-tickets {
+      a {
+        @include menu_tabs_icons-sprite(ticket, $offset-y: 6px, $offset-x: 8px);
+        &:hover {
+          @include menu_tabs_icons-sprite(ticket_hover, $offset-y: 6px, $offset-x: 8px);
+        }
+      }
+    }
+    &.tickets-active-tab a,
+    &.all-assigned-tickets-active-tab a{
+      @include menu_tabs_icons-sprite(ticket_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.own-calendar a,
+    &.global-calendar a{
+      @include menu_tabs_icons-sprite(calendar, $offset-y: 6px, $offset-x: 8px);
+      &:hover,
+      &.active {
+        @include menu_tabs_icons-sprite(calendar_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.own-calendar-active-tab a ,
+    &.global-calendar-active-tab a{
+      @include menu_tabs_icons-sprite(calendar_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.releases a {
+      @include menu_tabs_icons-sprite(release, $offset-y: 6px, $offset-x: 8px);
+      &:hover {
+        @include menu_tabs_icons-sprite(release_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.releases-active-tab a {
+      @include menu_tabs_icons-sprite(release_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+    &.contacts-importer a,
+    &.import-contacts a,
+    &.delete-imported-contacts a {
+      @include menu_tabs_icons-sprite(contact, $offset-y: 6px, $offset-x: 8px);
+      &:hover{
+        @include menu_tabs_icons-sprite(contact_hover, $offset-y: 6px, $offset-x: 8px);
+      }
+    }
+    &.import-contacts-active-tab a,
+    &.delete-imported-contacts-active-tab a {
+      @include menu_tabs_icons-sprite(contact_hover, $offset-y: 6px, $offset-x: 8px);
+    }
+  }
+}
+
+.page-projects-projects #erpal_wrapper .panel-panel.panel-col-last .inside .pane-page-tabs ul.primary li a {
+  min-width: 115px;
+}
+/*--------------------------end icons for tabs------------------------*/
+
+
+
+/*--------------------------start quicktabs------------------------*/
+ul.quicktabs-tabs {
+  margin: 0;
+  padding-left: 0;
+  background: none;
+  overflow: hidden;
+  border: none;
+  li {
+    margin: 0 2px 0 0;
+    padding: 0px;
+    float: left;
+    @include border-radius(5px 5px 0 0);
+    background-color: $drub_light; 
+    @include background-image(linear-gradient(top, rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+    text-align: center;
+    border: 1px solid #CBCBCB;
+    border-bottom: none;
+    position: relative;
+    &.active {
+      background: $white;
+      z-index: 10;
+      a {
+        color: $dark_black !important;
+      }
+    }
+    a {
+      padding: 1px 12px 2px;
+      @include text_bold_12;
+      min-width: 85px;
+      color: $dark_black;
+      &:hover {
+        color: $orange; 
+      }
+    }
+  }
+}
+
+.quicktabs-tabpage {
+  .columns-inner {
+    margin-bottom: 12px;
+  }
+  .views-table .views-field-title {
+    width: 115px;
+  }
+  .views-field-field-task-status-term {
+    width: 70px;
+  }
+  .content-column .content-inner {
+    padding: 10px;
+    overflow: hidden;
+  }
+  .field-label {
+    margin: 0px !important;
+    padding-right: 5px;
+  }
+  .field-group-format section.field {
+    overflow: hidden;
+    clear: both;
+  }
+  .field-name-files-count .field-items,
+  .field-name-comment-count .field-items {
+    padding-top: 5px;
+    width: 50%;
+  }
+  .view-mode-view_row_details .field-label, 
+  .view-mode-view_row_details .field-items, 
+  .region-sidebar-right .field-name-task-customer-node div, 
+  .region-sidebar-right .field-name-task-customer-node div, 
+  .field-collection-item-field-pricing .field-label, 
+  .field-collection-item-field-pricing .field-items {
+    padding-right: 5px;
+    float: left;
+  }
+  #edit-nid {
+    width: 40px;
+  }
+  #edit-title {
+    width: 120px;
+  }
+  #edit-field-priority-term-tid {
+    width: 75px;
+  }
+  #edit-field-task-type-term-tid {
+    width: 60px;
+  }
+}
+/*--------------------------end quicktabs------------------------*/

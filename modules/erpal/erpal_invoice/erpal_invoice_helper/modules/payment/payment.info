@@ -1,0 +1,25 @@
+name = Payment
+description = A simple entity for Payment.
+core = 7.x
+project = "erpal_invoice"
+
+files[] = payment.inc
+files[] = views/handlers/payment_handler_argument_pid.inc
+files[] = views/handlers/payment_handler_field_link_delete.inc
+files[] = views/handlers/payment_handler_field_link_edit.inc
+files[] = views/handlers/payment_handler_field_title.inc
+files[] = views/handlers/payment_handler_field_settings.inc
+
+dependencies[] = field
+dependencies[] = entityreference
+configure = admin/structure/payment/manage
+
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_invoice"
+datestamp = "1413471913"
+

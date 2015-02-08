@@ -1,0 +1,17 @@
+name = Views Gantt
+description = A Views style plugin to display Gantt charts.
+package = Views
+core = 7.x
+
+dependencies[] = views
+dependencies[] = libraries
+
+files[] = views_gantt_plugin_style_gantt.inc
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "views_gantt"
+datestamp = "1413471949"
+

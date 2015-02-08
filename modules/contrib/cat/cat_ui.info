@@ -1,0 +1,26 @@
+name = Context Actions and Tasks (CAT) UI
+description = The Context Actions and Tasks (CAT) ui module
+package = Administration
+core = 7.x
+
+configure = admin/structure/cat
+
+dependencies[] = cat
+
+files[] = cat_ui.module
+files[] = cat_ui.inc
+files[] = cat_ui.pages.inc
+files[] = cat_ui.admin.inc
+files[] = cat_ui.theme.inc
+files[] = cat_ui.add_form.inc
+files[] = cat_ui.edit_form.inc
+files[] = cat_ui.delete_form.inc
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "cat"
+datestamp = "1413471949"
+

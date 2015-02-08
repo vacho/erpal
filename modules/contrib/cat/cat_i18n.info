@@ -1,0 +1,20 @@
+name = Context Actions and Tasks (CAT) internationalization
+description = Allows translating of CAT items.
+core = 7.x
+package = Multilingual - Internationalization
+
+files[] = cat_i18n.module
+files[] = cat_i18n.inc
+
+dependencies[] = cat
+dependencies[] = i18n_string
+dependencies[] = i18n
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "cat"
+datestamp = "1413471949"
+

@@ -1,0 +1,19 @@
+name = "Relation Dialog"
+description = "Allows users to use dialogs to create new relation types instead of only referencing existing."
+core = "7.x"
+package = "Relation"
+
+files[] = relation_dialog.module
+
+dependencies[] = references_dialog
+dependencies[] = relation
+
+version = "7.x-1.0-alpha1"
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "relation_dialog"
+datestamp = "1413471952"
+

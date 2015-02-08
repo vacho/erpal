@@ -1,0 +1,26 @@
+name = Budget
+description = Provides entity functionality for budget entites
+core = 7.x
+
+dependencies[] = entity
+dependencies[] = date_popup
+
+files[] = budget.module
+files[] = budget.install
+files[] = budget.admin.inc
+files[] = budget.entity.inc
+files[] = views/budget.views.inc
+files[] = views/budget_handler_link_field.inc
+files[] = views/budget_handler_delete_link_field.inc
+files[] = views/budget_handler_edit_link_field.inc
+files[] = views/budget_handler_budget_operations_field.inc
+
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_project"
+datestamp = "1413471916"
+

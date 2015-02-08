@@ -1,0 +1,61 @@
+.node-erpal_contract-form{
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+
+  .field-name-field-date-form {
+    .date-float{
+      margin-top: 3px;
+      width: 130px;
+      input{
+        margin-bottom: 4px;
+      }
+      .form-type-checkbox label {
+        margin: 0 5px 0 0;
+      }
+    }
+    .end-date-wrapper{
+      margin-left: 15px;
+    }
+    .form-item .description{
+      margin-left: 0;
+    }
+  }
+
+   fieldset.form-wrapper{
+     border: none;
+     legend{
+       display: none;
+     }
+   }
+  .group-advanced{
+    border: none;
+  }
+
+  .date-padding{
+    padding: 0;
+  }
+  .date-no-float{
+    clear: none;
+  }
+
+  .field-name-field-asset-files-form{
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  #edit-field-asset-files{
+    padding-left: 0;
+  }
+
+}

@@ -1,0 +1,437 @@
+/****************************
+	General
+****************************/
+/*
+Document   : global_vars_a_mixins
+Created on : December, 2012, 
+Description:
+Purpose of the stylesheet follows.
+*/
+/*
+TODO customize this sample style
+Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+*/
+/*******************/
+/* IMPORTS
+/*******************/
+/*******************/
+/* VARIABLES
+/*******************/
+/* color variables */
+/* background*/
+/*for left menu*/
+/*for menu item grey border, */
+/*link color*/
+/*styles for alert*/
+/*background for pane titles, table th*/
+/*for border*/
+/*grey link color*/
+/*for quicktabs-tabs color*/
+/*for top menu border*/
+/*for Quick timetracking*/
+/*styles for border*/
+/*for shadow*/
+/*styles for text*/
+/*gradient styles*/
+/*styles for ul*/
+/*styles for mixins*/
+/*styles for h1, h2, h3, h4, h5, h6 mixins*/
+.group-form-left,
+.group-form-right,
+.group-form-advanced-onecolumn,
+.group-form-advanced-left,
+.group-form-advanced-right {
+  padding: 10px;
+  border: 1px solid #d9d5d2;
+}
+
+#erpal-project-node-form,
+#erpal-task-node-form {
+  max-width: 1070px;
+  margin-top: 20px;
+}
+
+div.group-form-left:empty,
+div.group-form-right:empty,
+div.group-form-advanced-onecolumn:empty,
+div.group-form-advanced-left:empty,
+div.group-form-advanced-right:empty {
+  display: none;
+}
+
+.erpal-forms table td {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+/****************************
+	Group top
+****************************/
+.group-form-left {
+  width: 68%;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.group-form-right {
+  width: 25%;
+  float: right;
+  margin-bottom: 30px;
+}
+
+/* fields in group left */
+.group-form-left .form-item-title {
+  margin-top: 0px;
+}
+
+.group-form-left #edit-title {
+  width: 100%;
+}
+
+/* fields in group right */
+.form-item-group-content-access-und {
+  margin-top: 0px;
+}
+
+.group-form-right select,
+.group-form-right input:not([type='checkbox']),
+.group-form-advanced-right select,
+.group-form-advanced-right input:not([type='checkbox']) {
+  max-width: 200px;
+}
+
+.edit-field-customer-ref-und-0-target-id ul.references-dialog-links li a {
+  display: block;
+}
+
+.group-form-right > .form-wrapper,
+.group-form-advanced-right > .form-wrapper {
+  max-width: 250px;
+}
+.group-form-right > .form-wrapper > .form-wrapper,
+.group-form-advanced-right > .form-wrapper > .form-wrapper {
+  max-width: 200px;
+}
+.group-form-right > .form-wrapper > .form-wrapper > .field-multiple-table,
+.group-form-advanced-right > .form-wrapper > .form-wrapper > .field-multiple-table {
+  max-width: 240px;
+}
+.group-form-right > .form-wrapper.collapsible,
+.group-form-advanced-right > .form-wrapper.collapsible {
+  max-width: 240px;
+}
+.group-form-right .field-multiple-table,
+.group-form-advanced-right .field-multiple-table {
+  max-width: 250px;
+}
+.group-form-right #field-phone-values input,
+.group-form-advanced-right #field-phone-values input {
+  width: 50px;
+}
+.group-form-right .token-tree,
+.group-form-advanced-right .token-tree {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.group-form-right .token-tree .token-key,
+.group-form-advanced-right .token-tree .token-key {
+  white-space: normal;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+/****************************
+	Group advanced
+****************************/
+.group-advanced {
+  clear: both;
+  border: none;
+  border-top: 1px solid #dedede;
+}
+
+.group-advanced > legend {
+  font-size: 16px;
+}
+
+.group-advanced h3 {
+  border-bottom: 1px solid #5a5a5a;
+  padding: 20px 5px 10px;
+}
+
+.group-advanced h3 a {
+  background: url(../images/forms-advanced-arrow-open.png) no-repeat 2px 50%;
+  padding-left: 15px;
+}
+
+.group-advanced.collapsed h3 a {
+  background: url(../images/forms-advanced-arrow-collapsed.png) no-repeat 2px 50%;
+  padding-left: 15px;
+}
+
+.group-form-advanced-onecolumn {
+  margin-bottom: 20px;
+}
+
+.group-form-advanced-left {
+  width: 68%;
+  float: left;
+}
+
+.group-form-advanced-right {
+  width: 25%;
+  float: right;
+}
+
+/* only visible for admin */
+.vertical-tabs {
+  clear: both;
+}
+
+/* project team */
+#edit-field-project-team .field-multiple-table .form-text.form-autocomplete {
+  padding-right: 18px;
+  max-width: 70px;
+}
+#edit-field-project-team .field-multiple-table .ui-multiselect {
+  overflow: hidden;
+  margin-top: 17px;
+}
+#edit-field-project-team .field-multiple-table .form-submit {
+  margin-top: 27px;
+}
+
+/****************************
+	Invoices
+****************************/
+/*** Group left ***/
+.group-invoice-left {
+  width: 50%;
+  float: left;
+}
+
+/*** Group right ***/
+.group-invoice-right {
+  width: 50%;
+  float: right;
+}
+
+/*** Group bottom ***/
+.group-invoice-bottom {
+  clear: both;
+}
+
+.group-invoice-sonstiges {
+  clear: both;
+  display: none;
+}
+
+/*** Contacts ***/
+#field-phone-values #edit-field-phone-und-0-field-number-type-terms-und {
+  float: left;
+  margin-top: 17px;
+}
+
+.page-node-add-erpal-invoice .field-multiple-table .field-multiple-drag,
+.node-type-erpal-invoice .field-multiple-table .field-multiple-drag {
+  width: 20px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .field-multiple-drag a.tabledrag-handle,
+.node-type-erpal-invoice .field-multiple-table .field-multiple-drag a.tabledrag-handle {
+  padding-right: 0px;
+  width: 25px;
+  margin-left: -10px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .field-multiple-drag a.tabledrag-handle .handle,
+.node-type-erpal-invoice .field-multiple-table .field-multiple-drag a.tabledrag-handle .handle {
+  margin-right: 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-wrapper,
+.node-type-erpal-invoice .field-multiple-table .form-wrapper {
+  float: left;
+}
+.page-node-add-erpal-invoice .field-multiple-table .remove_group .form-wrapper,
+.node-type-erpal-invoice .field-multiple-table .remove_group .form-wrapper {
+  padding: 0;
+  border: none;
+  font-size: 10px;
+  margin-top: 20px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .remove_group .form-wrapper .form-submit,
+.node-type-erpal-invoice .field-multiple-table .remove_group .form-wrapper .form-submit {
+  margin: 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element {
+  margin-left: 5px;
+  float: left;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element label,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element label {
+  font-size: 10px;
+  line-height: 10px;
+  margin-bottom: 10px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .field-type-taxonomy-term-reference,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .field-type-taxonomy-term-reference {
+  float: left;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .field-type-taxonomy-term-reference select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .field-type-taxonomy-term-reference select {
+  width: 84px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .form-item,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .form-item {
+  margin-right: 4px;
+  float: left;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .form-item .subject,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .form-item .subject {
+  width: 165px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .form-select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .form-select {
+  padding: 3px 3px 3px 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .form-type-textfield,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .form-type-textfield {
+  float: left;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .form-type-textfield input,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .form-type-textfield input {
+  width: 80px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .date-year select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .date-year select {
+  width: 56px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .date-month select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .date-month select {
+  width: 50px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .date-day select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .date-day select {
+  width: 43px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element input.quantity,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element input.quantity {
+  width: 36px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element input.single_price,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element input.single_price {
+  width: 56px;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date {
+  float: left;
+  clear: none;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date label,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date label {
+  margin-bottom: 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select {
+  margin-right: 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select .date-padding,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select .date-padding {
+  padding: 0;
+}
+.page-node-add-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select .date-padding select,
+.node-type-erpal-invoice .field-multiple-table .form-type-billable-element .container-inline-date .form-type-date-select .date-padding select {
+  margin-right: 0;
+}
+
+#field-date-times-values tr.odd .form-item,
+#field-date-times-values tr.even .form-item {
+  white-space: normal;
+}
+
+#edit-actions {
+  clear: both;
+}
+
+#field-phone-values select {
+  max-width: 50px;
+}
+#field-phone-values #edit-field-phone-und-0-remove-button {
+  margin-top: 22px;
+  padding: 4px 0;
+}
+
+.draggable a.tabledrag-handle {
+  height: 1.6em;
+}
+
+#field-bank-accounts-values input.form-text {
+  width: 100px;
+  max-width: 100px;
+}
+
+/*** --- contact form styles --- ***/
+#field-contact-relations-values .irf-container {
+  /*** start period-box ****/
+  /* end period box */
+}
+#field-contact-relations-values .irf-container .field-type-datetime .date-float {
+  width: 114px;
+}
+#field-contact-relations-values .irf-container .field-type-datetime .date-float .form-type-checkbox {
+  /* show end date */
+  width: 101px;
+}
+#field-contact-relations-values .irf-container .field-type-datetime .container-inline-date {
+  float: left;
+  clear: none;
+  width: 194px;
+}
+#field-contact-relations-values .irf-container .field-type-datetime .container-inline-date .form-type-date-popup {
+  margin-right: 0;
+}
+#field-contact-relations-values .irf-container .field-type-datetime .container-inline-date .form-type-date-popup .date-padding {
+  padding: 0;
+  /* reset padding */
+}
+#field-contact-relations-values .irf-container .field-type-datetime .container-inline-date .form-type-date-popup .date-padding .form-type-textfield {
+  width: 97px;
+}
+#field-contact-relations-values .irf-container .field-type-datetime .container-inline-date .form-type-date-popup .date-padding .form-type-textfield input {
+  width: 90px;
+}
+#field-contact-relations-values .irf-container .field-type-taxonomy-term-reference {
+  /** relation tags **/
+  float: right;
+  width: 45%;
+  margin-top: 0;
+}
+#field-contact-relations-values .irf-container .field-type-taxonomy-term-reference input {
+  width: 100%;
+}
+#field-contact-relations-values .irf-container .irf-targets {
+  /** contact field **/
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+#field-contact-relations-values .irf-container .irf-targets .form-item {
+  float: left;
+}
+#field-contact-relations-values .irf-container .irf-targets .form-item.form-type-textfield {
+  width: 70%;
+  margin-left: 9px;
+}
+#field-contact-relations-values .irf-container .irf-targets .form-item select {
+  height: 25px;
+}
+#field-contact-relations-values .irf-container .irf-targets .ajax-progress-throbber {
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+#field-contact-relations-values .irf-container .irf-targets .dialog-links {
+  margin-top: 25px;
+  text-align: right;
+}
+#field-contact-relations-values .irf-container .irf-targets .dialog-links ul {
+  margin-bottom: 0;
+}

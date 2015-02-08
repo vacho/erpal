@@ -1,0 +1,14 @@
+name = AUL VBO
+description = Provides VBO action to grant access to nodes for users list.
+core = 7.x
+package = Access control
+
+dependencies[] = entityreference_autocomplete
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "aul"
+datestamp = "1413471937"
+

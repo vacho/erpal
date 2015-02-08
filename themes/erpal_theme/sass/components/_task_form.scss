@@ -1,0 +1,79 @@
+.node-erpal_task-form {
+
+  .field-name-field-asset-files-form, .field-name-field-depends-on-tasks-form {
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  #edit-field-asset-files, #edit-field-depends-on-tasks {
+    padding-left: 0;
+  }
+
+  .field-name-field-date-form {
+    .date-float {
+      width: 130px;
+      input {
+        margin-bottom: 4px;
+      }
+      .form-type-checkbox label {
+        margin: 0 5px 0 0;
+      }
+    }
+    .end-date-wrapper {
+      margin-left: 15px;
+    }
+    .form-item .description {
+      margin-left: 0;
+    }
+  }
+
+  .field-name-field-budgets, .field-name-field-users {
+    .field-multiple-table.sticky-table {
+      thead {
+        display: table-header-group;
+      }
+      thead th {
+        padding: 5px;
+      }
+      tbody td {
+        padding: 5px;
+        &:first-child {
+          padding: 0;
+        }
+      }
+    }
+    .clearfix {
+      @extend %form-add-box;
+    }
+  }
+
+  #edit-field-task-exclude-from .form-item-field-task-exclude-from-und-pdf {
+    label {
+      margin-left: 0;
+    }
+  }
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+  .group-advanced {
+    display: none;
+  }
+
+  .field-group-format .field-name-field-depends-on-tasks-form .field-multiple-table thead{
+    display: table-header-group;
+    label{
+      margin-left: 7px;
+    }
+  }
+
+}

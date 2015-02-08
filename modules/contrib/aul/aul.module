@@ -1,0 +1,487 @@
+<?php
+
+/**
+ * @file
+ * An API module providing by AUL(Access User Lists).
+ *
+ * This module handles AULs on behalf of other modules. The two main reasons
+ * to do this are so that modules using AULs can share them with each
+ * other without having to actually know much about them, and so that
+ * AULs can easily co-exist with the existing node_access system.
+ */
+
+module_load_include('inc', 'aul', 'includes/aul');
+
+/**
+ * Create a new AUL.
+ *
+ * The client module will have to keep track of the AUL. For that it can
+ * assign either a $name or a $number to this AUL.
+ *
+ * @param string $module
+ *   The name of the client module.
+ * @param string $name
+ *   An arbitrary realm name for this AUL, freely defined by the client module.
+ * @param int $number
+ *   An arbitrary number for this AUL, freely defined by the client module.
+ * 
+ * @return int
+ *   The ID of the newly created AUL.
+ */
+function aul_create_aul($module, $name = NULL, $number = NULL) {
+  $aul = array(
+    'module' => $module,
+    'name' => $name,
+    'number' => $number,
+  );
+  drupal_write_record('aul', $aul);
+  return $aul['aul_id'];
+}
+
+/**
+ * Delete an existing AUL.
+ * 
+ * @param int $aul_id
+ *   AUL id
+ */
+function aul_delete_aul($aul_id) {
+  db_delete('aul')
+    ->condition('aul_id', $aul_id)
+    ->execute();
+  db_delete('aul_user')
+    ->condition('aul_id', $aul_id)
+    ->execute();
+  db_delete('aul_node')
+    ->condition('aul_id', $aul_id)
+    ->execute();
+}
+
+/**
+ * Delete existing AULs multiple.
+ * 
+ * @param array $aul_ids
+ *   array of AUL ids
+ */
+function aul_delete_aul_multiple($aul_ids) {
+  db_delete('aul')
+      ->condition('aul_id', $aul_ids, 'IN')
+      ->execute();
+    db_delete('aul_user')
+      ->condition('aul_id', $aul_ids, 'IN')
+      ->execute();
+    db_delete('aul_node')
+      ->condition('aul_id', $aul_ids, 'IN')
+      ->execute();
+}
+
+/**
+ * Add the specified NID to an AUL.
+ * 
+ * @param int $aul_id
+ *   AUL id
+ * @param int $nid
+ *   node id
+ */
+function aul_add_node($aul_id, $nid) {
+  db_merge('aul_node')
+   ->key(array(
+     'aul_id' => $aul_id,
+     'nid' => $nid,
+   ))
+   ->fields(array(
+     'aul_id' => $aul_id,
+     'nid' => $nid,
+   ))
+   ->execute();
+   
+  
+  //call a hook_aul_add so other modules can react on adding grants for a user to a node
+  module_invoke_all('aul_add_node', $nid, $aul_id);  
+}
+
+/**
+ * Remove the specified node from an AUL by node ID.
+ * 
+ * @param int $aul_id
+ *   AUL id
+ * @param int $nid
+ *   node id
+ */
+function aul_remove_node($aul_id, $nid) {
+  db_delete('aul_node')
+    ->condition('aul_id', $aul_id)
+    ->condition('nid', $nid)
+    ->execute();
+    
+  //call a hook_aul_add so other modules can react on adding grants for a user to a node
+  module_invoke_all('aul_remove_node', $nid, $aul_id);  
+}
+
+/**
+ * Provide access control to all users selected by a subquery, based on AUL id.
+ * 
+ * @param array $subselect
+ *   subselected results
+ * @param int $aul_id 
+ *   AUL id
+ * @param int $view 
+ *   permission 0 or 1
+ * @param int $update 
+ *   permission 0 or 1
+ * @param int $delete 
+ *   permission 0 or 1
+ * @param int $priority 
+ *   default 0
+ */
+function aul_add_users($subselect, $aul_id, $view, $update, $delete, $priority = 0) {
+  db_delete('aul_user')
+    ->condition('aul_id', $aul_id)
+    ->condition('uid', $subselect, 'IN')
+    ->execute();
+  $subselect->addExpression($aul_id, 'aul_id');
+  $subselect->addExpression((int) $view, 'grant_view');
+  $subselect->addExpression((int) $update, 'grant_update');
+  $subselect->addExpression((int) $delete, 'grant_delete');
+  $subselect->addExpression($priority, 'priority');
+  db_insert('aul_user')
+    ->from($subselect)
+    ->execute();
+}
+
+/**
+ * Provide access control to a user based upon an AUL id.
+ * 
+ * @param int $uid 
+ *   user id
+ * @param int $aul_id 
+ *   AUL id
+ * @param int $view 
+ *   permission 0 or 1
+ * @param int $update 
+ *   permission 0 or 1
+ * @param int $delete 
+ *   permission 0 or 1
+ * @param int $priority 
+ *   default 0
+ */
+function aul_user_add_aul($uid, $aul_id, $view, $update, $delete, $priority = 0) {
+  aul_user_add_aul_record(array(
+    'aul_id' => $aul_id,
+    'uid' => $uid,
+    'grant_view' => (int) $view,
+    'grant_update' => (int) $update,
+    'grant_delete' => (int) $delete,
+    'priority' => $priority,
+  ));
+}
+
+/**
+ * Provide access control to a user based upon an AUL id.
+ * 
+ * @param array $record 
+ *   must contain:
+ *   array(
+ *    'aul_id' => $aul_id,
+ *    'uid' => $uid,
+ *    'grant_view' => $view,
+ *    'grant_update' => $update,
+ *    'grant_delete' => $delete,
+ *    'priority' => $priority,
+ *   )
+ */
+function aul_user_add_aul_record(array $record) {
+  db_delete('aul_user')
+    ->condition('aul_id', $record['aul_id'])
+    ->condition('uid', $record['uid'])
+    ->execute();
+  db_insert('aul_user')
+    ->fields($record)
+    ->execute();
+}
+
+/**
+ * Remove an AUL completely from a user.
+ * 
+ * @param int $uid 
+ *   user id
+ * @param int $aul_id 
+ *   AUL id
+ */
+function aul_user_remove_aul($uid, $aul_id) {
+  db_delete('aul_user')
+    ->condition('aul_id', $aul_id)
+    ->condition('uid', $uid)
+    ->execute();
+}
+
+/**
+ * Clear all of a module's AULs from a user.
+ * 
+ * @param int $uid 
+ *   user id
+ * @param string $module 
+ *   module name
+ */
+function aul_user_clear_auls($uid, $module) {
+  $select = db_select('aul', 'a')
+    ->fields('a', array('aul_id'))
+    ->condition('a.module', $module);
+  db_delete('aul_user')
+    ->condition('uid', $uid)
+    ->condition('aul_id', $select, 'IN')
+    ->execute();
+}
+
+/**
+ * Clear all of a module's AULs from a node.
+ * 
+ * @param int $nid
+ *   node id
+ * @param string $module 
+ *   module name
+ */
+function aul_node_clear_auls($nid, $module) {
+  // Get all AUL ids of node.
+  $aul_ids = aul_get_all_aul_of_node($nid, $module);
+  
+  if(!empty($aul_ids)) {
+    aul_delete_aul_multiple($aul_ids);
+  }
+}
+
+/**
+ * Get all AUL ids of node.
+ * 
+ * @param int $nid
+ *   node id
+ * @param string $module
+ *   module name
+ * 
+ * @return array
+ *   array of AUL ids
+ */
+function aul_get_all_aul_of_node($nid, $module = NULL) {
+  $query = db_select('aul_node', 'n');
+  $query->fields('n', array('aul_id'));
+  $query->condition('n.nid', $nid);
+  
+  // Filter by module name.
+  if($module) {
+    $query->condition('a.module', $module);
+    $query->innerJoin('aul', 'a', 'a.aul_id = n.aul_id');
+  }
+  
+  $aul_ids = $query->execute()->fetchCol();
+  
+  return $aul_ids;
+}
+
+/**
+ * Get the id of an AUL by name (+ optionally number).
+ * 
+ * @param string $module 
+ *   module name
+ * @param string $name 
+ *   realm name.
+ * @param int $number 
+ *   optional. default NULL
+ * 
+ * @return int 
+ *   AUL id if fount
+ */
+function aul_get_id_by_name($module, $name, $number = NULL) {
+  $query = db_select('aul', 'a')
+    ->fields('a', array('aul_id'))
+    ->condition('a.module', $module)
+    ->condition('a.name', $name);
+  if (isset($number)) {
+    $query->condition('a.number', $number);
+  }
+  return $query->execute()->fetchField();
+}
+
+/**
+ * Get the id of an AUL by number.
+ * 
+ * @param string $module 
+ *   module name
+ * @param int $number
+ *   number value
+ * 
+ * @return int
+ *   AUL id if fount
+ */
+function aul_get_id_by_number($module, $number) {
+  $query = db_select('aul', 'a')
+    ->fields('a', array('aul_id'))
+    ->condition('a.module', $module)
+    ->condition('a.number', $number);
+  return $query->execute()->fetchField();
+}
+
+/**
+ * Determine whether an AUL has some nodes.
+ * 
+ * @param int $aul_id 
+ *   AUL id
+ * 
+ * @return int
+ *   count of nodes. 0 if not found
+ */
+function aul_has_nodes($aul_id) {
+  $count = db_select('aul_node')
+    ->condition('aul_id', $aul_id)
+    ->countQuery()
+    ->execute()
+    ->fetchField();
+  return $count;
+}
+
+/**
+ * Determine whether an AUL has a specific node.
+ * 
+ * @param int $aul_id
+ *   AUL id
+ * @param int $nid
+ *   node id
+ * 
+ * @return int
+ *   count of nodes. 0 if not found
+ */
+function aul_has_node($aul_id, $nid) {
+  $count = db_select('aul_node')
+    ->condition('aul_id', $aul_id)
+    ->condition('nid', $nid)
+    ->countQuery()
+    ->execute()
+    ->fetchField();
+  return $count;
+}
+
+/**
+ * Get an array of aul_ids held by a node.
+ * 
+ * @param string $module
+ *   module name
+ * @param int $nid
+ *   node id
+ * @param string $name
+ *   realm name
+ * @param int $number
+ *   number value
+ * 
+ * @return array
+ *   AUL ids
+ */
+function aul_get_ids_by_node($module, $nid, $name = NULL, $number = NULL) {
+  $query = db_select('aul', 'a');
+  $query->join('aul_node', 'an', 'a.aul_id = an.aul_id');
+  $query
+    ->fields('a', array('aul_id'))
+    ->condition('a.module', $module)
+    ->condition('an.nid', $nid);
+  if (isset($name)) {
+    $query->condition('a.name', $name);
+  }
+  if (isset($number)) {
+    $query->condition('a.number', $number);
+  }
+  $aul_ids = $query->execute()->fetchCol();
+  return $aul_ids;
+}
+
+/**
+ * Get the nids of an AUL.
+ * 
+ * @param int $aul_id
+ *   AUL id
+ * 
+ * @return array
+ *   AUL ids
+ */
+function aul_get_nids($aul_id) {
+  $nids = db_query("SELECT nid FROM {aul_node} WHERE aul_id = :aul_id", array(
+    'aul_id' => $aul_id,
+    ))->fetchCol();
+  return $nids;
+}
+
+/**
+ * Implements hook_node_access_records().
+ */
+function aul_node_access_records($node) {
+  if (!$node->nid) {
+    return;
+  }
+  $result = db_query("
+    SELECT u.*, a.name AS realm, u.aul_id AS gid, a.module 
+    FROM {aul_user} u 
+    INNER JOIN {aul} a ON u.aul_id = a.aul_id 
+    INNER JOIN {aul_node} n ON u.aul_id = n.aul_id 
+    WHERE n.nid = :nid", array(
+      'nid' => $node->nid,
+    ), array(
+      'fetch' => PDO::FETCH_ASSOC,
+    )
+  );
+  $grants = array();
+  foreach ($result as $grant) {
+    //if (module_invoke($grant['module'], 'aul_enabled')) {
+      // if (aul_has_nodes($grant['gid'])) {
+        $grants[] = $grant;
+      // }
+      /*else {
+        // TODO: Just deny access.
+        $grants[] = array(
+          'realm' => 'aul',
+          'gid' => $grant['gid'],
+          'grant_view' => 0,
+          'grant_update' => 0,
+          'grant_delete' => 0,
+          'priority' => $grant['priority'],
+        );
+      }*/
+    //}
+  }
+  return $grants;
+}
+
+/**
+ * Implements hook_node_grants().
+ */
+function aul_node_grants($account, $op) {
+  $auls = db_query("
+    SELECT a.name AS realm, a.aul_id AS aul_id 
+    FROM {aul} a
+    INNER JOIN {aul_user} u ON u.aul_id = a.aul_id 
+    WHERE u.uid = :uid", array(
+      'uid' => $account->uid,
+    ))->fetchAll();
+
+  $keys = array();
+  foreach ($auls as $aul) {
+    $keys[$aul->realm][] = $aul->aul_id;
+  }
+
+  if (!empty($keys)) {
+    return $keys;
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function aul_node_delete($node) {
+  db_delete('aul_node')
+    ->condition('nid', $node->nid)
+    ->execute();
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function aul_user_cancel($edit, $account, $method) {
+  db_delete('aul_user')
+    ->condition('uid', $account->uid)
+    ->execute();
+}

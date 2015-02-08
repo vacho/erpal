@@ -1,0 +1,83 @@
+.node-erpal_date-form {
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+
+  .field-name-field-users-form, .field-name-field-contacts-ref-form, .field-name-field-asset-files-form {
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  #edit-field-users, #edit-field-contacts-ref, #edit-field-asset-files {
+    padding-left: 0;
+  }
+
+  .field-name-field-date-repeat-form {
+    .form-item.form-type-date-popup label:after{
+      content: '';
+    }
+    .form-item{
+      margin-right: 20px;
+      .description{
+        margin:0;
+      }
+    }
+    .date-float {
+      width: 150px;
+      input {
+        margin-bottom: 4px;
+      }
+      .form-type-checkbox label {
+        margin: 0 5px 0 0;
+      }
+    }
+    .date-padding{
+      padding: 10px 0 0px 0;
+    }
+    .end-date-wrapper {
+      margin-left: 0px;
+    }
+    .form-item .description {
+      margin-left: 0;
+    }
+    #repeat-settings-fieldset {
+      label {
+        margin-left: 0;
+        margin-right: 5px;
+        float: none;
+      }
+      .daily, .weekly, .monthly, .yearly, .range-of-repeat, .date-repeat {
+        width: auto;
+        padding-top: 10px;
+        .form-wrapper {
+          padding-left: 0;
+          .date-clear {
+            width: auto;
+            margin-top: 5px;
+          }
+        }
+        .form-checkboxes{
+          .form-item{
+            width: 52px;
+            margin-right: 10px;
+          }
+          label{
+            float: left;
+
+          }
+        }
+      }
+    }
+  }
+
+}

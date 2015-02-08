@@ -1,0 +1,50 @@
+$mx-default-background-color: blue !default;
+$mx-default-border-color: darken($mx-default-background-color, 5) !default;
+$mx-default-border-radius: $default-border-radius !default;
+$mx-default-copy-color: white !default;
+
+%button{
+  $shadow-drop: rgba(#000, .5) 0 1px 1px;
+  $shadow-inset: rgba(#fff, .30) 0 1px 0 inset;
+  $shadow-push: rgba(#000, .75) 0 1px 0px inset;
+
+  background-color: $mx-default-background-color;
+  @include background-image(linear-gradient(top, rgba(#fff, .05), rgba(#000, .05)));
+  @if $mx-default-border-radius > 0 {
+    @include border-radius($mx-default-border-radius);
+  }
+  border: 1px solid $mx-default-border-color;
+  @include box-shadow($shadow-drop, $shadow-inset);
+  color: $mx-default-copy-color;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding:.6em 1.5em .5em;
+  text-decoration: none;
+  @include single-text-shadow(rgba(#000, .5), 0, -1px);
+  *zoom: 1;
+
+  &.hover,
+  &:hover{
+    background-color: darken($mx-default-background-color, 10);
+  }
+
+  &.active,
+  &:active{
+    @include box-shadow($shadow-push);
+  }
+
+  &.disabled,
+  &[disabled]{
+    background-color: lighten($mx-default-background-color, 15);
+    @include box-shadow(none);
+    cursor: not-allowed;
+    color: darken($mx-default-copy-color, 10);
+    @include opacity(.8);
+  }
+
+  &::-moz-focus-inner {
+    padding: 0 !important;
+    margin: -1px !important;
+  }
+}

@@ -1,0 +1,218 @@
+/*****************************
+*
+*      CONTRACTS
+*
+*****************************/
+
+.views-widget-filter-field_next_booking_date_value { //date filter in contracts list
+  position: relative;
+  .views-widget > div {
+    float: left;
+  }
+  label[for="edit-field-next-booking-date-value"] {
+    position: absolute;
+    &:after {
+      content: ' - ';
+    }
+  }
+  label[for="edit-field-next-booking-date-value-min"] {
+    padding-left: 100px;
+  }
+}
+
+/*****************************
+*
+*      INVOICES
+*
+*****************************/
+
+.views-widget-filter-field_invoice_date_value  { //invoice date filter in invoices list
+  position: relative;
+  .views-widget > div {
+    //float: left;
+  }
+  label[for="edit-field-invoice-date-value"] {
+    position: absolute;
+    &:after {
+      content: ' - ';
+    }
+  }
+  label[for="edit-field-invoice-date-value-min"] {
+    padding-left: 70px;
+  }
+  .form-item-field-invoice-date-value-min-date {
+    .description {
+      display: none;
+    }
+  }
+}
+.views-widget-filter-field_payment_date_value   { //paid till date filter in invoices list
+  position: relative;
+  .views-widget > div {
+    //float: left;
+  }
+  label[for="edit-field-payment-date-value"] {
+    position: absolute;
+    &:after {
+      content: ' - ';
+    }
+  }
+  label[for="edit-field-payment-date-value-min"] {
+    padding-left: 45px;
+  }
+  .form-item-field-payment-date-value-min-date {
+    .description {
+      display: none;
+    }
+  }
+}
+
+/*****************************
+*
+*      TIMEKEEPING
+*
+*****************************/
+
+.pane-quicktabs-timekeeping-tabs .views-widget-filter-field_date_time_value { //timekeeping date filter
+  position: relative;
+  .views-widget > div {
+    float: left;
+  }
+  label[for="edit-field-date-time-value"] {
+    position: absolute;
+    &:after {
+      content: ' - ';
+    }
+  }
+  label[for="edit-field-date-time-value-min"] {
+    padding-left: 41px;
+  }
+}
+
+/*****************************
+*
+*      HEARTBEAT
+*
+*****************************/
+
+.erpal-heartbeat .views-widget-filter-date_filter {
+  position: relative;
+  .views-widget > div {
+    float: left;
+  }
+  label[for="edit-date-filter"] {
+    position: absolute;
+    &:after {
+      content: ' - ';
+    }
+  }
+  label[for="edit-date-filter-min"] {
+    padding-left: 41px;
+  }
+}
+
+/*****************************
+*
+*      CALENDAR
+*
+*****************************/
+
+.view-full-calendar .views-widget-filter-field_date_item_date_value {
+  .views-widget > div {
+    float: left;
+  }
+}
+
+/*****************************
+*
+*      TIMETRACKINGS
+*
+*****************************/
+
+.view-timetrackings {
+  .views-widget-filter-field_date_time_value { //timekeeping date filter
+    position: relative;
+    label[for="edit-field-date-time-value"] {
+      position: absolute;
+      &:after {
+        content: ' - ';
+      }
+    }
+    label[for="edit-field-date-time-value-min"] {
+      padding-left: 41px;
+    }
+    .form-item-field-date-time-value-min-date {
+      .description {
+        display: none;
+      }
+    }
+    .form-type-date-popup {
+      margin-right: 0;
+      input {
+        margin-right: 0;
+      }
+    }
+  }
+  .views-widget-filter-title,
+  .form-item-title-1 {
+    input {
+      max-width: 190px;
+    }
+  }
+}
+
+/*****************************
+*
+*      BUDGETS
+*
+*****************************/
+
+.view-budgets {
+  .views-widget-filter-changed,
+  .views-widget-filter-created,
+  .views-widget-filter-date_from,
+  .views-widget-filter-date_till {
+    position: relative;
+    & > label {
+      position: absolute;
+      &:after {
+        content: ' - ';
+      }
+    }
+    div[class*="min"] {
+      label {
+        padding-left: 60px;
+      }
+      .description {
+        display: none;
+      }
+    }
+  }
+}
+ 
+/*****************************
+*
+*      All assigned tasks
+*
+*****************************/
+
+.view-assigned-tasks {
+  .views-widget-filter-title,
+  .views-widget-filter-title_1,
+  .views-widget-filter-uid {
+    max-width: 110px;
+    input {
+      max-width: 100px;
+    }
+  }
+  
+  #edit-field-task-assigned-users-target-id-wrapper, 
+  #edit-field-priority-term-tid-wrapper,
+  #edit-field-task-status-term-tid-wrapper,
+  #edit-field-is-ticket-value-wrapper {
+    width: 120px !important; // important to overwrite important style
+    button {
+      width: 120px !important; // important to overwrite important style
+    }
+  }
+}

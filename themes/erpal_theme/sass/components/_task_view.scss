@@ -1,0 +1,25 @@
+.node-type-erpal-task{
+  .pane-node-field-timetracking-button{
+    margin-left: 5px;
+  }
+  .pane-node-field-depends-on-tasks{
+    .field-item{
+      margin-top: 3px;
+      .field-item{
+        margin: 0;
+      }
+    }
+    .field-name-field-task-status-term{
+      float: left;
+    }
+    .field-name-title{
+      float: left;
+      margin-left: 5px;
+      max-width: 219px;
+    }
+    h2{
+      margin: 0;
+      line-height: 14px;
+    }
+  }
+}

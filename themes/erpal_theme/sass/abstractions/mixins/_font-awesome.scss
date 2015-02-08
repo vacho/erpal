@@ -1,0 +1,8 @@
+@mixin font-awesome-content($trivial){
+  @each $icon in $font-awesome-icons{
+    @if $trivial == nth($icon, 1){
+      content: '#{nth($icon, 2)}';
+      @extend %font-awesome;
+    }
+  }
+}

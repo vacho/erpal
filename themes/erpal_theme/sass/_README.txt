@@ -1,0 +1,1 @@
+use the css link module (https://drupal.org/project/link_css) for drupal to get guard livereload working

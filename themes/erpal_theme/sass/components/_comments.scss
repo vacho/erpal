@@ -1,0 +1,432 @@
+%comment-head-label {
+  @include font-size(20px);
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 0 0 .5em;
+
+  &:before {
+    color: $copyColor;
+    display: block;
+    float: left;
+    margin-right: 8px;
+  }
+}
+
+.pane-node-comments {
+  $avatar-size: 74px;
+  $v-padding: 11px;
+
+  @include border-corner-radius(top, left);
+  @include border-corner-radius(top, right);
+  border: 1px solid $border;
+  border-bottom-width: 0;
+  margin-bottom: 0;
+  padding: $pd;
+
+  h2 {
+    @extend %comment-head-label;
+
+    &:before {
+      @include font-awesome-content('comment');
+    }
+  }
+
+  article.comment {
+    $side: 94px;
+
+    @include clearfix();
+    @include single-box-shadow(rgba(#000, .05), 1px, 3px);
+    min-height: $avatar-size;
+    position: relative;
+    padding: {
+      top: $v-padding;
+      right: 13px;
+      bottom: $v-padding;
+      left: $side + 22px;
+    }
+    @include single-transition(border-color, .3s);
+
+    &:after {
+      background-color: rgba(#000, .05);
+      @include border-corner-radius(top, left);
+      @include border-corner-radius(bottom, left);
+      border-right: 1px solid $border;
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: $side;
+      z-index: 1;
+    }
+
+    &:hover {
+      border-color: darken($border, 20);
+    }
+
+    header,
+    footer {
+      background: transparent;
+      border: none;
+      display: inline-block;
+      float: none;
+      height: auto;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      float: left;
+
+      h3 {
+        display: none;
+      }
+
+      .new {
+        @include single-box-shadow(rgba(#000, .3), 0, 1px, 3px);
+        @include border-radius();
+        background-color: $red;
+        color: #fff;
+        display: inline-block;
+        font-weight: bold;
+        margin: {
+          top: 1px;
+          right: 5px;
+        }
+        padding: 2px 5px;
+      }
+    }
+
+    footer {
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .user-picture {
+        background-color: #fff;
+        display: table;
+        @include single-box-shadow(rgba(#000, .33), 0, 1px, 3px);
+        left: 10px;
+        position: absolute;
+        text-align: center;
+        top: $v-padding;
+        width: $avatar-size;
+        z-index: 2;
+
+        a {
+          display: table-cell;
+          max-width: 70px;
+        }
+
+        img {
+          float: left;
+          max-height: 100%;
+          max-width: 100%;
+        }
+
+        &.no-avatar {
+          min-height: $avatar-size;
+        }
+      }
+
+      p {
+        margin: 0;
+
+        &.author-datetime {
+          color: rgba($copyColor, .5);
+          font-size: 12px;
+        }
+      }
+
+      time {
+        float: none;
+
+        span {
+        }
+
+        a {
+        }
+      }
+    }
+
+    // comment-text
+    .comment-content {
+      padding-top: 10px;
+
+      .field-item * {
+        font-size: 12px;
+      }
+
+      section,
+      div {
+        padding: 0;
+      }
+
+      p,
+      ul,
+      ol {
+        & + * {
+          margin-top: .5em;
+        }
+      }
+
+      p {
+        line-height: 1.4em;
+        margin-bottom: 0;
+      }
+
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      // quotes
+      q,
+      blockquote {
+        background-image: none;
+      }
+
+      blockquote {
+        border-left: 5px solid $light_drab;
+        margin: 0 0 .75em 0;
+        @include opacity(.5);
+        padding: 0 0 0 .5em;
+        position: relative;
+      }
+
+      ul,
+      ol {
+        margin-left: 0;
+        padding-left: 1.5em;
+
+        li + li {
+          //          margin-top: .5em;
+        }
+      }
+
+      ul li {
+        list-style-type: disc;
+      }
+
+      ol li {
+        list-style-type: decimal;
+      }
+
+      .field-name-field-asset-files {
+        @include clearfix;
+        margin: {
+          left: -21px;
+          right: -13px;
+          top: 1.5em;
+          bottom: -11px;
+        }
+        padding: {
+          top: .5em;
+          right: 13px;
+          left: 21px;
+          bottom: 3px;
+        }
+
+        h2 {
+          font-size: 1em;
+        }
+      }
+
+      // comment diff info
+      .item-list {
+        ul {
+          padding: 0;
+          @include border-radius(5px);
+          overflow: hidden;
+          border: 1px solid $silver_light;
+          li {
+            padding: 3px 5px 0 5px;
+            list-style: none;
+            float: left;
+            min-height: 21px;
+            border-right: 1px solid $silver_light;
+            border-bottom: 1px solid $silver_light;
+            &.last{
+              border: none;
+            }
+            .node_erpal_file, img {
+              float: left;
+              margin-bottom: 0px;
+              &:last-child {
+                float: right;
+              }
+            }
+            .nodechange {
+              margin-right: 5px;
+            }
+            a:hover {
+              color: $orange;
+            }
+          }
+        }
+      }
+
+    }
+
+    // comment-links
+    nav {
+      border: 0;
+      right: 10px;
+      padding: 0;
+      position: absolute;
+      top: 0;
+
+      .links {
+        li {
+          $size: 10px;
+
+          display: inline-block;
+          margin: 0;
+          padding-right: 0;
+
+          a {
+            background: transparent;
+            border: 0;
+            @include font-size($size);
+            min-width: $size;
+            padding: 3px;
+            position: relative;
+            text-indent: -9999em;
+
+            &:before {
+              color: rgba($copyColor, .25);
+              left: 0;
+              text-indent: 0;
+              position: absolute;
+            }
+
+            &:hover:before {
+              color: rgba($copyColor, .75);
+            }
+          }
+
+          &.comment-delete a:before {
+            @include font-awesome-content('minus-sign');
+          }
+
+          &.comment-edit a:before {
+            @include font-awesome-content('pencil');
+          }
+
+          &.comment-reply a:before {
+            @include font-awesome-content('reply');
+          }
+
+          & + li {
+            margin-left: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  & + .panel-separator {
+    margin-top: -20px;
+
+    & + .pane-node-comment-form {
+      @include border-corner-radius(top, left, 0);
+      @include border-corner-radius(top, right, 0);
+      border-top-width: 0;
+      padding-top: 0;
+    }
+  }
+
+  .field-name-field-commit-id {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    h2, div.field-items {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: normal;
+      padding: 0;
+      color: $grey;
+      &::before {
+        content: "";
+      }
+    }
+  }
+
+}
+
+.pane-node-comment-form {
+  @include border-radius();
+  border: 1px solid $border;
+  padding: $pd;
+  position: relative;
+
+  h2 {
+    @extend %comment-head-label;
+
+    &:before {
+      @include font-awesome-content('comments');
+    }
+  }
+
+  //remove border bottom from tabs
+  .field-group-htabs-wrapper div.horizontal-tabs .horizontal-tabs-panes {
+    border-bottom: none;
+    @include border-bottom-left-radius(0px);
+    @include border-bottom-right-radius(0px);
+  }
+
+  form {
+    margin-top: 0;
+  }
+
+  .form-item-subject,
+  .form-type-item {
+    display: none;
+  }
+
+  .form-actions {
+    background-color: rgba(#000, .1);
+    border: 1px solid $border;
+    border-top-width: 0;
+    margin: 0;
+    padding: 5px $pd;
+
+    input {
+      @include button();
+      margin-bottom: 0;
+
+      &#edit-submit {
+        @include button($background-color: $green);
+      }
+    }
+  }
+
+  .field-name-comment-body, .field-name-field-asset-files {
+    clear: both;
+  }
+
+  .field-name-field-asset-files {
+    margin-top: 15px;
+    @extend %multi-table;
+    @extend %field-collection;
+    .form-item {
+      margin: 0;
+    }
+  }
+  .field-name-field-contacts-ref {
+    clear: both;
+    @extend %multi-table;
+    @extend %field-collection;
+    .form-item {
+      margin: 0;
+    }
+  }
+}

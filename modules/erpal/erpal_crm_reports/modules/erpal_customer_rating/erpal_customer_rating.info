@@ -1,0 +1,11 @@
+core = "7.x"
+description = "Provides automated rating for customer categories A,B,C"
+
+name = "Erpal cutsomer rating"
+package = "ERPAL CRM"
+project = "erpal_customer_rating"
+version = "7.x-1.0-dev"
+
+dependencies[] = erpal_basic
+dependencies[] = erpal_invoice
+dependencies[] = erpal_crm_reports

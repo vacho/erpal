@@ -1,0 +1,179 @@
+<?php
+/**
+ * Implements hook_field_formatter_info().
+ */
+function relation_view_formatter_field_formatter_info() {
+  $formatter_info = array(
+    'rendered_relation_entity' => array(
+      'label' => t('Rendered relation entity'),
+      'field types' => array(
+        'relation',
+        'relation_add',
+        'relation_select',
+      ),
+      'settings' => array('view_mode' => 'default', 'relation_type_label' => 0, 'hide_current_entity' => false),
+    ),
+  );
+
+  return $formatter_info;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function relation_view_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $settings = $instance['display'][$view_mode]['settings'];
+  $default_view_mode = $settings['view_mode'];
+  
+  $relation_type_label = $settings['relation_type_label'];
+  $hide_current_entity = $settings['hide_current_entity'];
+  $element['#tree'] = TRUE;
+  
+  $entity_info = entity_get_info('relation');
+
+  $options = array();
+  foreach ($entity_info['view modes'] as $entity_view_mode => $data) {
+    $options[$entity_view_mode] = $data['label'];
+  }
+  
+  $element['view_mode'] = array(
+    '#title' => t('Relation view mode', array('!entity_type' => $entity_info['label'])),
+    '#description' => t('The view mode in which to render the relation'),
+    '#type' => 'select',
+    '#default_value' => $default_view_mode,
+    '#options' => $options,
+  );
+
+  $element['relation_type_label'] = array(
+    '#title' => t('Show relation type label'),
+    '#description' => t('If checked, the relation label or reverse label is shown'),
+    '#type' => 'checkbox',
+    '#default_value' => $relation_type_label,
+  );
+  $element['hide_current_entity'] = array(
+    '#title' => t('Hide current viewed entity'),
+    '#description' => t('If checked, the endpoint with the current views entity will not be shown in the relation'),
+    '#type' => 'checkbox',
+    '#default_value' => $hide_current_entity,
+  );
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function relation_view_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  
+  $settings = $instance['display'][$view_mode]['settings'];
+  $view_mode = !empty($settings['view_mode']) ? $settings['view_mode'] : 'full';
+  
+  $relation_type_label = $settings['relation_type_label'];
+  $hide_current_entity = $settings['hide_current_entity'];
+        
+  $info = entity_get_info('relation');
+
+  $summary = array();
+  $summary['view_modes'] = array(
+    '#type' => 'item',
+    '#title' => t('Relation view mode'),
+    '#markup' => isset($info['view modes'][$view_mode]['label']) ? $info['view modes'][$view_mode]['label'] : $view_mode,
+  );
+  
+  $summary['relation_type_label'] = array(
+    '#type' => 'item',
+    '#title' => t('Show label'),
+    '#markup' => $relation_type_label ? t('Yes') : t('No')
+  );
+  $summary['hide_current_entity'] = array(
+    '#type' => 'item',
+    '#title' => t('Hide current entity'),
+    '#markup' => $relation_type_label ? t('Yes') : t('No')
+  );
+
+  return drupal_render($summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function relation_view_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  if (empty ($items)) {
+    return array();
+  }
+
+  list($entity_id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+  $relation_type_label = (!empty($display['settings']['relation_type_label']) && $display['settings']['relation_type_label']);
+  $hide_current_entity = (!empty($display['settings']['hide_current_entity']) && $display['settings']['hide_current_entity']);
+  $view_mode = !empty($display['settings']['view_mode']) ? $display['settings']['view_mode'] : 'full';
+  //prevent infinite loops by deleting the endpoint referencing the entity being viewed.
+
+  switch ($display['type']) {
+    case 'rendered_relation_entity':
+      foreach ($items as $delta => $relation) {        
+        $relation = (object)$relation;
+        $relation_type = relation_type_load($relation->relation_type);
+
+        //we only want to render each relation. How this looks like will be controlled in the view mode of the relation.       
+        $element[$delta][$entity_type] = array(
+          '#type' => 'container',
+          '#attributes' => array(),          
+        ) + entity_view('relation', array($relation), $view_mode);                   
+        
+        if($relation_type_label){
+          //get the label for the relations direction
+          $dir = $relation->endpoints[LANGUAGE_NONE][0]['entity_id'] == $entity_id ? 1 : 0;
+          $predicate = $dir ? $relation_type->label : $relation_type->reverse_label;          
+          $element[$delta][$entity_type] += array('#prefix' => '<div class="relation-label">'.$predicate. ': </div>');
+        }
+        
+        //remove the current viewed entity from endpoints of set in settings
+        if ($hide_current_entity) {         
+          if (!empty($entity_type) && is_numeric($entity_id)) {
+            $build = &$element[$delta][$entity_type]['relation'][$relation->rid]['endpoints'];
+            
+            foreach ($build as $key => &$endpoints) {
+              if (!is_numeric($key) || !is_array($endpoints))
+                continue;
+
+              if (!empty($endpoints[$entity_type][$entity_id])) {
+                //unset the currently viewed entity
+                unset($endpoints[$entity_type][$entity_id]);
+              }
+            }
+          }
+        }
+        
+      }
+      break;
+  }
+  
+  return $element;
+}
+
+/**
+* Implements hook_entity_view_alter
+*/
+function relation_view_formatter_entity_view_alter(&$build, $type) {
+  //if option is set NOT to rendered the current viewed endpoint, remove it.
+  if ($type != 'relation')
+    return;
+
+  $entity_type = arg(0);
+  $entity_id = arg(1);
+  
+  if (!empty($entity_type) || !is_numeric($entity_id))
+    return;
+    
+  if (!empty($build['endpoints'])) {
+    foreach ($build['endpoints'] as $delta => &$endpoints) {
+      if (!is_numeric($delta) || !is_array($endpoints))
+        continue;
+
+      if (!empty($endpoints[$entity_type][$entity_id])) {
+        //unset the currently viewed entity
+        unset($endpoints[$entity_type][$entity_id]);
+      }
+    }
+  }
+}

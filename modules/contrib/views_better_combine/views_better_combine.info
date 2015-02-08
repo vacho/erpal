@@ -1,0 +1,16 @@
+name = Views better combine
+description = Better combine filter for views
+core = 7.x
+package = Views
+
+dependencies[] = views
+
+files[] = views_better_combine_handler_filter.inc
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "views_better_combine"
+datestamp = "1413471925"
+

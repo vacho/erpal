@@ -1,0 +1,17 @@
+core = "7.x"
+description = "ERPAL Dashboard Helper"
+name = "erpal_dashboard_helper"
+package = "ERPAL"
+php = "5.2.4"
+project = "erpal_dashboard_helper"
+version = "7.x-1.0-dev"
+
+files[] = erpal_dashboard_helper.module
+files[] = erpal_dashboard_helper.install
+
+; Information added by Drupal.org packaging script on 2014-10-16
+version = "7.x-2.1"
+core = "7.x"
+project = "erpal"
+datestamp = "1413471848"
+

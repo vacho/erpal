@@ -1,0 +1,16 @@
+name = Views Calc Distinct
+description = Recalculate totals for views with Distinct option.
+core = 7.x
+package = Views
+
+dependencies[] = views_calc
+
+files[] = views_calc_distinct_plugin_style_table.inc
+configure = admin/structure/views/views_calc_distinct
+
+; Information added by Drupal.org packaging script on 2014-09-09
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "views_calc_distinct"
+datestamp = "1410291150"
+

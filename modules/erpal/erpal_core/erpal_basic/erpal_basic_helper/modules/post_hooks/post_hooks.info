@@ -1,0 +1,15 @@
+name = Post hooks
+description = A module allowing altering every hook at very last
+package = ERPAL
+core = 7.x
+files[] = post_hooks.module
+files[] = post_hooks.install
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_core"
+datestamp = "1413471924"
+

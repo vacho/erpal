@@ -1,0 +1,166 @@
+$pd: 15px;
+// padding default
+$pdn: 0 - $pd;
+// negative
+$labelWidth: 150px;
+$fieldWidth: 250px;
+$fieldBorderRadius: 3px;
+
+%form-add-box {
+  background-color: rgba($orange, .2);
+  border-top: 1px solid $border;
+  @include rem('padding', 5px, 0);
+  text-align: center;
+
+  input {
+    @include button();
+    margin: 0;
+  }
+}
+
+%form-field-left {
+  // shitty name...
+  margin-left: 0 - $labelWidth - $pd;
+}
+
+%form-wrap-labelpadding {
+  padding-left: $labelWidth + $pd;
+}
+
+%multi-table {
+  padding-left: 0;
+
+  .tabledrag-toggle-weight-wrapper {
+    display: none;
+  }
+
+  fieldset {
+    margin-left: 0;
+  }
+
+  .field-multiple-table {
+    border: none;
+
+    thead,
+    tr,
+    th {
+//      background-color: transparent;
+    }
+
+    td {
+      padding: 0;
+    }
+
+    .field-multiple-drag {
+      width: 0;
+
+      a {
+        display: none;
+      }
+    }
+
+    fieldset {
+      padding: 4px;
+
+      div {
+        padding: 0;
+      }
+    }
+
+    .irf-targets {
+      margin: 0;
+      float: none;
+      vertical-align: bottom;
+      width: auto;
+
+      .form-item {
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .dialog-links {
+        display: none;
+      }
+    }
+
+    tr + tr fieldset {
+      border-top-width: 0;
+    }
+  }
+
+  //buttons inline with fields for file table
+//  [id^=field-asset-files-values] {
+    .form-type-textfield {
+      float: left;
+    }
+    .dialog-links {
+      float: right;
+      ul {
+        margin: 3px 0 0;
+      }
+    }
+//  }
+
+}
+
+%form-multi-table-inline-dialog-links {
+  table {
+    .form-item, .dialog-links {
+      display: inline-block;
+    }
+  }
+}
+
+%field-collection {
+  > div {
+    border: 1px solid $border;
+
+    .field-multiple-table {
+      thead {
+//        display: none;
+      }
+
+      .field-label label {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      td + td {
+
+        padding: 8px 5px;
+//        position: relative;
+
+        div {
+          margin-bottom: 0;
+        }
+
+        .form-submit {
+          margin: 0;
+//          position: absolute;
+//          top: 5px;
+//          right: 5px;
+          float: right;
+          letter-spacing: 1px;
+
+          @include button($background-color: $silver_grey);
+        }
+      }
+
+      tr + tr td {
+        border-top: 1px solid $border;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba($copyColor, .05);
+      }
+    }
+
+    .clearfix {
+      @extend %form-add-box;
+    }
+  }
+  .references-dialog-insert-send {
+    text-shadow: none;
+  }
+
+}

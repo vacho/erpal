@@ -1,0 +1,10 @@
+<h1>The central file storage</h1>
+<h2>How to manage your files</h2>
+<p>
+In the central files overview you see all files uploaded to ERPAL. Every file is wrapped with a node that allows you to add metadata to your files. If you tagged a file when you uploaded it, you can filter on those tags or search for the file directly. Click the file title to start the download. Clicking the icon to the right of the title shows the file details. 
+In the detail view you can see to which content the file is attached and any file revisions. 
+Press CTRL+B to open an upload box on any page. Then, just drag and drop your file into this box and it’s automatically uploaded to ERPAL. You can also drag and drop this box to any file field in datasets and comments.
+</p>
+<p>
+This short screencast describes the most important features about <a href="http://youtu.be/ro_bYgFsicM?t=9m56s">working with files</a>.
+</p>

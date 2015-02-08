@@ -1,0 +1,187 @@
+diff --git a/cat.module b/cat.module
+index 943f11e..e5e2ed5 100644
+--- a/cat.module
++++ b/cat.module
+@@ -224,7 +224,7 @@ function _cat_menu_local_tasks_alter($data, $router_item, $root_path) {
+       }
+ 
+       // add new tabs
+-      foreach ($cat_item->cat_tabs as $cat_tab) {
++      foreach ($cat_item->cat_tabs as $key => $cat_tab) {
+         $path = $cat_tab['path_original'];
+         if ($token_fast_replacers) {
+           $path = strtr($path, $token_fast_replacers);
+@@ -245,6 +245,10 @@ function _cat_menu_local_tasks_alter($data, $router_item, $root_path) {
+ 
+         $tab_item['title'] = $cat_tab['title'];
+ 
++        if (module_exists('cat_i18n') && !empty($cat_item->translatable)) {
++          $tab_item['title'] = cat_i18n_string($tab_item['title'], $cat_item, $key);
++        }
++
+         if (cat_token_exists($tab_item['title'])) {
+           $tab_item['title'] = _cat_token_replace($tab_item['title'], $contexts);
+         }
+@@ -304,7 +308,7 @@ function _cat_menu_local_tasks_alter($data, $router_item, $root_path) {
+ 
+     // Add new Actions
+     if (!empty($cat_item->cat_actions)) {
+-      foreach ($cat_item->cat_actions as $cat_action) {
++      foreach ($cat_item->cat_actions as $key => $cat_action) {
+         $path = $cat_action['path_original'];
+         if ($token_fast_replacers) {
+           $path = strtr($path, $token_fast_replacers);
+@@ -325,6 +329,10 @@ function _cat_menu_local_tasks_alter($data, $router_item, $root_path) {
+ 
+         $action_item['title'] = $cat_action['title'];
+ 
++        if (module_exists('cat_i18n') && !empty($cat_item->translatable)) {
++          $action_item['title'] = cat_i18n_string($action_item['title'], $cat_item, $key, 'cat_actions');
++        }
++
+         if (cat_token_exists($action_item['title'])) {
+           $action_item['title'] = _cat_token_replace($action_item['title'], $contexts);
+         }
+diff --git a/cat_i18n.inc b/cat_i18n.inc
+index ae177ea..fd8bd65 100644
+--- a/cat_i18n.inc
++++ b/cat_i18n.inc
+@@ -44,7 +44,7 @@ class i18n_cat_item_object extends i18n_string_object_wrapper {
+   protected function translate_access() {
+     return user_access('translate interface')
+       && user_access('administer cat items')
+-      && $this->object->translatable;
++      && !empty($this->object->translatable);
+   }
+ 
+   /**
+@@ -54,16 +54,28 @@ class i18n_cat_item_object extends i18n_string_object_wrapper {
+    */
+   protected function build_properties() {
+     $properties = parent::build_properties();
+-    list ($string_type, $object_id) = $this->get_string_context();
+-    if (!empty($this->object->cat_tabs)) {
+-      foreach ($this->object->cat_tabs as $key => $title) {
+-        $properties[$this->get_textgroup()][$string_type][$object_id]['titles:' . $key] = array(
+-          'string' => $title,
+-          'title' => t('Title: @title (path: @path)', array(
+-            '@title' => $this->object->cat_tabs[$key]['title'],
+-            '@path' => $this->object->cat_tabs[$key]['path_original']
+-          ))
+-        );
++    list (, $object_id) = $this->get_string_context();
++
++    $cat_types = array('cat_tabs', 'cat_actions');
++    foreach ($cat_types as $cat_type) {
++      if (!empty($this->object->{$cat_type})) {
++        foreach ($this->object->{$cat_type} as $key => $tab) {
++          $key_name = $key;
++          if (!empty($tab['machine_name'])) {
++            $key_name = $tab['machine_name'];
++          }
++          elseif (!empty($tab['reusabled_machine_name'])) {
++            $key_name = $tab['reusabled_machine_name'];
++          }
++
++          $properties[$this->get_textgroup()][$cat_type][$object_id][$key_name] = array(
++            'string' => $tab['title'],
++            'title' => t('Title: @title (path: @path)', array(
++              '@title' => $tab['title'],
++              '@path' => $tab['path_original']
++            ))
++          );
++        }
+       }
+     }
+ 
+diff --git a/cat_i18n.module b/cat_i18n.module
+index 5655f3c..0446e8b 100644
+--- a/cat_i18n.module
++++ b/cat_i18n.module
+@@ -58,7 +58,7 @@ function cat_i18n_i18n_object_info() {
+  * Implements hook_cat_save().
+  */
+ function cat_i18n_cat_save($cat_item) {
+-  if ($cat_item->translatable) {
++  if (!empty($cat_item->translatable)) {
+     i18n_string_object_update('cat_item', $cat_item);
+   }
+   else {
+@@ -77,13 +77,41 @@ function cat_i18n_cat_delete($cat_item) {
+ }
+ 
+ /**
++ * Translate cat tab link title.
++ *
++ * @param string $title
++ *   Link title.
++ * @param object $cat_item
++ *   Cat object.
++ * @param integer $key
++ *   Current tab key in $cat_item->{$type} array.
++ * @param string $type
++ *   Cat tab type: cat_tabs or cat_actions.
++ *
++ * @return string
++ *   Translated string.
++ */
++function cat_i18n_string($title, $cat_item, $key, $type = 'cat_tabs') {
++  $tab = $cat_item->{$type}[$key];
++
++  $key_name = $key;
++  if (!empty($tab['machine_name'])) {
++    $key_name = $tab['machine_name'];
++  }
++  elseif (!empty($tab['reusabled_machine_name'])) {
++    $key_name = $tab['reusabled_machine_name'];
++  }
++  return i18n_string("cat_item:{$type}:{$cat_item->machine_name}:{$key_name}", $title);
++}
++
++/**
+  * Implements hook_form_FORM_ID_alter().
+  */
+ function cat_i18n_form_cat_ui_list_alter(&$form, $form_state) {
+   // Do not process form if there are no cat_item.
+   if (!empty($form_state['storage']['objects'])) {
+     foreach ($form_state['storage']['objects'] as $cat_item) {
+-      if ($cat_item->translatable) {
++      if (!empty($cat_item->translatable)) {
+         $form[$cat_item->machine_name]['actions']['#links'][] = array(
+           'title' => t('Translate'),
+           'href' => "admin/structure/cat/edit/{$cat_item->machine_name}/translate",
+@@ -103,7 +131,7 @@ function cat_i18n_load_all() {
+   $cat_items_translatable = array();
+ 
+   foreach ($cat_items as $cat_item) {
+-    if ($cat_item->translatable) {
++    if (!empty($cat_item->translatable)) {
+       $cat_items_translatable[] = $cat_item;
+     }
+   }
+diff --git a/cat_ui.add_form.inc b/cat_ui.add_form.inc
+index 7f22d5c..c95e030 100644
+--- a/cat_ui.add_form.inc
++++ b/cat_ui.add_form.inc
+@@ -470,16 +470,11 @@ function _cat_ui_form_step_4_cat_settings(&$form, &$form_state) {
+     return FALSE;
+   }
+ 
+-  if (variable_get('cat_translatable', FALSE)) {
+-    $form['translatable'] = array(
+-      '#type' => 'checkbox',
+-      '#title' => t('Translatable'),
+-      '#default_value' => isset($cat_item->translatable) ? $cat_item->translatable : 0,
+-    );
+-  }
+-  else {
+-    $form['translatable'] = array();
+-  }
++  $form['translatable'] = array(
++    '#type' => 'checkbox',
++    '#title' => t('Translatable'),
++    '#default_value' => !empty($cat_item->translatable),
++  );
+ 
+   // Add help message about cat_i18n module.
+   if (module_exists('cat_i18n')) {

@@ -1,0 +1,290 @@
+<?php
+
+/**
+* @file
+* A UI module providing basic UI functionality to manage AUL access over the UI
+*
+*/
+
+/**
+* Implements hook_menu
+*/
+function aul_ui_menu() {
+  $items['node/%node/aul'] = array(
+    'title' => 'AUL Access',
+    'page callback' => 'aul_ui_node_aul',
+    'page arguments' => array(1),
+    'access callback' => 'aul_ui_node_aul_access',
+    'access arguments' => array(1),
+    'title callback' => 'aul_ui_node_aul_title',
+    'title arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+  
+  $items['node/%node/aul/%user/%/delete'] = array(
+    'page callback' => 'aul_ui_node_aul_delete',
+    'page arguments' => array(1,3, 4), //the node, the user which grant to delete
+    'access callback' => 'aul_ui_node_aul_access',
+    'access arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+  
+  $items['aul/%node/user/autocomplete'] = array(
+    'page callback' => 'aul_ui_user_autocomplete',
+    'page arguments' => array(1,4), //the node
+    'access callback' => 'aul_ui_node_aul_access',
+    'access arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+/**
+* Implements hook_permissions
+*/
+function aul_ui_permission() {
+
+  //for every node type we introduce a new permission to manage AUL access
+  $types = node_type_get_types();
+
+  $items = array();
+  foreach ($types as $type) {;
+    $perm_name = _aul_ui_get_permission($type->type);
+    $items[$perm_name] = array(
+      'title' => t('Manage !type_name aul access', array('!type_name' => $type->name)),
+    );
+  }
+ return $items;
+}
+/**
+* Return the permission for a given node to manage its access
+*/
+function _aul_ui_get_permission($node_type) {
+  return 'manage '.$node_type.' aul access';
+}
+
+/**
+* generate the title for nodes aul pages
+*/
+function aul_ui_node_aul_title($node) {
+  $title = t('Manage AUL'); 
+  
+  return $title;
+}
+
+/**
+* Access callback for url to manage AULs of a node
+*/
+function aul_ui_node_aul_access($node) {
+  if (empty($node->nid))
+    return false;
+    
+  return user_access(_aul_ui_get_permission($node->type)) && node_access('view', $node);
+}
+/**
+* Callback to manage AUL of a node
+*/
+function aul_ui_node_aul($node) {
+  //manage the aul access of a node
+  //add form to create new access grants for a user for this node
+  $title = t('Manage access for !node', array('!node' => $node->title));
+  drupal_set_title($title);
+  //show a form to add new grants
+  $form = drupal_get_form('_aul_ui_add_grants_form', $node);
+
+  return $form;
+  
+}
+
+/**
+* Callback to delete grant of a user of a given node
+*/
+function aul_ui_node_aul_delete($node, $user, $grant_type) {
+  drupal_set_message(t('Grant !grant of !node was deleted for !user', 
+    array(
+      '!grant' => $grant_type,
+      '!node' => l($node->title, 'node/'.$node->nid),
+      '!user' => l($user->name, 'user/'.$user->uid),
+    )
+  ));
+  
+  //delete the grants
+  aul_remove_aul($user->uid, $node->nid, array($grant_type => TRUE), 'aul_ui');
+  
+  node_access_acquire_grants($node);
+  drupal_goto('node/'.$node->nid.'/aul');
+}
+
+/**
+* Returns the grants list for a node
+*/
+function _aul_ui_get_grants_list($grants, $node) {
+  $rows = array();
+
+  //header
+  $header = array(t('user'), t('grant'), t('operation'));
+  
+  $grant_types = array('view', 'update', 'delete');
+  foreach ($grants as $uid=>$grant_arr) {
+    $a_user = user_load($uid);
+    foreach ($grant_types as $grant_type) {
+      if (!empty($grant_arr[$grant_type])) {
+        $delete_link = l(t('delete'), 'node/'.$node->nid.'/aul/'.$uid.'/'.$grant_type.'/delete');
+        $a_user = user_load($uid);
+        $user_link = l($a_user->name, 'user/'.$a_user->uid);
+        $rows[] = array($user_link, $grant_type, $delete_link);
+      }
+    }
+  }
+  
+  return theme('table', array('header' => $header, 'rows' => $rows));
+}
+
+/**
+* Returns all grants of all users for the give node
+*/
+function _aul_ui_get_grants($node) {
+  $auls = aul_get_all_aul_of_node($node->nid, 'aul_ui');
+  
+  //now get all users of these AULs
+  $grants = array();
+  $result = array();
+  $grant_types = array('view', 'update', 'delete');
+  foreach ($auls as $aul) {
+    $grants = aul_get_uids_with_grants($aul);
+
+    foreach ($grants as $uid=>$grants) {
+      //get grants the user is given to by this aul
+      foreach ($grant_types as $grant_type) {
+        if (!empty($grants[$grant_type]))
+          $result[$uid][$grant_type] = $grants[$grant_type];
+      }
+    }
+  }
+
+  return $result;
+}
+
+/**
+* returns the form to add new grants
+*/
+function _aul_ui_add_grants_form($form, &$form_state, $node) {
+
+  $form = array();
+  
+  $form['user'] = array(
+    '#type' => 'textfield',
+    '#title' => t('User'),
+    '#size' => 30,
+    '#maxlength' => 60,
+    '#autocomplete_path' => 'aul/'.$node->nid.'/user/autocomplete',
+    '#required' => true,
+    '#description' => t('The user(s) to add grants to separated by comma.'),
+  );
+  
+  $form['grants'] = array(
+    '#type' => 'checkboxes',
+    '#required' => true,
+    '#title' => t('Grants'),
+    '#options' => array('view' => t('view node'), 'update' => t('update node'), 'delete' => t('delete node')),
+    '#description' => t('The grants the user will be given.'),
+  );
+  
+  $form['nid'] = array(
+    '#type' => 'value',
+    '#value' => $node->nid,
+  );
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  
+  //show current data
+  $current_grants = _aul_ui_get_grants($node);
+  //create table to show current grants and delete them  
+  $table = _aul_ui_get_grants_list($current_grants, $node);
+
+  $form['data_table'] = array(
+    '#type' => 'markup',
+    '#markup' => $table,
+  );
+  
+  return $form;
+  
+}
+
+/**
+* Autocomplete handler to retrieve user to grant access to
+*/
+function aul_ui_user_autocomplete($node, $string) {
+  
+  $array = drupal_explode_tags($string);
+
+  $last_string = trim(array_pop($array));
+  $matches = array();
+  
+  if ($last_string != '') {
+    $result = db_select('users')->fields('users', array('name'))->condition('name', '%' . db_like($last_string) . '%', 'LIKE')->range(0, 10)->execute();
+    $prefix = count($array) ? implode(', ', $array) .', ' : '';
+    
+    foreach ($result as $user) {
+      $n = $user->name;
+      $matches[$prefix . $n] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
+  return;
+}
+
+/**
+* Validation handler for form to add grants to a user
+*/
+function _aul_ui_add_grants_form_validate($form, $form_state) {
+  $values = $form_state['values'];
+  $user_string = $values['user'];
+  $usernames = explode(',', $user_string);
+  foreach ($usernames as $username) {
+    $user = user_load_by_name(trim($username));
+    if (!$user)
+      form_set_error('user', t('!username is not a valid user.', array('!username' => $username)));
+  }
+}
+
+/**
+* Submit handler of add aul grants form
+*/
+function _aul_ui_add_grants_form_submit($form, $form_state) {
+  $values = $form_state['values'];
+  
+  $user_string = $values['user'];
+  $grants = $values['grants'];
+  $nid = $values['nid'];
+  $module = 'aul_ui';
+
+  $usernames = explode(',', $user_string);
+  foreach ($usernames as $username) {
+    $username = trim($username);
+    //now add these grants
+    $user = user_load_by_name($username);
+    aul_add_aul($user->uid, $nid, $grants, $module);
+    $node = node_load($nid);
+    node_access_acquire_grants($node);
+  }
+  
+  //now add these grants
+  $user = user_load_by_name($username);
+  aul_add_aul($user->uid, $nid, $grants, $module);
+  $node = node_load($nid);
+  node_access_acquire_grants($node);
+  
+  $message = t('Access to %grants "%title" has been successfully added for %user.', array(
+    '%user' => $user_string,
+    '%title' => $node->title,
+    '%grants' => implode(', ', $grants),
+  ));
+
+  drupal_set_message($message);
+}

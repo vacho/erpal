@@ -1,0 +1,24 @@
+core = "7.x"
+description = "ERPAL projects billable adds billable entity after saving timetracking to 
+agil project or task with payment informationto fixed price project"
+
+name = "erpal_projects_billable"
+package = "ERPAL Projects"
+php = "5.2.4"
+project = "erpal_projects_billable"
+version = "7.x-1.0-dev"
+
+files[] = erpal_projects_billable.module
+files[] = erpal_projects_billable.install
+files[] = erpal_projects_billable.fields.inc
+files[] = test/erpal_projects_billable.test
+
+dependencies[] = billable
+dependencies[] = erpal_project
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_project"
+datestamp = "1413471916"
+

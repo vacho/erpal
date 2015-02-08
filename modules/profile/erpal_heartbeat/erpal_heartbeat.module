@@ -1,0 +1,136 @@
+<?php
+
+/**
+ * @file
+ * ERPAL Heartbeat messages showing user activity.
+ */
+
+include_once('erpal_heartbeat.features.inc');
+
+
+/**
+* Implements hook_permission
+*/
+function erpal_heartbeat_permission() {
+  $permissions = array(
+    'access erpal heartbeat' => array(
+      'title' => t('Access ERPAL heartbeat'),
+      'description' => t('Allows a user to access the ERPAL heartbeat'),
+    ),
+  );
+  
+  return $permissions;
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function erpal_heartbeat_node_insert($node) {
+  _erpal_heartbeat_handle_node_beat($node, 'insert');
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function erpal_heartbeat_node_update($node) {
+  _erpal_heartbeat_handle_node_beat($node, 'update');
+}
+
+
+/**
+ * Implements hook_comment_insert().
+ */
+function erpal_heartbeat_comment_insert($comment) {
+  _erpal_heartbeat_handle_comment_beat($comment, 'insert');
+}
+
+/**
+ * Implements hook_comment_update().
+ */
+function erpal_heartbeat_comment_update($comment) {
+  _erpal_heartbeat_handle_comment_beat($comment, 'update');
+}
+
+/**
+* Handles a node update
+*/
+function _erpal_heartbeat_handle_node_beat($node, $op) {
+  // Save the message and assign it to the user
+  global $user;
+  $message = message_create('erpal_heartbeat_node_message', array('uid' => $user->uid));
+  // Save reference to the node in the node reference field, and the
+  // "publish" state (i.e. if the node is published or unpublished).
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->field_erpal_hb_node_ref->set($node);
+  $wrapper->field_erpal_hb_published->set($node->status);
+  $wrapper->field_erpal_hb_operation->set($op);
+  $wrapper->save();
+}
+
+/**
+* Handles a node update
+*/
+function _erpal_heartbeat_handle_comment_beat($comment, $op) {
+  $account = user_load($comment->uid);
+  $node = node_load($comment->nid);
+
+  $message = message_create('erpal_heartbeat_comment_message', array(), $account);
+  
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->field_erpal_hb_node_ref->set($node);
+  $wrapper->field_erpal_hb_comment_ref->set($comment);
+  $wrapper->field_erpal_hb_operation->set($op);
+
+  // The message should be published only if the node and the comment are
+  // both published.
+  $published = $node->status && $comment->status;
+  $wrapper->field_erpal_hb_published->set($published);
+  $wrapper->save();
+}
+
+/**
+* Implements hook_entity_view
+*/
+function erpal_heartbeat_entity_view($entity, $entity_type, $view_mode) {
+  
+  if ($entity_type == 'message') {
+    //correct the markup of the message entity for "update"+ed = updateed.
+    _erpal_heartbeat_message_correct_markup($entity, $entity_type, $view_mode);
+  }
+}
+
+/**
+* Correct markup of rendered message entities
+*/
+function _erpal_heartbeat_message_correct_markup($entity, $entity_type, $view_mode) {
+  foreach ($entity->content as $key=>&$value) {
+    if (strpos($key, 'message_text') !== false) {
+      if (!empty($value['#markup'])) {          
+        $value['#markup'] = strtr($value['#markup'], array('Updateed' => 'Updated'));
+        
+        //Update the markup to be usable for better theming
+        if ($view_mode == 'full') {
+          //add user picture
+          $uid = $entity->uid;
+          $user = user_load($uid);          
+          $image_uri = !empty($user->picture->uri) ? $user->picture->uri : false;
+          
+          //try to get a default image
+          $image_url = false;
+          if ($image_uri) {
+            $image_url = image_style_url('thumbnail', $image_uri);
+          } else {
+            $image_url = base_path().variable_get('user_picture_default', FALSE);
+          }
+          
+          if ($image_url) {            
+            $profile_url = drupal_get_path_alias('user/' . $uid);;
+            $image_markup = '<div class="user-picture"><a href="'.$profile_url.'"><img src="'.$image_url.'" /></a></div>';
+            $value['#markup'] = $image_markup.$value['#markup'];
+            
+          }
+        }
+      }
+    }
+  }
+}

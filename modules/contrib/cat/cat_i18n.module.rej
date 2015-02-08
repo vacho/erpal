@@ -1,0 +1,113 @@
+--- a/cat_i18n.inc
++++ b/cat_i18n.inc
+@@ -44,7 +44,7 @@
+   protected function translate_access() {
+     return user_access('translate interface')
+       && user_access('administer cat items')
+-      && $this->object->translatable;
++      && !empty($this->object->translatable);
+   }
+ 
+   /**
+@@ -54,16 +54,28 @@
+    */
+   protected function build_properties() {
+     $properties = parent::build_properties();
+-    list ($string_type, $object_id) = $this->get_string_context();
+-    if (!empty($this->object->cat_tabs)) {
+-      foreach ($this->object->cat_tabs as $key => $title) {
+-        $properties[$this->get_textgroup()][$string_type][$object_id]['titles:' . $key] = array(
+-          'string' => $title,
+-          'title' => t('Title: @title (path: @path)', array(
+-            '@title' => $this->object->cat_tabs[$key]['title'],
+-            '@path' => $this->object->cat_tabs[$key]['path_original']
+-          ))
+-        );
++    list (, $object_id) = $this->get_string_context();
++
++    $cat_types = array('cat_tabs', 'cat_actions');
++    foreach ($cat_types as $cat_type) {
++      if (!empty($this->object->{$cat_type})) {
++        foreach ($this->object->{$cat_type} as $key => $tab) {
++          $key_name = $key;
++          if (!empty($tab['machine_name'])) {
++            $key_name = $tab['machine_name'];
++          }
++          elseif (!empty($tab['reusabled_machine_name'])) {
++            $key_name = $tab['reusabled_machine_name'];
++          }
++
++          $properties[$this->get_textgroup()][$cat_type][$object_id][$key_name] = array(
++            'string' => $tab['title'],
++            'title' => t('Title: @title (path: @path)', array(
++              '@title' => $tab['title'],
++              '@path' => $tab['path_original']
++            ))
++          );
++        }
+       }
+     }
+ 
+--- a/cat_i18n.module
++++ b/cat_i18n.module
+@@ -58,7 +58,7 @@
+  * Implements hook_cat_save().
+  */
+ function cat_i18n_cat_save($cat_item) {
+-  if ($cat_item->translatable) {
++  if (!empty($cat_item->translatable)) {
+     i18n_string_object_update('cat_item', $cat_item);
+   }
+   else {
+@@ -77,13 +77,41 @@
+ }
+ 
+ /**
++ * Translate cat tab link title.
++ *
++ * @param string $title
++ *   Link title.
++ * @param object $cat_item
++ *   Cat object.
++ * @param integer $key
++ *   Current tab key in $cat_item->{$type} array.
++ * @param string $type
++ *   Cat tab type: cat_tabs or cat_actions.
++ *
++ * @return string
++ *   Translated string.
++ */
++function cat_i18n_string($title, $cat_item, $key, $type = 'cat_tabs') {
++  $tab = $cat_item->{$type}[$key];
++
++  $key_name = $key;
++  if (!empty($tab['machine_name'])) {
++    $key_name = $tab['machine_name'];
++  }
++  elseif (!empty($tab['reusabled_machine_name'])) {
++    $key_name = $tab['reusabled_machine_name'];
++  }
++  return i18n_string("cat_item:{$type}:{$cat_item->machine_name}:{$key_name}", $title);
++}
++
++/**
+  * Implements hook_form_FORM_ID_alter().
+  */
+ function cat_i18n_form_cat_ui_list_alter(&$form, $form_state) {
+   // Do not process form if there are no cat_item.
+   if (!empty($form_state['storage']['objects'])) {
+     foreach ($form_state['storage']['objects'] as $cat_item) {
+-      if ($cat_item->translatable) {
++      if (!empty($cat_item->translatable)) {
+         $form[$cat_item->machine_name]['actions']['#links'][] = array(
+           'title' => t('Translate'),
+           'href' => "admin/structure/cat/edit/{$cat_item->machine_name}/translate",
+@@ -103,7 +131,7 @@
+   $cat_items_translatable = array();
+ 
+   foreach ($cat_items as $cat_item) {
+-    if ($cat_item->translatable) {
++    if (!empty($cat_item->translatable)) {
+       $cat_items_translatable[] = $cat_item;
+     }
+   }

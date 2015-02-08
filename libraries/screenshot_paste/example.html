@@ -1,0 +1,51 @@
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<!--<script type="text/javascript" src="js/plugin.js"></script>
+<style type="text/css">
+  div.cke_button__screenshotpaste {
+    display: inline-block;
+    height: 18px;
+    padding: 4px 6px;
+    outline: rgb(0, 0, 0);
+    cursor: default;
+    float: left;
+    border: 0px;
+  }
+  div.cke_button__screenshotpaste .cke_button_label {
+    display:inline !important;
+  }
+</style>-->
+<script type="text/javascript">
+//<![CDATA[
+  var sURL  = '/';
+  
+  CKEDITOR.plugins.addExternal( 'screenshot_paste', sURL, 'plugin.js' );
+  $(function() {
+	// Replace the <textarea id="editor1"> with a CKEditor
+	// instance, using default configuration.
+	CKEDITOR.replace( 'editor__1',
+		{
+			extraPlugins : 'screenshot_paste',
+			toolbar :
+			[
+				[ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+				[ 'ScreenshotPaste' ]
+			]
+		});
+  
+	CKEDITOR.replace( 'editor2',
+		{
+			extraPlugins : 'screenshot_paste',
+			toolbar :
+			[
+				[ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+				[ 'ScreenshotPaste' ]
+			]
+		});
+  });
+//]]>
+</script>
+
+<textarea name="editor1" id="editor__1"></textarea>
+<textarea name="editor2" id="editor2"></textarea>

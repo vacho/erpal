@@ -1,0 +1,13 @@
+name        = FileJS
+description = This is an extension enabling you to use the HTML5 File API in combination with the BoxJS Framework.
+version     = "7.x-1.0"
+core        = 7.x
+
+dependencies[]  = boxjs
+
+; Information added by Drupal.org packaging script on 2014-10-16
+version = "7.x-2.1"
+core = "7.x"
+project = "erpal"
+datestamp = "1413471848"
+

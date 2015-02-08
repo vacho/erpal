@@ -1,0 +1,174 @@
+/*styles for ul*/
+
+@mixin ul{
+	margin: 0px 0px 0px 10px;
+	padding: 0px;
+	li {
+	  list-style-type: disc;
+	}
+}
+@mixin ol{
+	margin: 0px 0px 0px 10px;
+	padding: 0px;
+	li {
+	  list-style-type: decimal;
+	}
+}
+/*styles for mixins*/
+@mixin rounded_corners{/*styles for filter box*/ 
+	padding: 10px;
+	background-color: $bg_light_grey;
+	@include border-radius(4px, 4px, 0, 0); 
+}
+@mixin rounded_corners_10{
+	@include border-radius(10px); 
+}
+@mixin text_bold_12{
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+
+
+
+/*styles for h1, h2, h3, h4, h5, h6 mixins*/
+@mixin headline($font_size, $size_line-height, $margin_bottom, $font-weight) {
+	margin: 0px 0px $margin_bottom 0px;
+	  font: {
+		weight: $font-weight;
+		size: $font_size;
+	  }
+	line-height: $size_line-height;
+}
+
+@mixin a_black{
+	margin: 0;
+	padding: 9px 12px 10px 35px;
+	letter-spacing: 1px;
+	@include text_bold_12;
+	border: none;
+}
+@mixin dist_zero{
+    margin: 0px;
+	padding: 0px;
+}
+@mixin orange_border{
+	border-top: 2px solid $dark_orange;
+	border-bottom: 2px solid $dark_orange !important;
+}
+
+
+@mixin cf {
+  overflow: hidden;   // New formatting context in better browsers
+  *overflow: visible; // Protect IE7 and older from the overflow property
+  *zoom: 1;           // Give IE hasLayout, a new formatting context equivalent
+}
+
+
+//
+// Image replacement
+// Kellum Method: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
+// Additional helpers from http://html5boilerplate.com/docs/css/
+// This is also included as a SASS mixin, see: sass/custom.rb
+//
+
+@mixin ir {
+  // Kellum Method
+  display: block !important;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  // Additional helpers
+  border: 0;                     // Remove the default border from elements like <button>
+  font: 0/0 a;                   // Crush the text down to take up no space
+  text-shadow: none;             // Remove any text shadows
+  color: transparent;            // Hide any residual text in Safari 4 and any mobile devices that may need it
+  background-color: transparent; // Hide the default background color on elements like <button>
+}
+
+
+//
+// element-invisible improved and more robust
+//
+@mixin element-invisible {
+  border: 0;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax
+  }
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+//
+// Turns off the element-invisible effect
+//
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+@mixin element-focusable {
+  @include element-invisible;
+
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+
+//
+// Shift content offscreen, can be usefull when you reall need to do this
+//
+@mixin offscreen {
+  position: absolute;
+  top: -99999em;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  outline: 0;
+}
+
+
+//
+// Hide content from all users
+//
+@mixin element-hidden {
+  display: none;
+}
+
+
+//
+// The word "Unpublished" displayed underneath unpublished nodes and comments
+//
+@mixin unpublished {
+  color: pink; // target browsers that do not support rgba
+  color: rgba(239, 170, 170, 0.4);
+  font-family: $impact;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  text-align: center;
+  text-transform: uppercase;
+  word-wrap: break-word;
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    .ie6-7 &>* {
+      position: relative; // Otherwise these elements will appear below the "Unpublished" text.
+    }
+  }
+}

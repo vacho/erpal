@@ -1,0 +1,16 @@
+name = "ERPAL Contact Importer field collection helper"
+description = "Contains a simple field collection integration for feeds"
+
+project = "erpal_contacts_importer"
+package = "ERPAL CRM"
+
+core = "7.x"
+version = "7.x-1.0"
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_contacts_importer"
+datestamp = "1413471903"
+

@@ -1,0 +1,3143 @@
+/*
+Document   : global_vars_a_mixins
+Created on : December, 2012, 
+Description:
+Purpose of the stylesheet follows.
+*/
+/*
+TODO customize this sample style
+Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+*/
+/*******************/
+/* IMPORTS
+/*******************/
+/*******************/
+/* VARIABLES
+/*******************/
+/* color variables */
+/* background*/
+/*for left menu*/
+/*for menu item grey border, */
+/*link color*/
+/*styles for alert*/
+/*background for pane titles, table th*/
+/*for border*/
+/*grey link color*/
+/*for quicktabs-tabs color*/
+/*for top menu border*/
+/*for Quick timetracking*/
+/*styles for border*/
+/*for shadow*/
+/*styles for text*/
+/*gradient styles*/
+/*styles for ul*/
+/*styles for mixins*/
+/*styles for h1, h2, h3, h4, h5, h6 mixins*/
+.title_icons-sprite, #homebox .homebox-portlet#homebox-block-views_assigned_tasks-block .portlet-header, #homebox .homebox-portlet#homebox-block-timetracking_block .portlet-header, #homebox .homebox-portlet#homebox-block-views_timetracking_entities-block_1 .portlet-header, #homebox .homebox-portlet#homebox-block-views_bookmarks-block .portlet-header, .node-type-erpal-contact .region-sidebar-left .panel-pane h2.pane-title.block-title, .page-dashboard .pane-page-content h1.pane-title, .page-user-notifications .pane-page-content h1.pane-title, .page-projects-projects .pane-page-content h1.pane-title,
+.node-type-erpal-project .pane-page-content h1.pane-title, .page-contacts .pane-page-content h1.pane-title,
+.page-node-add-erpal-contact .pane-page-content h1.pane-title,
+.node-type-erpal-contact .pane-page-content h1.pane-title,
+.page-field-collection-field-addresses .pane-page-content h1.pane-title,
+.page-field-collection-field-phone .pane-page-content h1.pane-title,
+.page-field-collection-field-bank-accounts .pane-page-content h1.pane-title, .page-activities .pane-page-content h1.pane-title,
+.page-node-add-erpal-crm-activity h1.pane-title,
+.node-type-erpal-crm-activity h1.pane-title, .page-books .pane-page-content h1.pane-title,
+.page-node-add-erpal-book .pane-page-content h1.pane-title,
+.node-type-erpal-book .pane-page-content h1.pane-title,
+.page-node-add-erpal-book-page .pane-page-content h1.pane-title,
+.node-type-erpal-book-page .pane-page-content h1.pane-title, .page-heartbeat .pane-page-content h1.pane-title, .page-files .pane-page-content h1.pane-title,
+.page-node-files .pane-page-content h1.pane-title,
+.page-node-add-erpal-file .pane-page-content h1.pane-title,
+.node-type-erpal-file .pane-page-content h1.pane-title, .page-invoice-invoices h1.pane-title,
+.page-node-add-erpal-invoice .pane-page-content h1.pane-title,
+.node-type-erpal-invoice .pane-page-content h1.pane-title, .page-contracts .pane-page-content h1.pane-title,
+.node-type-erpal-contract h1.pane-title,
+.page-node-add-erpal-contract .pane-page-content h1.pane-title, .page-timekeeping .pane-page-content h1.pane-title,
+.page-node-timetracking .pane-page-content h1.pane-title,
+.page-node-add-erpal-working-time h1.pane-title,
+.node-type-erpal-working-time h1.pane-title,
+.page-node-add-erpal-timetracking h1.pane-title,
+.node-type-erpal-timetracking h1.pane-title,
+.page-projects-timetrackings h1.pane-title, .page-projects-timetrackings-tmp h1.pane-title, .page-books.page-books-templates h1.pane-title, .node-type-erpal-task .pane-page-content h1.pane-title,
+.page-node-tasks .pane-page-content h1.pane-title,
+.page-tasks h1.pane-title,
+.page-node-add-erpal-task h1.pane-title, .page-projects-pricing .pane-page-content h1.pane-title,
+.page-node-pricing .pane-page-content h1.pane-title,
+.page-invoice-billables .pane-page-content h1.pane-title,
+.page-billable-add .pane-page-content h1.pane-title, .page-projects-budgets .pane-page-content h1.pane-title,
+.page-budget-edit .pane-page-content h1.pane-title,
+.page-budget .pane-page-content h1.pane-title, .page-node-tickets .pane-page-content h1.pane-title, .node-type-erpal-invoice .pane-page-content .pane-page-title h1.pane-title, .page-user h1.pane-title, .page-user-bookmarks h1.pane-title, .page-user-projects h1.pane-title,
+.page-node-add-erpal-project h1.pane-title, .page-user-tasks h1.pane-title,
+.page-node-add-erpal-task h2.pane-title, .page-reports-crm h1.pane-title,
+.page-reports-project h1.pane-title,
+.page-reports h1.pane-title,
+.page-reports-dashboard h1.pane-title, .page-calendar h1.pane-title,
+.page-node-add-erpal-date h1.pane-title,
+.page-node-calendar h1.pane-title,
+.node-type-erpal-date h1.pane-title {
+  background: url('../images/title_icons-s6341db9eb7.png') no-repeat;
+}
+
+.menu_tabs_icons-sprite, .pane-system-user-menu ul li.my-bookmarks a, .pane-system-user-menu ul li.my-bookmarks a:hover, .pane-system-user-menu ul li.my-tasks a, .pane-system-user-menu ul li.my-tasks a:hover, .pane-system-user-menu ul li.heartbeat a, .pane-system-user-menu ul li.heartbeat a:hover, .pane-system-user-menu ul li.my-account a, .pane-system-user-menu ul li.my-account a:hover, .pane-system-user-menu ul li.timekeeping a, .pane-system-user-menu ul li.timekeeping a:hover, .pane-system-user-menu ul li.my-projects a, .pane-system-user-menu ul li.my-projects a:hover, .pane-system-user-menu ul li.log-out a, .pane-system-user-menu ul li.log-out a:hover, #mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a, #mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a:hover, #mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link, #mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link:hover, .erpal-content-right .flag-wrapper.flag-project-subscriptions a, .erpal-content-right .flag-wrapper.flag-task-subscriptions a, .erpal-content-right .flag-wrapper.flag-project-subscriptions a:hover, .erpal-content-right .flag-wrapper.flag-task-subscriptions a:hover, .erpal-content-right .flag-wrapper.flag-bookmark-flag a, .erpal-content-right .flag-wrapper.flag-bookmark-flag a:hover, .views-field-operations div.quicklinks a.tasks, .views-field-operations div.quicklinks a.tasks:hover, .views-field-operations div.quicklinks a.tickets, .views-field-operations div.quicklinks a.tickets:hover, .views-field-operations div.quicklinks a.files, .views-field-operations div.quicklinks a.files:hover, .views-field-operations div.quicklinks a.calendar, .views-field-operations div.quicklinks a.calendar:hover, .views-field-operations div.quicklinks a.timetracking, .views-field-operations div.quicklinks a.timetracking:hover {
+  background: url('../images/menu_tabs_icons-sa90fc835c4.png') no-repeat;
+}
+
+.menu_icons-sprite, .pane-menu-menu-erpal-menu ul.menu .projects a, .pane-menu-menu-erpal-menu ul.menu .projects a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.projects a, .pane-menu-menu-erpal-menu ul.menu .active-trail.projects a:hover, .pane-menu-menu-erpal-menu ul.menu .documents a, .pane-menu-menu-erpal-menu ul.menu .documents a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.documents a, .pane-menu-menu-erpal-menu ul.menu .active-trail.documents a:hover, .pane-menu-menu-erpal-menu ul.menu .invoices a, .pane-menu-menu-erpal-menu ul.menu .invoices a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.invoices a, .pane-menu-menu-erpal-menu ul.menu .active-trail.invoices a:hover, .pane-menu-menu-erpal-menu ul.menu .contracts a, .pane-menu-menu-erpal-menu ul.menu .contracts a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.contracts a, .pane-menu-menu-erpal-menu ul.menu .active-trail.contracts a:hover, .pane-menu-menu-erpal-menu ul.menu .heartbeat a, .pane-menu-menu-erpal-menu ul.menu .heartbeat a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.heartbeat a, .pane-menu-menu-erpal-menu ul.menu .active-trail.heartbeat a:hover, .pane-menu-menu-erpal-menu ul.menu .files a, .pane-menu-menu-erpal-menu ul.menu .files a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.files a, .pane-menu-menu-erpal-menu ul.menu .active-trail.files a:hover, .pane-menu-menu-erpal-menu ul.menu .calendar a, .pane-menu-menu-erpal-menu ul.menu .calendar a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.calendar a, .pane-menu-menu-erpal-menu ul.menu .active-trail.calendar a:hover, .pane-menu-menu-erpal-menu ul.menu .contacts a, .pane-menu-menu-erpal-menu ul.menu .contacts a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.contacts a, .pane-menu-menu-erpal-menu ul.menu .active-trail.contacts a:hover, .pane-menu-menu-erpal-menu ul.menu .activities a, .pane-menu-menu-erpal-menu ul.menu .activities a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.activities a, .pane-menu-menu-erpal-menu ul.menu .active-trail.activities a:hover, .pane-menu-menu-erpal-menu ul.menu .timekeeping a, .pane-menu-menu-erpal-menu ul.menu .timekeeping a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.timekeeping a, .pane-menu-menu-erpal-menu ul.menu .active-trail.timekeeping a:hover, .pane-menu-menu-erpal-menu ul.menu .reports a, .pane-menu-menu-erpal-menu ul.menu .reports a:hover, .pane-menu-menu-erpal-menu ul.menu .active-trail.reports a, .pane-menu-menu-erpal-menu ul.menu .active-trail.reports a:hover {
+  background: url('../images/menu_icons-s0b115a08f5.png') no-repeat;
+}
+
+.content_icons-sprite, .erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a, .erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a:hover, .comment_erpal_file .file_download_link a,
+.node_erpal_file .file_download_link a,
+.page-node-files .views-field-title .file_download_link a,
+.page-files .views-field-title .file_download_link a, .comment_erpal_file .file_download_link a:hover,
+.node_erpal_file .file_download_link a:hover,
+.page-node-files .views-field-title .file_download_link a:hover,
+.page-files .views-field-title .file_download_link a:hover, .comment_erpal_file .file_node_link a,
+.node_erpal_file .file_node_link a,
+.page-node-files .views-field-title .file_node_link a,
+.page-files .views-field-title .file_node_link a, .comment_erpal_file .file_node_link a:hover,
+.node_erpal_file .file_node_link a:hover,
+.page-node-files .views-field-title .file_node_link a:hover,
+.page-files .views-field-title .file_node_link a:hover, #homebox .view-assigned-tasks td.views-field-title a, #homebox .view-assigned-tasks td.views-field-title a:hover, #homebox .view-assigned-tasks td.views-field-field-project-ref a, #homebox .view-assigned-tasks td.views-field-field-project-ref a:hover, .page-projects td.views-field-title a,
+.page-projects-budgets .views-field-php-1 a,
+.page-projects-timetrackings td.views-field-title-2 a,
+.page-user-notifications td.views-field-title-1 a,
+.node-type-erpal-crm-activity .view-projects .field-content a, .page-projects td.views-field-title a:hover,
+.page-projects-budgets .views-field-php-1 a:hover,
+.page-projects-timetrackings td.views-field-title-2 a:hover,
+.page-user-notifications td.views-field-title-1 a:hover,
+.node-type-erpal-crm-activity .view-projects .field-content a:hover, .node-type-erpal-contact td.views-field-title a,
+.page-activities td.views-field-title a, .node-type-erpal-contact td.views-field-title a:hover,
+.page-activities td.views-field-title a:hover, .page-user-bookmarks td.views-field-title a, .page-user-bookmarks td.views-field-title a:hover, .page-contracts td.views-field-title a, .page-contracts td.views-field-title a:hover, .page-projects-timetrackings td.views-field-title a, .page-projects-timetrackings td.views-field-title a:hover, .page-invoice-invoices td.views-field-title a, .page-invoice-invoices td.views-field-title a:hover, .pane-contacts-panel-pane-1 td.views-field-title a,
+.node-type-erpal-crm-activity .node_erpal_contact a, .pane-contacts-panel-pane-1 td.views-field-title a:hover,
+.node-type-erpal-crm-activity .node_erpal_contact a:hover, .page-books-books td.views-field-title a, .page-books-books td.views-field-title a:hover, .page-books-templates td.views-field-title a, .page-books-templates td.views-field-title a:hover, #mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a, #mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a:hover,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a:hover, #mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a, #mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a:hover {
+  background: url('../images/content_icons-s875af4532b.png') no-repeat;
+}
+
+iframe body {
+  background-color: white;
+}
+
+body {
+  /*----------end node task-----------*/
+  /*----------end node ticket-----------*/
+}
+body.panels-ipe {
+  margin-bottom: 0 !important;
+}
+body #erpal_wrapper .erpal-region-content {
+  margin-bottom: 10px;
+  padding-top: 20px;
+  background-color: white;
+  -webkit-border-radius: 0px 5px 5px 5px;
+  -moz-border-radius: 0px 5px 5px 5px;
+  -ms-border-radius: 0px 5px 5px 5px;
+  -o-border-radius: 0px 5px 5px 5px;
+  border-radius: 0px 5px 5px 5px;
+  -webkit-box-shadow: black 0px 0px 5px;
+  -moz-box-shadow: black 0px 0px 5px;
+  box-shadow: black 0px 0px 5px;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  min-height: 500px;
+}
+body #erpal_wrapper .erpal-top {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  background-color: #e9e5e2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  height: 28px;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+body #erpal_wrapper .erpal-top .block .block {
+  float: left;
+}
+body #erpal_wrapper .erpal-region-left.panel-col-first {
+  margin: 0;
+  width: 150px;
+  max-width: none;
+  height: 100%;
+  float: left;
+  position: absolute;
+}
+body #erpal_wrapper .erpal-region-left.panel-col-first > .inside {
+  margin: 0;
+  padding-right: 0;
+  height: 100%;
+}
+body.page-node-tasks {
+  /*----------begin node task-----------*/
+}
+body.page-node-tasks li {
+  list-style-type: none;
+}
+body.page-node-tickets {
+  /*----------begin node ticket-----------*/
+}
+body.page-node-tickets li {
+  list-style-type: none;
+}
+body .inline_fields {
+  clear: both;
+}
+body .inline_fields .field {
+  margin-right: 50px;
+  clear: none !important;
+  float: left;
+}
+body.page-crm-contacts table .views-field-field-contact-image {
+  width: 160px;
+}
+body.page-crm-contacts table .views-field-title {
+  width: 345px;
+}
+body .view-crm-activities table {
+  border-collapse: collapse;
+}
+body #user-login input.form-text {
+  width: 200px;
+}
+
+.pane-system-user-menu {
+  /*----------begin User menu-------------*/
+}
+.pane-system-user-menu ul {
+  margin: 0 0 0 20px;
+  padding: 0 10px 0 2px;
+  overflow: hidden;
+  float: right;
+  border-left: 1px solid #d0cac6;
+  border-right: 1px solid #d0cac6;
+}
+.pane-system-user-menu ul li {
+  margin-left: 15px;
+  padding: 0;
+  float: left;
+  text-align: center;
+  width: 25px;
+}
+.pane-system-user-menu ul li a {
+  padding-left: 25px;
+  color: #645c57;
+  display: block;
+  text-indent: -2000px;
+}
+.pane-system-user-menu ul li a:hover {
+  color: #fc9822;
+}
+.pane-system-user-menu ul li.my-bookmarks a {
+  background-position: 0 -1011px;
+}
+.pane-system-user-menu ul li.my-bookmarks a:hover, .pane-system-user-menu ul li.my-bookmarks a.bookmark_hover, .pane-system-user-menu ul li.my-bookmarks a.bookmark-hover {
+  background-position: 0 -1151px;
+}
+.pane-system-user-menu ul li.my-bookmarks a:hover {
+  background-position: 0 -1151px;
+}
+.pane-system-user-menu ul li.my-tasks a {
+  background-position: 0 -276px;
+}
+.pane-system-user-menu ul li.my-tasks a:hover, .pane-system-user-menu ul li.my-tasks a.task_hover, .pane-system-user-menu ul li.my-tasks a.task-hover {
+  background-position: 0 -451px;
+}
+.pane-system-user-menu ul li.my-tasks a:hover {
+  background-position: 0 -451px;
+}
+.pane-system-user-menu ul li.heartbeat a {
+  background-position: 0 -1116px;
+}
+.pane-system-user-menu ul li.heartbeat a:hover, .pane-system-user-menu ul li.heartbeat a.log_hover, .pane-system-user-menu ul li.heartbeat a.log-hover {
+  background-position: 0 -1668px;
+}
+.pane-system-user-menu ul li.heartbeat a:hover {
+  background-position: 0 -1668px;
+}
+.pane-system-user-menu ul li.my-account a {
+  background-position: 0 -801px;
+}
+.pane-system-user-menu ul li.my-account a:hover, .pane-system-user-menu ul li.my-account a.user_hover, .pane-system-user-menu ul li.my-account a.user-hover {
+  background-position: 0 -766px;
+}
+.pane-system-user-menu ul li.my-account a:hover {
+  background-position: 0 -766px;
+}
+.pane-system-user-menu ul li.timekeeping a {
+  background-position: 0 -556px;
+}
+.pane-system-user-menu ul li.timekeeping a:hover, .pane-system-user-menu ul li.timekeeping a.timekeeping_hover, .pane-system-user-menu ul li.timekeeping a.timekeeping-hover {
+  background-position: 0 -486px;
+}
+.pane-system-user-menu ul li.timekeeping a:hover {
+  background-position: 0 -486px;
+}
+.pane-system-user-menu ul li.my-projects a {
+  background-position: 0 -1599px;
+}
+.pane-system-user-menu ul li.my-projects a:hover, .pane-system-user-menu ul li.my-projects a.projects_hover, .pane-system-user-menu ul li.my-projects a.projects-hover {
+  background-position: 0 -1566px;
+}
+.pane-system-user-menu ul li.my-projects a:hover {
+  background-position: 0 -1566px;
+}
+.pane-system-user-menu ul li.log-out {
+  margin-left: 11px;
+}
+.pane-system-user-menu ul li.log-out a {
+  background-position: 0 -906px;
+}
+.pane-system-user-menu ul li.log-out a:hover, .pane-system-user-menu ul li.log-out a.logout_hover, .pane-system-user-menu ul li.log-out a.logout-hover {
+  background-position: 0 -1046px;
+}
+.pane-system-user-menu ul li.log-out a:hover {
+  background-position: 0 -1046px;
+}
+
+/*----------end User menu-------------*/
+#mini-panel-user_bar .panel-panel {
+  width: auto;
+}
+#mini-panel-user_bar .panel-panel .panel-separator {
+  display: none;
+}
+#mini-panel-user_bar .panel-panel.panel-col-last {
+  margin-right: 20px;
+  width: auto;
+  float: right;
+}
+#mini-panel-user_bar .panel-panel.panel-col-last .inside {
+  margin-left: 0px;
+  min-width: 60px;
+}
+#mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a {
+  padding: 6px 0 6px 22px;
+  background-position: 0 -906px;
+  line-height: 27px;
+}
+#mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a:hover, #mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a.logout_hover, #mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a.logout-hover {
+  background-position: 0 -1046px;
+}
+#mini-panel-user_bar .panel-panel.panel-col-last .inside .pane-erpal-basic-helper-logout-block .block-content a:hover {
+  background-position: 0 -1046px;
+  color: #fc9822;
+}
+#mini-panel-user_bar .panel-panel .welcome_user {
+  line-height: 27px;
+}
+#mini-panel-user_bar .panel-panel .welcome_user img {
+  margin-top: 3px;
+  margin-right: 5px;
+  float: left;
+  max-width: 22px;
+  max-height: 22px;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link {
+  padding-left: 25px;
+  float: left;
+  background-position: 0 -696px;
+  line-height: 30px;
+  font-size: 0;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link:hover, #mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link.active_timetracking_hover, #mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link.active_timetracking-hover {
+  background-position: 0 -626px;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timekeeping_link:hover {
+  background-position: 0 -626px;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking_subject {
+  margin-right: 2px;
+  line-height: 30px;
+  float: left;
+  max-width: 300px;
+  overflow: hidden;
+  height: 28px;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking_subject a:hover {
+  color: #fc9822;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking {
+  float: left;
+  font-weight: bold;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking a {
+  line-height: 30px;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking img {
+  margin-top: 6px;
+  margin-right: 2px;
+  float: left;
+}
+#mini-panel-user_bar .panel-panel .last_timetracking .timetracking .timetracking_text {
+  display: none;
+}
+#mini-panel-user_bar .panel-col-first {
+  width: 160px;
+}
+
+/*----------Logo-------------*/
+.pane-page-logo {
+  top: -9px;
+  left: 2px;
+  position: absolute;
+  z-index: 100;
+}
+
+/*----------end Logo-------------*/
+/*----------begin Search Block-------------*/
+.pane-search-form {
+  margin-bottom: 0px;
+}
+.pane-search-form #search-block-form {
+  margin-bottom: 12px;
+}
+.pane-search-form #search-block-form .form-text {
+  margin-left: 10px;
+  padding: 2px 0;
+  width: 120px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
+/*----------end Search Block-------------*/
+/*----------begin Erpal menu-------------*/
+/*----------begin Erpal menu items-------------*/
+.pane-menu-menu-erpal-menu ul.menu .projects a {
+  background-position: 16px -723px;
+}
+.pane-menu-menu-erpal-menu ul.menu .projects a:hover, .pane-menu-menu-erpal-menu ul.menu .projects a.projects_hover, .pane-menu-menu-erpal-menu ul.menu .projects a.projects-hover {
+  background-position: 16px -690px;
+}
+.pane-menu-menu-erpal-menu ul.menu .projects a:active, .pane-menu-menu-erpal-menu ul.menu .projects a.projects_active, .pane-menu-menu-erpal-menu ul.menu .projects a.projects-active {
+  background-position: 16px -756px;
+}
+.pane-menu-menu-erpal-menu ul.menu .projects a:hover {
+  background-position: 16px -690px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.projects a {
+  background-position: 16px -756px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.projects a:hover {
+  background-position: 16px -756px;
+}
+.pane-menu-menu-erpal-menu ul.menu .documents a {
+  background-position: 16px -414px;
+}
+.pane-menu-menu-erpal-menu ul.menu .documents a:hover, .pane-menu-menu-erpal-menu ul.menu .documents a.document_hover, .pane-menu-menu-erpal-menu ul.menu .documents a.document-hover {
+  background-position: 16px -379px;
+}
+.pane-menu-menu-erpal-menu ul.menu .documents a:active, .pane-menu-menu-erpal-menu ul.menu .documents a.document_active, .pane-menu-menu-erpal-menu ul.menu .documents a.document-active {
+  background-position: 16px -1102px;
+}
+.pane-menu-menu-erpal-menu ul.menu .documents a:hover {
+  background-position: 16px -379px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.documents a {
+  background-position: 16px -1102px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.documents a:hover {
+  background-position: 16px -1102px;
+}
+.pane-menu-menu-erpal-menu ul.menu .invoices a {
+  background-position: 16px -134px;
+}
+.pane-menu-menu-erpal-menu ul.menu .invoices a:hover, .pane-menu-menu-erpal-menu ul.menu .invoices a.invoice_hover, .pane-menu-menu-erpal-menu ul.menu .invoices a.invoice-hover {
+  background-position: 16px -239px;
+}
+.pane-menu-menu-erpal-menu ul.menu .invoices a:active, .pane-menu-menu-erpal-menu ul.menu .invoices a.invoice_active, .pane-menu-menu-erpal-menu ul.menu .invoices a.invoice-active {
+  background-position: 16px -999px;
+}
+.pane-menu-menu-erpal-menu ul.menu .invoices a:hover {
+  background-position: 16px -239px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.invoices a {
+  background-position: 16px -999px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.invoices a:hover {
+  background-position: 16px -999px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contracts a {
+  background-position: 16px 6px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contracts a:hover, .pane-menu-menu-erpal-menu ul.menu .contracts a.contract_hover, .pane-menu-menu-erpal-menu ul.menu .contracts a.contract-hover {
+  background-position: 16px -29px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contracts a:active, .pane-menu-menu-erpal-menu ul.menu .contracts a.contract_active, .pane-menu-menu-erpal-menu ul.menu .contracts a.contract-active {
+  background-position: 16px -894px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contracts a:hover {
+  background-position: 16px -29px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.contracts a {
+  background-position: 16px -894px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.contracts a:hover {
+  background-position: 16px -894px;
+}
+.pane-menu-menu-erpal-menu ul.menu .heartbeat a {
+  background-position: 16px -449px;
+}
+.pane-menu-menu-erpal-menu ul.menu .heartbeat a:hover, .pane-menu-menu-erpal-menu ul.menu .heartbeat a.log_hover, .pane-menu-menu-erpal-menu ul.menu .heartbeat a.log-hover {
+  background-position: 16px -789px;
+}
+.pane-menu-menu-erpal-menu ul.menu .heartbeat a:active, .pane-menu-menu-erpal-menu ul.menu .heartbeat a.log_active, .pane-menu-menu-erpal-menu ul.menu .heartbeat a.log-active {
+  background-position: 16px -859px;
+}
+.pane-menu-menu-erpal-menu ul.menu .heartbeat a:hover {
+  background-position: 16px -789px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.heartbeat a {
+  background-position: 16px -859px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.heartbeat a:hover {
+  background-position: 16px -859px;
+}
+.pane-menu-menu-erpal-menu ul.menu .files a {
+  background-position: 16px -64px;
+}
+.pane-menu-menu-erpal-menu ul.menu .files a:hover, .pane-menu-menu-erpal-menu ul.menu .files a.files_hover, .pane-menu-menu-erpal-menu ul.menu .files a.files-hover {
+  background-position: 16px -309px;
+}
+.pane-menu-menu-erpal-menu ul.menu .files a:active, .pane-menu-menu-erpal-menu ul.menu .files a.files_active, .pane-menu-menu-erpal-menu ul.menu .files a.files-active {
+  background-position: 16px -964px;
+}
+.pane-menu-menu-erpal-menu ul.menu .files a:hover {
+  background-position: 16px -309px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.files a {
+  background-position: 16px -964px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.files a:hover {
+  background-position: 16px -964px;
+}
+.pane-menu-menu-erpal-menu ul.menu .calendar a {
+  background-position: 16px -99px;
+}
+.pane-menu-menu-erpal-menu ul.menu .calendar a:hover, .pane-menu-menu-erpal-menu ul.menu .calendar a.calendar_hover, .pane-menu-menu-erpal-menu ul.menu .calendar a.calendar-hover {
+  background-position: 16px -169px;
+}
+.pane-menu-menu-erpal-menu ul.menu .calendar a:active, .pane-menu-menu-erpal-menu ul.menu .calendar a.calendar_active, .pane-menu-menu-erpal-menu ul.menu .calendar a.calendar-active {
+  background-position: 16px -929px;
+}
+.pane-menu-menu-erpal-menu ul.menu .calendar a:hover {
+  background-position: 16px -169px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.calendar a {
+  background-position: 16px -929px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.calendar a:hover {
+  background-position: 16px -929px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contacts a {
+  background-position: 16px -624px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contacts a:hover, .pane-menu-menu-erpal-menu ul.menu .contacts a.contact_hover, .pane-menu-menu-erpal-menu ul.menu .contacts a.contact-hover {
+  background-position: 16px -657px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contacts a:active, .pane-menu-menu-erpal-menu ul.menu .contacts a.contact_active, .pane-menu-menu-erpal-menu ul.menu .contacts a.contact-active {
+  background-position: 16px -1069px;
+}
+.pane-menu-menu-erpal-menu ul.menu .contacts a:hover {
+  background-position: 16px -657px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.contacts a {
+  background-position: 16px -1069px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.contacts a:hover {
+  background-position: 16px -1069px;
+}
+.pane-menu-menu-erpal-menu ul.menu .activities a {
+  background-position: 16px -344px;
+}
+.pane-menu-menu-erpal-menu ul.menu .activities a:hover, .pane-menu-menu-erpal-menu ul.menu .activities a.activity_hover, .pane-menu-menu-erpal-menu ul.menu .activities a.activity-hover {
+  background-position: 16px -484px;
+}
+.pane-menu-menu-erpal-menu ul.menu .activities a:active, .pane-menu-menu-erpal-menu ul.menu .activities a.activity_active, .pane-menu-menu-erpal-menu ul.menu .activities a.activity-active {
+  background-position: 16px -1034px;
+}
+.pane-menu-menu-erpal-menu ul.menu .activities a:hover {
+  background-position: 16px -484px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.activities a {
+  background-position: 16px -1034px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.activities a:hover {
+  background-position: 16px -1034px;
+}
+.pane-menu-menu-erpal-menu ul.menu .timekeeping a {
+  background-position: 16px -274px;
+}
+.pane-menu-menu-erpal-menu ul.menu .timekeeping a:hover, .pane-menu-menu-erpal-menu ul.menu .timekeeping a.timekeeping_hover, .pane-menu-menu-erpal-menu ul.menu .timekeeping a.timekeeping-hover {
+  background-position: 16px -204px;
+}
+.pane-menu-menu-erpal-menu ul.menu .timekeeping a:active, .pane-menu-menu-erpal-menu ul.menu .timekeeping a.timekeeping_active, .pane-menu-menu-erpal-menu ul.menu .timekeeping a.timekeeping-active {
+  background-position: 16px -824px;
+}
+.pane-menu-menu-erpal-menu ul.menu .timekeeping a:hover {
+  background-position: 16px -204px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.timekeeping a {
+  background-position: 16px -824px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.timekeeping a:hover {
+  background-position: 16px -824px;
+}
+.pane-menu-menu-erpal-menu ul.menu .reports a {
+  background-position: 16px -554px;
+}
+.pane-menu-menu-erpal-menu ul.menu .reports a:hover, .pane-menu-menu-erpal-menu ul.menu .reports a.reports_hover, .pane-menu-menu-erpal-menu ul.menu .reports a.reports-hover {
+  background-position: 16px -519px;
+}
+.pane-menu-menu-erpal-menu ul.menu .reports a:active, .pane-menu-menu-erpal-menu ul.menu .reports a.reports_active, .pane-menu-menu-erpal-menu ul.menu .reports a.reports-active {
+  background-position: 16px -589px;
+}
+.pane-menu-menu-erpal-menu ul.menu .reports a:hover {
+  background-position: 16px -519px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.reports a {
+  background-position: 16px -589px;
+}
+.pane-menu-menu-erpal-menu ul.menu .active-trail.reports a:hover {
+  background-position: 16px -589px;
+}
+
+/*-------------end Erpal menu items-----------*/
+.pane-menu-menu-erpal-menu,
+.erpal-region-left {
+  width: 150px;
+}
+.pane-menu-menu-erpal-menu .contextual-links-wrapper li,
+.erpal-region-left .contextual-links-wrapper li {
+  background: none;
+}
+.pane-menu-menu-erpal-menu ul.menu,
+.erpal-region-left ul.menu {
+  margin: 0px;
+  padding: 0px;
+}
+.pane-menu-menu-erpal-menu ul.menu li,
+.erpal-region-left ul.menu li {
+  margin-left: 0;
+  padding: 0;
+  list-style-image: none;
+  list-style-type: none;
+  position: relative;
+  z-index: 1;
+  background: url("../images/li.png") no-repeat 0 0;
+}
+.pane-menu-menu-erpal-menu ul.menu li.active-trail a, .pane-menu-menu-erpal-menu ul.menu li.active-trail a:hover,
+.erpal-region-left ul.menu li.active-trail a,
+.erpal-region-left ul.menu li.active-trail a:hover {
+  background-position: 15px -74px;
+}
+.pane-menu-menu-erpal-menu ul.menu li.active-trail a,
+.erpal-region-left ul.menu li.active-trail a {
+  color: white;
+}
+.pane-menu-menu-erpal-menu ul.menu li.active-trail a:hover,
+.erpal-region-left ul.menu li.active-trail a:hover {
+  color: white;
+  text-shadow: none;
+}
+.pane-menu-menu-erpal-menu ul.menu li.active-trail.active-trail,
+.erpal-region-left ul.menu li.active-trail.active-trail {
+  background: url("../images/li_active.png") no-repeat 0 0;
+  color: white;
+  z-index: 5;
+}
+.pane-menu-menu-erpal-menu ul.menu li a,
+.erpal-region-left ul.menu li a {
+  padding: 8px 17px 7px 42px;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  background-repeat: no-repeat;
+}
+.pane-menu-menu-erpal-menu ul.menu li a:hover,
+.erpal-region-left ul.menu li a:hover {
+  color: rgba(252, 152, 34, 0.8);
+  text-shadow: 1px 1px 1px #dedede, 0 0 0 black, 1px 1px 1px #dedede;
+}
+.pane-menu-menu-erpal-menu ul.menu li a.active,
+.erpal-region-left ul.menu li a.active {
+  color: white;
+}
+.pane-menu-menu-erpal-menu ul.menu ul,
+.erpal-region-left ul.menu ul {
+  margin: 0px;
+  padding: 0px;
+}
+.pane-menu-menu-erpal-menu ul.menu ul li.last,
+.erpal-region-left ul.menu ul li.last {
+  border-bottom: none;
+}
+.pane-menu-menu-erpal-menu ul.menu ul li.last .active,
+.erpal-region-left ul.menu ul li.last .active {
+  border-top: 2px solid #fd8300;
+  border-bottom: 2px solid #fd8300 !important;
+}
+.pane-menu-menu-erpal-menu ul.menu ul a,
+.erpal-region-left ul.menu ul a {
+  padding-left: 25px;
+}
+
+/*----------end Erpal menu-------------*/
+/* =============================================================================
+ *   Middle region
+ * ========================================================================== */
+/*----------begin .pane-page-content -------------*/
+.pane-page-content {
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-bottom: 20px;
+  max-width: 1070px;
+  /*h2,*/
+}
+.pane-page-content .content-inner {
+  clear: both;
+}
+.pane-page-content .pane-page-title.block {
+  margin-bottom: 0;
+}
+.pane-page-content .panel-2col-stacked .panel-col-first {
+  width: 700px;
+}
+.pane-page-content .panel-2col-stacked .panel-col-last {
+  margin-left: 30px;
+  width: 340px !important;
+}
+.pane-page-content .panel-2col-stacked .inside {
+  margin: 0 !important;
+}
+.pane-page-content .panel-2col-stacked .inside .inside {
+  background: none;
+  border: none;
+}
+.pane-page-content h1.pane-title {
+  margin: 0px 0px 15px 0px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: black;
+  max-width: 725px;
+}
+.pane-page-content .rel-register-build {
+  padding: 10px;
+  -webkit-border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+  -ms-border-radius: 8px 8px 0 0;
+  -o-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+}
+.pane-page-content .rel-register-build .views-exposed-widgets {
+  margin-bottom: 0px;
+}
+.pane-page-content .portlet-content .views-table {
+  margin-bottom: 0;
+  border: 1px solid #d9d5d2;
+  border-bottom: none;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -ms-border-radius: 5px 5px 0px 0px;
+  -o-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  border-collapse: separate;
+}
+.pane-page-content .views-table {
+  margin-top: 0;
+  border-collapse: collapse;
+  border-bottom: none;
+}
+.pane-page-content .views-table th {
+  padding: 7px 4px;
+  font-size: 13px;
+}
+.pane-page-content .views-table td {
+  padding: 7px 4px 7px 4px;
+}
+
+/*----------end .pane-page-content -------------*/
+/*--------- begin foooter section ------ */
+/*common styles footer*/
+.powered_by_content {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+.powered_by_content a {
+  font-size: 12px;
+  font-weight: normal;
+  color: white;
+}
+.powered_by_content a:hover {
+  text-decoration: underline;
+}
+.powered_by_content .bs_powered_by_logo {
+  width: 130px;
+  height: 24px;
+  background: url('../images/erpal_logo-weiss_footer.png?1386921524');
+}
+
+/*content footer*/
+.erpal-footer {
+  width: 1019px;
+  padding: 0 20px;
+  float: right;
+}
+.erpal-footer .bs_powered_by_logo {
+  float: left;
+}
+.erpal-footer .support_powered_by {
+  width: 860px;
+  float: right;
+  text-align: right;
+  margin-top: 4px;
+}
+
+/*login page footer */
+.not-logged-in .bs_powered_by_logo {
+  margin: 5px auto 20px;
+}
+.not-logged-in .pane-powered-by {
+  width: 380px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*--------- end foooter section ------ */
+/*----------begin comments------------------------*/
+.comment {
+  padding-bottom: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+.comment .field-name-field-contacts-ref {
+  padding: 0 15px 15px;
+}
+.comment .field-name-comment-body {
+  clear: both;
+}
+.comment .field-name-comment-body p {
+  font-size: 16px;
+}
+.comment .field-name-comment-body ul {
+  margin-left: 40px;
+}
+.comment .field-name-comment-body ul li {
+  list-style-type: disc;
+  line-height: 1.3em;
+}
+.comment .field-name-comment-body ol {
+  margin-left: 46px;
+}
+.comment .field-name-comment-body ol li {
+  list-style-type: decimal;
+  line-height: 1.3em;
+}
+.comment .comment-header {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 15px;
+  background-color: #e9e5e2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  height: 28px;
+  float: left;
+}
+.comment .comment-header .new {
+  position: relative;
+  top: -4px;
+}
+.comment .submitted {
+  padding: 10px 15px;
+  background-color: #e9e5e2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+}
+.comment .submitted .author-datetime {
+  margin-bottom: 0px;
+  font-size: 11px;
+  color: #3d3835;
+}
+.comment .submitted .author-datetime a {
+  font-size: 12px;
+}
+.comment .submitted .user-picture {
+  margin-right: 5px;
+  float: left;
+}
+.comment .submitted .user-picture img {
+  max-width: 18px;
+  max-height: 18px;
+}
+.comment .comment-content {
+  padding-top: 15px;
+}
+.comment .comment-content .field-name-comment-body {
+  padding: 0 15px 15px 15px;
+  font-size: 16px;
+}
+.comment .comment-content .field-name-field-asset-files {
+  padding-left: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #d9d5d2;
+}
+.comment .comment-content .field-name-field-asset-files h2 {
+  padding-bottom: 10px;
+}
+.comment .comment-content .field-name-field-asset-files .field-item {
+  overflow: hidden;
+  float: left;
+}
+.comment .comment-form {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.comment nav {
+  margin-top: 10px;
+  padding: 10px 15px 0 10px;
+  clear: both;
+  border-top: 1px solid #d9d5d2;
+}
+.comment nav ul.links li {
+  margin-right: 10px;
+  float: left;
+}
+.comment nav ul.links li a {
+  padding: 6px 17px;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #e9e5e2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  margin: 0px 0px 0 0px;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 10px;
+  color: #3d3835;
+  border: 1px solid #d9d5d2;
+}
+.comment nav ul.links li a:hover {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(37%, #dbd8db), color-stop(69%, #e8e8e8));
+  background-image: -webkit-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: -moz-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: -o-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+}
+
+.page-comment-reply .field-name-comment-body {
+  clear: both;
+}
+.page-comment-reply .form-type-item {
+  float: left;
+}
+.page-comment-reply #comment-form .field-widget-options-select {
+  width: auto;
+}
+
+/*----------end comments------------------------*/
+.view-filters .rel-register-build {
+  background-color: #eeeeee;
+}
+.view-filters .rel-register-build .views-exposed-widget .rel-register-link {
+  padding-top: 12px;
+  padding-right: 20px;
+  float: left;
+}
+
+.alert {
+  /*----------------begin red alert-----------------*/
+}
+.alert .field-name-field-task-status-term,
+.alert .field_item .field-name-field-date,
+.alert .views-field-field-date,
+.alert .field-item,
+.alert .views-field-field-date-1,
+.alert .views-field-field-next-contact,
+.alert .views-field-field-task-status-term,
+.alert .views-field-field-project-status-term,
+.alert .views-field-field-activity-status-term {
+  color: #cc000c;
+}
+
+.local_time_information.alert,
+.time_information.alert {
+  color: #cc000c;
+}
+.local_time_information div,
+.time_information div {
+  font-weight: bold;
+}
+
+/*----------------end red alert-----------------*/
+.completed {
+  /*----------------begin alert completed-----------------*/
+}
+.completed .field-name-field-task-status-term,
+.completed .field-name-field-completed,
+.completed .field-item,
+.completed .views-field-field-date,
+.completed .views-field-field-date-1,
+.completed .views-field-field-next-contact,
+.completed .views-field-field-task-status-term,
+.completed .views-field-field-project-status-term,
+.completed .views-field-field-activity-status-term {
+  color: #088a58;
+}
+
+/*----------------end alert completed-----------------*/
+/*.region-sidebar-left,*/
+.erpal-content-left {
+  /*----------------begin side-bar-left-----------------*/
+  max-width: 720px;
+  min-width: 360px;
+  width: 100%;
+  float: left;
+}
+.erpal-content-left.single-row {
+  max-width: 100% !important;
+}
+.erpal-content-left #mini-panel-contact_details_panel {
+  margin-top: 2px;
+}
+.erpal-content-left ul .field-name-task-title .field-item a {
+  font-weight: bold;
+  font-size: 16px;
+}
+.erpal-content-left ul .field-name-task-title .field-item a:hover {
+  color: #fc9822;
+}
+.erpal-content-left ul .field-name-task-title .field-item p {
+  margin-bottom: 0px;
+}
+.erpal-content-left .region-sidebar-right section.field {
+  overflow: hidden;
+}
+
+/*----------------end side-bar-left-----------------*/
+/*.region-sidebar-right,*/
+.node-type-erpal-date .erpal-content-right .local_tasks,
+.node-type-erpal-timetracking .erpal-content-right .local_tasks {
+  top: 0px;
+  /* to place action button on the same level as title */
+}
+
+.erpal-content-right {
+  /*----------------begin side-bar-right-----------------*/
+  margin-left: 10px;
+  width: 250px;
+  float: right;
+  color: #3d3835;
+  position: relative;
+  /*----------------end side-bar-right-----------------*/
+  /*-------------begin Notifiy, Bookmark------------------*/
+  /*-------------end Notifiy, Bookmark------------------*/
+  /* end .ctools-collapsible-container */
+}
+.erpal-content-right .pane-page-actions {
+  width: 250px;
+}
+.erpal-content-right a:hover {
+  color: #fc9822;
+}
+.erpal-content-right .block {
+  margin-bottom: 2px;
+}
+.erpal-content-right .local_tasks_menu .local_tasks {
+  position: absolute;
+  width: 248px;
+  z-index: 10;
+}
+.erpal-content-right .local_tasks_menu {
+  height: 35px;
+  margin-bottom: 10px;
+}
+.erpal-content-right .local_tasks {
+  margin-top: 0;
+  margin-bottom: 0px;
+  padding: 0px;
+  position: absolute;
+  top: -43px;
+  width: 250px;
+  list-style-type: none;
+}
+.erpal-content-right .local_tasks li {
+  margin: 0 2px 4px 0;
+  list-style-type: none;
+  display: block;
+}
+.erpal-content-right .local_tasks li a {
+  padding-top: 5px;
+  padding-bottom: 6px;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+  background-color: #dedede;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #d9d5d2;
+}
+.erpal-content-right .local_tasks li a:hover {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(37%, #dbd8db), color-stop(69%, #e8e8e8));
+  background-image: -webkit-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: -moz-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: -o-linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+  background-image: linear-gradient(bottom, #dbd8db 37%, #e8e8e8 69%);
+}
+.erpal-content-right .local_tasks li ul {
+  display: none;
+}
+.erpal-content-right .flag-wrapper {
+  margin-bottom: 6px;
+  margin-left: 5px;
+  display: block;
+}
+.erpal-content-right .flag-wrapper .flag-message {
+  left: 25px;
+  top: 2em;
+}
+.erpal-content-right .flag-wrapper.flag-project-subscriptions a, .erpal-content-right .flag-wrapper.flag-task-subscriptions a {
+  background-position: 0 -1227px;
+}
+.erpal-content-right .flag-wrapper.flag-project-subscriptions a:hover, .erpal-content-right .flag-wrapper.flag-project-subscriptions a.notify_hover, .erpal-content-right .flag-wrapper.flag-project-subscriptions a.notify-hover, .erpal-content-right .flag-wrapper.flag-task-subscriptions a:hover, .erpal-content-right .flag-wrapper.flag-task-subscriptions a.notify_hover, .erpal-content-right .flag-wrapper.flag-task-subscriptions a.notify-hover {
+  background-position: 0 -1402px;
+}
+.erpal-content-right .flag-wrapper.flag-project-subscriptions a:hover, .erpal-content-right .flag-wrapper.flag-task-subscriptions a:hover {
+  background-position: 0 -1402px;
+}
+.erpal-content-right .flag-wrapper.flag-bookmark-flag a {
+  padding-top: 6px;
+  background-position: 0 -1014px;
+}
+.erpal-content-right .flag-wrapper.flag-bookmark-flag a:hover, .erpal-content-right .flag-wrapper.flag-bookmark-flag a.bookmark_hover, .erpal-content-right .flag-wrapper.flag-bookmark-flag a.bookmark-hover {
+  background-position: 0 -1154px;
+}
+.erpal-content-right .flag-wrapper.flag-bookmark-flag a:hover {
+  background-position: 0 -1154px;
+}
+.erpal-content-right .flag-wrapper a {
+  padding: 3px 0 5px 26px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.erpal-content-right .flag-wrapper a:hover {
+  color: #fc9822;
+}
+.erpal-content-right .content-inner {
+  padding-bottom: 30px;
+  clear: both;
+  max-width: 1100px;
+  min-width: 1100px;
+  overflow: hidden;
+}
+.erpal-content-right .panel-separator {
+  display: none;
+}
+.erpal-content-right .ctools-collapsible-container {
+  margin-top: 10px;
+  margin-bottom: 1px;
+  padding-top: 5px;
+  font-size: 11px;
+  border-top: 1px solid #d9d5d2;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title {
+  margin-top: 5px;
+  line-height: 20px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a {
+  padding: 3px 0 3px 30px;
+  background-color: red;
+  background-position: -80px -414px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a:hover, .erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a.contact_hover, .erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a.contact-hover {
+  background-position: -100px -396px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact h1.node-title a:hover {
+  background-position: -100px -396px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone {
+  padding-left: 37px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone h2.field-label {
+  margin-top: 3px;
+  font-weight: normal;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-collection-view {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item {
+  margin-bottom: 3px;
+  padding-left: 0px;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table {
+  margin: 0;
+  border: none;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table th {
+  font-weight: normal;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table tr, .erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table th {
+  padding: 0;
+  background: none;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table td {
+  padding: 0;
+  font-weight: bold;
+}
+.erpal-content-right .ctools-collapsible-container .node-erpal-contact .field-name-field-phone .field-item table td a {
+  font-size: 11px;
+  font-weight: bold;
+}
+.erpal-content-right .ctools-collapsible-container h3 {
+  font-size: 11px;
+  font-weight: normal;
+  color: #645c57;
+}
+.erpal-content-right .ctools-collapsible-container .field-collection-view-final {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+.erpal-content-right .ctools-collapsible-container .field-collection-view-final th {
+  background-color: #e9e5e2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E5E2', endColorstr='#FFD4D4D4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+}
+.erpal-content-right .ctools-collapsible-container .field-name-field-buy-price .field-item,
+.erpal-content-right .ctools-collapsible-container .pane-node-created .block-content,
+.erpal-content-right .ctools-collapsible-container .field-name-field-buy-currency .field-item {
+  font-weight: bold;
+}
+.erpal-content-right .ctools-collapsible-container .field-item {
+  font-weight: bold;
+  line-height: 15px;
+}
+.erpal-content-right .ctools-collapsible-container figure {
+  text-align: center;
+}
+.erpal-content-right .date-display-single {
+  font-weight: bold;
+}
+
+/*----------------end erpal_content_layout-----------------------*/
+.page-budget .local_tasks {
+  top: 0;
+}
+
+/*----------------begin .panel-display-----------------------*/
+.erpal-content-right .panel-display .pane-entity-field h2.pane-title {
+  padding-right: 5px;
+  margin: 0px 0px 0 0px;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 11px;
+  color: #645c57;
+}
+
+.panel-display .pane-entity-field .block-content {
+  float: left;
+}
+.panel-display .pane-entity-field .block-content .rel-register-link {
+  float: left;
+}
+.panel-display .pane-entity-field .field-type-taxonomy-term-reference {
+  margin: 0px;
+}
+.panel-display .pane-entity-field .form-item {
+  margin-bottom: 0px;
+}
+.panel-display .pane-entity-field .ds-form .group-left {
+  width: auto;
+  float: none;
+}
+.panel-display .pane-entity-field .form-item label {
+  float: left;
+  color: #645c57;
+}
+.panel-display .ui-widget-content {
+  background: none;
+  border: none;
+}
+.panel-display .ui-tabs .ui-tabs-panel {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  background-color: #eeeeee;
+}
+
+/*----------------end panel-display-----------------------*/
+/*------------------------end ctools-collapsible-processed -region-sidebar-right----------------------------------*/
+.ctools-collapsible-processed .ctools-collapsible-handle {
+  cursor: pointer;
+}
+.ctools-collapsible-processed a {
+  font-size: 13px;
+  font-weight: normal;
+}
+.ctools-collapsible-processed .pane-node-author a {
+  font-size: 13px;
+}
+.ctools-collapsible-processed h2.pane-title {
+  margin: 0;
+  padding: 3px 5px 0px 30px;
+  margin: 0px 0px 0 0px;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 11px;
+  color: #645c57;
+  background: none !important;
+}
+.ctools-collapsible-processed h2.pane-title.ctools-collapsible-handle {
+  padding: 3px 5px 3px 0px;
+}
+.ctools-collapsible-processed .ctools-collapsible-content {
+  clear: both;
+}
+.ctools-collapsible-processed .ctools-collapsible-content h2.pane-title {
+  padding-left: 0;
+  color: #645c57;
+  background: none !important;
+}
+.ctools-collapsible-processed .ctools-collapsible-content .field-items {
+  clear: both;
+}
+.ctools-collapsible-processed .field-name-field-pricing h2.field-label {
+  margin: 0;
+  clear: both;
+  line-height: 12px;
+  color: #645c57;
+  font-weight: normal;
+  font-size: 11px;
+}
+.ctools-collapsible-processed section, .ctools-collapsible-processed .field-name-field-books-ref {
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+.ctools-collapsible-processed .field-name-field-task-assigned-users {
+  padding-left: 0px;
+}
+.ctools-collapsible-processed .panel-separator {
+  height: 1px;
+  overflow: hidden;
+}
+.ctools-collapsible-processed ul {
+  margin: 0px;
+  padding: 0px;
+}
+.ctools-collapsible-processed ul li {
+  list-style-type: none;
+  font-weight: bold;
+}
+.ctools-collapsible-processed .field-type-taxonomy-term-reference {
+  margin: 0;
+}
+.ctools-collapsible-processed .field-name-field-asset-files {
+  margin-bottom: 10px;
+}
+.ctools-collapsible-processed .field-name-field-asset-files .field-item {
+  margin-left: 5px;
+  padding-left: 0 !important;
+}
+.ctools-collapsible-processed .field-name-field-contacts-ref .field-item {
+  padding-left: 10px;
+}
+.ctools-collapsible-processed .panel-display .pane-entity-field .block-content,
+.ctools-collapsible-processed .panel-display .pane-entity-field h2.pane-title {
+  float: none;
+}
+.ctools-collapsible-processed .panel-separator {
+  display: block;
+}
+.ctools-collapsible-processed .no-title {
+  padding-left: 10px;
+}
+.ctools-collapsible-processed .ctools-toggle {
+  background-position: 7px 6px;
+}
+
+.comment_erpal_file {
+  margin-right: 20px;
+}
+
+.comment_erpal_file .file_download_link,
+.node_erpal_file .file_download_link,
+.page-node-files .views-field-title .file_download_link,
+.page-files .views-field-title .file_download_link {
+  float: left;
+}
+.comment_erpal_file .file_download_link a,
+.node_erpal_file .file_download_link a,
+.page-node-files .views-field-title .file_download_link a,
+.page-files .views-field-title .file_download_link a {
+  margin-right: 5px;
+  padding: 4px 0 7px 24px;
+  background-position: -200px -296px;
+  line-height: 23px;
+  font-size: 13px;
+}
+.comment_erpal_file .file_download_link a:hover, .comment_erpal_file .file_download_link a.files_hover, .comment_erpal_file .file_download_link a.files-hover,
+.node_erpal_file .file_download_link a:hover,
+.node_erpal_file .file_download_link a.files_hover,
+.node_erpal_file .file_download_link a.files-hover,
+.page-node-files .views-field-title .file_download_link a:hover,
+.page-node-files .views-field-title .file_download_link a.files_hover,
+.page-node-files .views-field-title .file_download_link a.files-hover,
+.page-files .views-field-title .file_download_link a:hover,
+.page-files .views-field-title .file_download_link a.files_hover,
+.page-files .views-field-title .file_download_link a.files-hover {
+  background-position: -220px -276px;
+}
+.comment_erpal_file .file_download_link a:hover,
+.node_erpal_file .file_download_link a:hover,
+.page-node-files .views-field-title .file_download_link a:hover,
+.page-files .views-field-title .file_download_link a:hover {
+  background-position: -220px -276px;
+  color: #fc9822;
+}
+.comment_erpal_file .file_node_link,
+.node_erpal_file .file_node_link,
+.page-node-files .views-field-title .file_node_link,
+.page-files .views-field-title .file_node_link {
+  float: left;
+}
+.comment_erpal_file .file_node_link a,
+.node_erpal_file .file_node_link a,
+.page-node-files .views-field-title .file_node_link a,
+.page-files .views-field-title .file_node_link a {
+  background-position: -476px -20px;
+  height: 20px;
+  width: 20px;
+  font-size: 0;
+  text-indent: -2000;
+  display: block;
+}
+.comment_erpal_file .file_node_link a:hover, .comment_erpal_file .file_node_link a.view_hover, .comment_erpal_file .file_node_link a.view-hover,
+.node_erpal_file .file_node_link a:hover,
+.node_erpal_file .file_node_link a.view_hover,
+.node_erpal_file .file_node_link a.view-hover,
+.page-node-files .views-field-title .file_node_link a:hover,
+.page-node-files .views-field-title .file_node_link a.view_hover,
+.page-node-files .views-field-title .file_node_link a.view-hover,
+.page-files .views-field-title .file_node_link a:hover,
+.page-files .views-field-title .file_node_link a.view_hover,
+.page-files .views-field-title .file_node_link a.view-hover {
+  background-position: -496px 0;
+}
+.comment_erpal_file .file_node_link a:hover,
+.node_erpal_file .file_node_link a:hover,
+.page-node-files .views-field-title .file_node_link a:hover,
+.page-files .views-field-title .file_node_link a:hover {
+  background-position: -496px 0;
+  color: #fc9822;
+}
+
+.comment_erpal_file,
+.node_erpal_file {
+  margin-bottom: 5px;
+  display: block;
+  overflow: hidden;
+}
+
+/*------------------------end ctools-collapsible-processed -region-sidebar-right----------------------------------*/
+#mini-panel-task_status_panel {
+  padding: 10px 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  color: #645c57;
+}
+#mini-panel-task_status_panel .panel-separator {
+  display: none;
+}
+#mini-panel-task_status_panel section {
+  margin-bottom: 0;
+  margin-right: 30px;
+  float: left;
+}
+#mini-panel-task_status_panel ul {
+  padding-left: 5px;
+}
+#mini-panel-task_status_panel ul li {
+  padding: 0px;
+  list-style-type: none;
+}
+
+#mini-panel-activity_status_panel {
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+#mini-panel-activity_status_panel h2.pane-title {
+  background: none;
+}
+#mini-panel-activity_status_panel .panel-separator {
+  display: none;
+}
+#mini-panel-activity_status_panel .pane-title {
+  padding-left: 0;
+  padding-right: 10px;
+  float: left;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 40px;
+}
+#mini-panel-activity_status_panel .block-content {
+  float: left;
+}
+#mini-panel-activity_status_panel .block-content ul.field-items {
+  margin: 25px 0 0;
+}
+#mini-panel-activity_status_panel ul {
+  padding-left: 5px;
+}
+#mini-panel-activity_status_panel section {
+  margin-bottom: 0;
+  margin-right: 10px;
+  float: left;
+}
+#mini-panel-activity_status_panel section .field-type-datetime {
+  float: left;
+  margin-right: 5px;
+}
+#mini-panel-activity_status_panel section .field-type-datetime .date-no-float {
+  width: auto;
+}
+#mini-panel-activity_status_panel section .field-type-datetime .date-no-float .form-item {
+  margin-top: 0;
+  float: left;
+}
+#mini-panel-activity_status_panel section .field-type-datetime .date-no-float .form-item .date-padding {
+  padding-top: 7px;
+}
+#mini-panel-activity_status_panel section .form-actions {
+  margin-top: 27px;
+  float: left;
+}
+
+.view-empty {
+  padding: 15px;
+}
+
+/*-------------------begin project page----------------------*/
+.page-projects .views-field-title {
+  width: 200px;
+}
+.page-projects .views-field-field-customer-ref {
+  width: 200px;
+}
+.page-projects .views-field-field-project-status-term,
+.page-projects .page-projects .views-field-field-priority-term {
+  width: 100px;
+}
+.page-projects #edit-field-customer-ref-target-id-wrapper select {
+  max-width: 200px;
+}
+
+/*-------------------end project page----------------------*/
+/*--------------------------------for erpal task view row layout------------------------------------------*/
+.erpal-task-view-row-layout .region-sidebar-left {
+  width: 70%;
+  float: left;
+}
+.erpal-task-view-row-layout .region-sidebar-right {
+  margin-left: 20px;
+  width: 28%;
+  float: left;
+}
+.erpal-task-view-row-layout .content-inner {
+  margin-bottom: 20px;
+  clear: both;
+  max-width: 1100px;
+  min-width: 1100px;
+}
+
+/*---------------ticket details-----------*/
+.node-erpal-task .columns-inner {
+  border-bottom: 1px solid #d9d5d2;
+}
+
+.view-mode-view_row_details .content-inner {
+  padding-bottom: 0px;
+}
+
+.pane-node-body {
+  padding: 20px;
+  min-height: 350px;
+  border: 1px solid #d9d5d2;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.pane-node-body a {
+  color: #088a58;
+  text-decoration: underline;
+}
+.pane-node-body a:hover {
+  color: #fc9822;
+}
+.pane-node-body a:visited {
+  color: #088a58;
+}
+.pane-node-body p {
+  font-size: 16px;
+}
+.pane-node-body ul {
+  margin-left: 40px;
+}
+.pane-node-body ul li {
+  list-style-type: disc;
+  line-height: 1.3em;
+}
+.pane-node-body ol {
+  margin-left: 46px;
+}
+.pane-node-body ol li {
+  list-style-type: decimal;
+  line-height: 1.3em;
+}
+.pane-node-body .field-name-body {
+  width: 678px;
+}
+
+.quicktabs-tabpage .panel-panel.panel-col .pane-node-body {
+  margin-top: -1px;
+  -webkit-border-radius: 0px 5px 5px 5px;
+  -moz-border-radius: 0px 5px 5px 5px;
+  -ms-border-radius: 0px 5px 5px 5px;
+  -o-border-radius: 0px 5px 5px 5px;
+  border-radius: 0px 5px 5px 5px;
+  position: relative;
+  z-index: 5;
+}
+
+/*-----------------------begin projects-timetrackings--------------------*/
+.page-projects-timetrackings #edit-field-date-time-value-wrapper {
+  margin-left: 45px;
+}
+.page-projects-timetrackings #edit-field-project-ref-target-id {
+  width: 120px;
+}
+.page-projects-timetrackings .views-field-field-date-time {
+  width: 140px;
+}
+.page-projects-timetrackings .views-field-title-1,
+.page-projects-timetrackings .views-field-title-2 {
+  width: 120px;
+}
+.page-projects-timetrackings #edit-uid {
+  width: 90px;
+}
+.page-projects-timetrackings #edit-uid-wrapper {
+  width: 140px;
+}
+.page-projects-timetrackings #edit-uid-wrapper .description {
+  line-height: 12px;
+}
+
+/*-----------------------begin projects-timetrackings--------------------*/
+/*-------------begin comments------------------- */
+.node-type-erpal-crm-activity #comment-form {
+  margin-top: -1px;
+  -webkit-border-radius: 0px 5px 5px 5px;
+  -moz-border-radius: 0px 5px 5px 5px;
+  -ms-border-radius: 0px 5px 5px 5px;
+  -o-border-radius: 0px 5px 5px 5px;
+  border-radius: 0px 5px 5px 5px;
+  border: 1px solid #d9d5d2;
+}
+
+.node-type-erpal-task #comment-form {
+  margin-top: -1px;
+  -webkit-border-radius: 0px 5px 5px 5px;
+  -moz-border-radius: 0px 5px 5px 5px;
+  -ms-border-radius: 0px 5px 5px 5px;
+  -o-border-radius: 0px 5px 5px 5px;
+  border-radius: 0px 5px 5px 5px;
+}
+
+#comment-form {
+  padding: 15px;
+  margin-top: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+#comment-form #edit-author,
+#comment-form .form-type-textfield {
+  clear: both;
+}
+#comment-form .field-type-datetime {
+  width: 300px;
+  float: left;
+}
+#comment-form .field-type-datetime fieldset {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+#comment-form .field-type-datetime fieldset .date-padding {
+  margin: 0px;
+  padding: 0px;
+  width: 270px;
+}
+#comment-form #edit-author--2 {
+  clear: both;
+}
+#comment-form #edit-field-contacts-ref {
+  margin-right: 40px;
+  width: 350px;
+  float: left;
+}
+#comment-form #edit-field-contacts-ref table {
+  width: 310px;
+}
+#comment-form #edit-field-contacts-ref table input {
+  width: 310px;
+}
+#comment-form #edit-field-asset-files {
+  width: 350px;
+  float: left;
+}
+#comment-form #edit-field-asset-files table {
+  width: 310px;
+}
+#comment-form #edit-field-asset-files table input {
+  width: 310px;
+}
+#comment-form #edit-actions {
+  clear: both;
+}
+#comment-form .field-widget-options-select {
+  margin-right: 15px;
+  padding-top: 5px;
+  float: left;
+}
+#comment-form .field-name-field-activity-status-term {
+  width: 160px !important;
+  float: left;
+}
+#comment-form .erpal_git {
+  background: #eeeeee;
+  border: 1px solid #dedede;
+  padding: 10px;
+}
+#comment-form .erpal_git .syntax {
+  font-family: monospace;
+  margin-top: 10px;
+}
+
+/*-------------end comments------------------- */
+/*--------------begin multi select boxes--------------*/
+.views-exposed-form {
+  padding: 5px 10px;
+  background-color: #e9e5e2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E5E2', endColorstr='#FFD4D4D4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #d9d5d2;
+}
+.views-exposed-form .form-submit {
+  margin-top: 1.3em;
+}
+.views-exposed-form .views-exposed-widget {
+  padding-top: 0;
+  padding-right: 5px !important;
+}
+.views-exposed-form .views-exposed-widget label {
+  font-size: 10px;
+  color: #645c57;
+}
+.views-exposed-form button span:not(.ui-icon) {
+  position: absolute;
+  overflow: hidden;
+  width: 105px !important;
+  height: 19px;
+  line-height: 13px;
+}
+.views-exposed-form button {
+  font-size: 11px;
+  height: 25px;
+  width: 130px !important;
+  overflow: hidden;
+}
+
+#edit-field-task-status-term-tid-wrapper,
+#edit-field-activity-status-term-tid-wrapper,
+#edit-field-priority-term-tid-wrapper,
+#edit-field-task-type-term-tid-wrapper,
+#edit-field-project-tags-tid-wrapper,
+#edit-field-task-assigned-users-target-id-wrapper {
+  width: 130px !important;
+}
+
+.ui-multiselect-menu {
+  width: 200px !important;
+}
+
+.ui-helper-reset {
+  position: relative;
+}
+
+.ui-multiselect-close {
+  position: absolute;
+  right: 0;
+}
+
+.ui-multiselect-header {
+  padding: 3px 0;
+}
+
+/*--------------end multi select boxes--------------*/
+/*-------------begin dashboard styles--------------*/
+#homebox .homebox-column-wrapper-1 .homebox-column {
+  margin-right: 20px;
+}
+#homebox .homebox-column {
+  margin: 0px;
+  padding: 0px;
+  background: none;
+}
+#homebox .view-assigned-tasks a {
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 26px;
+  display: block;
+}
+#homebox .view-assigned-tasks td.views-field-title a {
+  background-position: -360px -140px;
+}
+#homebox .view-assigned-tasks td.views-field-title a:hover, #homebox .view-assigned-tasks td.views-field-title a.task_hover, #homebox .view-assigned-tasks td.views-field-title a.task-hover {
+  background-position: -380px -120px;
+}
+#homebox .view-assigned-tasks td.views-field-title a:hover {
+  background-position: -380px -120px;
+}
+#homebox .view-assigned-tasks th.views-field-field-project-ref {
+  width: 190px;
+}
+#homebox .view-assigned-tasks td.views-field-field-project-ref a {
+  background-position: -280px -218px;
+}
+#homebox .view-assigned-tasks td.views-field-field-project-ref a:hover, #homebox .view-assigned-tasks td.views-field-field-project-ref a.projects_hover, #homebox .view-assigned-tasks td.views-field-field-project-ref a.projects-hover {
+  background-position: -300px -200px;
+}
+#homebox .view-assigned-tasks td.views-field-field-project-ref a:hover {
+  background-position: -300px -200px;
+}
+#homebox .view-assigned-tasks td.views-field-field-timetracking-button a {
+  padding-left: 0;
+}
+#homebox .view-assigned-tasks td.views-field-field-timetracking-button a img {
+  margin-right: 3px;
+  margin-top: 1px;
+  float: left;
+}
+#homebox .flag-bookmark-flag {
+  vertical-align: middle;
+}
+#homebox .flag-bookmark-flag .unflag-action {
+  display: block;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  background: url('../images/cross.png?1386921524');
+}
+#homebox .flag-bookmark-flag .unflag-action:hover {
+  background: url('../images/cross_hover.png?1386921524');
+}
+#homebox .flag-bookmark-flag .flag-throbber {
+  display: none;
+}
+#homebox .homebox-portlet {
+  margin-bottom: 40px;
+  border: none;
+}
+#homebox .homebox-portlet#homebox-block-views_assigned_tasks-block .portlet-header {
+  background-position: -416px -130px;
+}
+#homebox .homebox-portlet#homebox-block-timetracking_block .portlet-header, #homebox .homebox-portlet#homebox-block-views_timetracking_entities-block_1 .portlet-header {
+  background-position: -520px -26px;
+}
+#homebox .homebox-portlet#homebox-block-views_bookmarks-block .portlet-header {
+  background-position: -52px -494px;
+}
+#homebox .homebox-portlet #timetracking-quick-form {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+#homebox .homebox-portlet .homebox-portlet-inner {
+  border: none;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-header {
+  padding-left: 28px;
+  margin-bottom: 1px;
+  background-color: transparent;
+  margin: 0px 0px 8px 0px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  border: none;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-header .portlet-title {
+  padding-left: 8px;
+  background-color: transparent;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content {
+  padding: 0px;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content .form-item, #homebox .homebox-portlet .homebox-portlet-inner .portlet-content .view-grouping-header, #homebox .homebox-portlet .homebox-portlet-inner .portlet-content caption {
+  padding-left: 12px;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content .more-link {
+  padding: 4px 10px;
+  background-color: #e9e5e2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E5E2', endColorstr='#FFD4D4D4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content .form-submit {
+  margin-left: 12px;
+  padding-left: 12px;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content .homebox-column-wrapper {
+  float: left;
+  width: 48% !important;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content fieldset {
+  border: none;
+}
+#homebox .homebox-portlet .homebox-portlet-inner .portlet-content .homebox-column {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*-------------end dashboard styles--------------*/
+/*-------------begin contact styles------------------*/
+.node-type-erpal-contact .erpal-content-right .pane-custom-node-content {
+  margin-top: 10px;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane h2.pane-title.block-title {
+  margin: 0px 0px 7px 0px;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  background-position: -130px -416px;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .block-content h2.pane-title.block-title {
+  padding-left: 0;
+  background: none;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .field-collection-view {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .field-collection-view table th {
+  padding: 10px;
+  font-size: 13px;
+  background-color: #e9e5e2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E5E2', endColorstr='#FFD4D4D4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane ul {
+  margin: 0px;
+  padding: 0px;
+  float: none;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane ul li {
+  padding-right: 7px;
+  list-style-type: none;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .pane-node-field-fax .block-content,
+.node-type-erpal-contact .region-sidebar-left .panel-pane .pane-node-field-email .block-content {
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane table {
+  margin: 0 0 10px;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane table td {
+  padding: 10px;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .field-collection-container {
+  border: none;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .field-collection-container .field-items .field-item {
+  margin: 0px;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .action-links li {
+  padding: 10px 0 10px 10px;
+  text-align: right;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .action-links li a {
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .field-type-taxonomy-term-reference {
+  margin: 0px;
+}
+.node-type-erpal-contact .region-sidebar-left .panel-pane .pane-entity-field .block-content {
+  float: none;
+}
+
+/*-------------end contact styles------------------*/
+/* begin hightlight of different states of tasks/projects */
+.page-contacts .views-field-field-contact-image {
+  width: 30px;
+}
+.page-contacts .views-field-field-contact-image img {
+  width: 20px;
+}
+
+.block-content .view-content td {
+  font-size: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #d9d5d2;
+}
+.block-content .view-content td.views-field-views-bulk-operations {
+  padding-right: 0;
+}
+.block-content .view-content td a {
+  font-size: 13px;
+  font-weight: normal;
+}
+.block-content .view-content td a:hover {
+  color: #fc9822;
+}
+.block-content .view-content th {
+  background-color: #e9e5e2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E5E2', endColorstr='#FFD4D4D4');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e5e2), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -moz-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: -o-linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+  background-image: linear-gradient(top, #e9e5e2 0%, #d4d4d4 100%);
+}
+.block-content .view-content th.views-field-field-date-1, .block-content .view-content th.views-field-field-date, .block-content .view-content th.views-field-field-priority-term, .block-content .view-content th.views-field-field-project-status-term {
+  width: 100px;
+}
+.block-content .view-content th.views-field-field-timetracking-button {
+  width: 100px;
+}
+.block-content .view-content tr.info,
+.block-content .view-content tr.even,
+.block-content .view-content tr:nth-child(2n+2) {
+  background-color: white;
+}
+.block-content .view-content tr.odd.alert,
+.block-content .view-content tr.even.alert {
+  background-color: #ffdfe4 !important;
+}
+.block-content .view-content tr.odd.completed,
+.block-content .view-content tr.even.completed {
+  background-color: #eeeeee !important;
+}
+
+/* end hightlight of different states of tasks/projects */
+/*-------------begin login styles------------------*/
+.not-logged-in {
+  background-color: #645c57;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFA69A91', endColorstr='#FF645C57');
+  background-image: -webkit-gradient(radial, 50% 0%, 0, 50% 0%, 550, color-stop(3.63636%, #a69a91), color-stop(100%, #645c57));
+  background-image: -webkit-radial-gradient(center top, ellipse cover, #a69a91 20px, #645c57 550px);
+  background-image: -moz-radial-gradient(center top, ellipse cover, #a69a91 20px, #645c57 550px);
+  background-image: -o-radial-gradient(center top, ellipse cover, #a69a91 20px, #645c57 550px);
+  background-image: radial-gradient(center top, ellipse cover, #a69a91 20px, #645c57 550px);
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#A69A91', EndColorStr='#645C57');
+  overflow: hidden;
+}
+.not-logged-in #login_mask_logo {
+  margin: 75px auto 8px;
+  background: url("../images/erpal_logo_login.png") no-repeat 0 0;
+  width: 240px;
+  height: 322px;
+}
+.not-logged-in .pane-page-messages {
+  width: 400px;
+  margin: 0 auto;
+}
+.not-logged-in .pane-page-messages #messages .messages {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: black 0px 0px 5px;
+  -moz-box-shadow: black 0px 0px 5px;
+  box-shadow: black 0px 0px 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.not-logged-in .pane-page-content {
+  margin: 0 auto 10px;
+  padding: 25px;
+  background-color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 350px;
+  -webkit-box-shadow: black 0px 0px 5px;
+  -moz-box-shadow: black 0px 0px 5px;
+  box-shadow: black 0px 0px 5px;
+}
+.not-logged-in #user-login {
+  color: black;
+}
+.not-logged-in #user-login label {
+  padding-right: 25px;
+  float: left;
+  line-height: 32px;
+}
+.not-logged-in #user-login .form-text {
+  border-top: 1px solid #747474;
+  border-left: 1px solid #747474;
+  border-right: 1px solid #959595;
+  border-bottom: 1px solid #959595;
+  height: 22px;
+  line-height: 22px;
+  -webkit-box-shadow: #b6b6b6 1px 1px 2px 0px inset;
+  -moz-box-shadow: #b6b6b6 1px 1px 2px 0px inset;
+  box-shadow: #b6b6b6 1px 1px 2px 0px inset;
+}
+.not-logged-in #user-login .description {
+  padding-left: 92px;
+}
+.not-logged-in #user-login #edit-actions {
+  padding-top: 5px;
+}
+.not-logged-in #user-login #edit-actions input.form-submit {
+  margin: 0 auto;
+  padding: 7px 20px;
+  color: white;
+  background-color: #fc9822;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(37%, #fdae15), color-stop(69%, #f9b942)) !important;
+  background: -webkit-linear-gradient(bottom, #fdae15 37%, #f9b942 69%) !important;
+  background: -moz-linear-gradient(bottom, #fdae15 37%, #f9b942 69%) !important;
+  background: -o-linear-gradient(bottom, #fdae15 37%, #f9b942 69%) !important;
+  background: linear-gradient(bottom, #fdae15 37%, #f9b942 69%) !important;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid #fba124;
+}
+.not-logged-in #user-login #edit-actions input.form-submit:hover {
+  background-color: #fd8300;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(37%, #fc9822), color-stop(69%, #f9c25d)) !important;
+  background-image: -webkit-linear-gradient(bottom, #fc9822 37%, #f9c25d 69%) !important;
+  background-image: -moz-linear-gradient(bottom, #fc9822 37%, #f9c25d 69%) !important;
+  background-image: -o-linear-gradient(bottom, #fc9822 37%, #f9c25d 69%) !important;
+  background-image: linear-gradient(bottom, #fc9822 37%, #f9c25d 69%) !important;
+}
+
+/*------------------------------------invoice-----------------------*/
+.page-invoice-invoices table.views-table {
+  border-collapse: collapse;
+}
+.page-invoice-invoices .container-inline-date .date-padding {
+  padding-left: 0px;
+}
+
+#mini-panel-invoice_content_panel .panel-col-first.panel-panel {
+  width: 50%;
+}
+#mini-panel-invoice_content_panel .panel-col-last.panel-panel {
+  width: 46%;
+}
+
+li.jstree-open ul {
+  padding-left: 20px;
+}
+
+#erpal_wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+#erpal_wrapper,
+.erpal-container,
+.erpal-container-item {
+  height: 100%;
+}
+
+.node-type-erpal-invoice fieldset.collapsible {
+  margin-bottom: 3px;
+}
+.node-type-erpal-invoice .views-table {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border-collapse: separate;
+}
+
+.group-form-left,
+.group-form-right,
+.group-form-advanced-left,
+.group-form-advanced-right {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+fieldset {
+  margin: 0px;
+}
+
+.page-contact .form-textarea-wrapper {
+  width: 500px;
+}
+
+.page-projects td.views-field-title a,
+.page-projects-budgets .views-field-php-1 a,
+.page-projects-timetrackings td.views-field-title-2 a,
+.page-user-notifications td.views-field-title-1 a,
+.node-type-erpal-crm-activity .view-projects .field-content a {
+  padding-left: 26px;
+  background-position: -280px -218px;
+  line-height: 18px;
+  display: block;
+}
+.page-projects td.views-field-title a:hover, .page-projects td.views-field-title a.projects_hover, .page-projects td.views-field-title a.projects-hover,
+.page-projects-budgets .views-field-php-1 a:hover,
+.page-projects-budgets .views-field-php-1 a.projects_hover,
+.page-projects-budgets .views-field-php-1 a.projects-hover,
+.page-projects-timetrackings td.views-field-title-2 a:hover,
+.page-projects-timetrackings td.views-field-title-2 a.projects_hover,
+.page-projects-timetrackings td.views-field-title-2 a.projects-hover,
+.page-user-notifications td.views-field-title-1 a:hover,
+.page-user-notifications td.views-field-title-1 a.projects_hover,
+.page-user-notifications td.views-field-title-1 a.projects-hover,
+.node-type-erpal-crm-activity .view-projects .field-content a:hover,
+.node-type-erpal-crm-activity .view-projects .field-content a.projects_hover,
+.node-type-erpal-crm-activity .view-projects .field-content a.projects-hover {
+  background-position: -300px -200px;
+}
+.page-projects td.views-field-title a:hover,
+.page-projects-budgets .views-field-php-1 a:hover,
+.page-projects-timetrackings td.views-field-title-2 a:hover,
+.page-user-notifications td.views-field-title-1 a:hover,
+.node-type-erpal-crm-activity .view-projects .field-content a:hover {
+  background-position: -300px -200px;
+}
+
+.node-type-erpal-contact td.views-field-title a,
+.page-activities td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: 0 -492px;
+  line-height: 18px;
+  display: block;
+}
+.node-type-erpal-contact td.views-field-title a:hover, .node-type-erpal-contact td.views-field-title a.activity_hover, .node-type-erpal-contact td.views-field-title a.activity-hover,
+.page-activities td.views-field-title a:hover,
+.page-activities td.views-field-title a.activity_hover,
+.page-activities td.views-field-title a.activity-hover {
+  background-position: -20px -472px;
+}
+.node-type-erpal-contact td.views-field-title a:hover,
+.page-activities td.views-field-title a:hover {
+  background-position: -20px -472px;
+}
+
+.node-type-erpal-contact td.views-field-title a,
+.page-activities td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: 0 -492px;
+  line-height: 18px;
+  display: block;
+}
+.node-type-erpal-contact td.views-field-title a:hover, .node-type-erpal-contact td.views-field-title a.activity_hover, .node-type-erpal-contact td.views-field-title a.activity-hover,
+.page-activities td.views-field-title a:hover,
+.page-activities td.views-field-title a.activity_hover,
+.page-activities td.views-field-title a.activity-hover {
+  background-position: -20px -472px;
+}
+.node-type-erpal-contact td.views-field-title a:hover,
+.page-activities td.views-field-title a:hover {
+  background-position: -20px -472px;
+}
+
+.page-user-bookmarks td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: -40px -452px;
+  line-height: 21px;
+  display: block;
+}
+.page-user-bookmarks td.views-field-title a:hover, .page-user-bookmarks td.views-field-title a.bookmark_hover, .page-user-bookmarks td.views-field-title a.bookmark-hover {
+  background-position: -60px -432px;
+}
+.page-user-bookmarks td.views-field-title a:hover {
+  background-position: -60px -432px;
+}
+
+.page-contracts td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: -120px -376px;
+  line-height: 21px;
+  display: block;
+}
+.page-contracts td.views-field-title a:hover, .page-contracts td.views-field-title a.contract_hover, .page-contracts td.views-field-title a.contract-hover {
+  background-position: -140px -356px;
+}
+.page-contracts td.views-field-title a:hover {
+  background-position: -140px -356px;
+}
+
+.page-projects-timetrackings td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: -436px -60px;
+  line-height: 22px;
+  display: block;
+}
+.page-projects-timetrackings td.views-field-title a:hover, .page-projects-timetrackings td.views-field-title a.timetracking_hover, .page-projects-timetrackings td.views-field-title a.timetracking-hover {
+  background-position: -456px -40px;
+}
+.page-projects-timetrackings td.views-field-title a:hover {
+  background-position: -456px -40px;
+}
+
+.page-files td.views-field-title,
+.page-node-files td.views-field-title {
+  width: 370px;
+}
+
+.page-invoice-invoices td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: -240px -256px;
+  line-height: 20px;
+  display: block;
+}
+.page-invoice-invoices td.views-field-title a:hover, .page-invoice-invoices td.views-field-title a.invoice_hover, .page-invoice-invoices td.views-field-title a.invoice-hover {
+  background-position: -260px -236px;
+}
+.page-invoice-invoices td.views-field-title a:hover {
+  background-position: -260px -236px;
+}
+
+.node-type-erpal-task .pane-page-content .views-table {
+  -webkit-border-radius: 0px 5px 0px 0px;
+  -moz-border-radius: 0px 5px 0px 0px;
+  -ms-border-radius: 0px 5px 0px 0px;
+  -o-border-radius: 0px 5px 0px 0px;
+  border-radius: 0px 5px 0px 0px;
+  border-collapse: separate;
+}
+
+.pane-contacts-panel-pane-1 td.views-field-title a,
+.node-type-erpal-crm-activity .node_erpal_contact a {
+  padding-top: 2px;
+  padding-left: 26px;
+  background-position: -80px -414px;
+  line-height: 18px;
+  display: block;
+}
+.pane-contacts-panel-pane-1 td.views-field-title a:hover, .pane-contacts-panel-pane-1 td.views-field-title a.contact_hover, .pane-contacts-panel-pane-1 td.views-field-title a.contact-hover,
+.node-type-erpal-crm-activity .node_erpal_contact a:hover,
+.node-type-erpal-crm-activity .node_erpal_contact a.contact_hover,
+.node-type-erpal-crm-activity .node_erpal_contact a.contact-hover {
+  background-position: -100px -396px;
+}
+.pane-contacts-panel-pane-1 td.views-field-title a:hover,
+.node-type-erpal-crm-activity .node_erpal_contact a:hover {
+  background-position: -100px -396px;
+}
+
+/*-------------------------begin Page titles--------------------------------*/
+.pane-page-content h1.pane-title,
+.page-node-pricing .pane-page-content h1.pane-title,
+.node-type-erpal-contract h1.pane-title,
+.page-tasks h1.pane-title,
+.page-bookmarks h1.pane-title,
+.page-user h1.pane-title,
+.page-projects-timetrackings h1.pane-title {
+  padding-left: 33px;
+}
+
+.page-dashboard .pane-page-content h1.pane-title {
+  background-position: -234px -312px;
+}
+
+.page-user-notifications .pane-page-content h1.pane-title {
+  background-position: -312px -234px;
+}
+
+.page-projects-projects .pane-page-content h1.pane-title,
+.node-type-erpal-project .pane-page-content h1.pane-title {
+  background-position: -364px -182px;
+}
+
+.page-contacts .pane-page-content h1.pane-title,
+.page-node-add-erpal-contact .pane-page-content h1.pane-title,
+.node-type-erpal-contact .pane-page-content h1.pane-title,
+.page-field-collection-field-addresses .pane-page-content h1.pane-title,
+.page-field-collection-field-phone .pane-page-content h1.pane-title,
+.page-field-collection-field-bank-accounts .pane-page-content h1.pane-title {
+  background-position: -130px -416px;
+}
+
+.page-activities .pane-page-content h1.pane-title,
+.page-node-add-erpal-crm-activity h1.pane-title,
+.node-type-erpal-crm-activity h1.pane-title {
+  background-position: -26px -520px;
+}
+
+.page-books .pane-page-content h1.pane-title,
+.page-node-add-erpal-book .pane-page-content h1.pane-title,
+.node-type-erpal-book .pane-page-content h1.pane-title,
+.page-node-add-erpal-book-page .pane-page-content h1.pane-title,
+.node-type-erpal-book-page .pane-page-content h1.pane-title {
+  background-position: -182px -364px;
+}
+
+.page-heartbeat .pane-page-content h1.pane-title {
+  background-position: -286px -260px;
+}
+
+.page-files .pane-page-content h1.pane-title,
+.page-node-files .pane-page-content h1.pane-title,
+.page-node-add-erpal-file .pane-page-content h1.pane-title,
+.node-type-erpal-file .pane-page-content h1.pane-title {
+  background-position: -208px -338px;
+}
+
+.node-type-erpal-file .erpal-content-left h1.pane-title,
+.page-budget .pane-page-content .pane-budget-node h1.pane-title,
+.page-budget .pane-page-content .pane-views-panes h1.pane-title,
+.page-user-notifications .region-one-main h1.pane-title {
+  padding-left: 0;
+  background: none;
+}
+
+.page-invoice-invoices h1.pane-title,
+.page-node-add-erpal-invoice .pane-page-content h1.pane-title,
+.node-type-erpal-invoice .pane-page-content h1.pane-title {
+  background-position: -260px -286px;
+}
+
+.page-contracts .pane-page-content h1.pane-title,
+.node-type-erpal-contract h1.pane-title,
+.page-node-add-erpal-contract .pane-page-content h1.pane-title {
+  background-position: -156px -390px;
+}
+
+.node-type-erpal-contract .pane-page-title h1.pane-title,
+#mini-panel-invoice_header_fields h1.pane-title {
+  background: none;
+  padding-left: 0;
+}
+
+.page-timekeeping .pane-page-content h1.pane-title,
+.page-node-timetracking .pane-page-content h1.pane-title,
+.page-node-add-erpal-working-time h1.pane-title,
+.node-type-erpal-working-time h1.pane-title,
+.page-node-add-erpal-timetracking h1.pane-title {
+  background-position: -494px -52px;
+}
+
+.page-node-timetracking .pane-page-content h1.pane-title,
+.node-type-erpal-timetracking h1.pane-title,
+.page-projects-timetrackings h1.pane-title {
+  background-position: -520px -26px;
+}
+
+.page-projects-timetrackings-tmp h1.pane-title {
+  background-position: 0 -548px;
+}
+
+.page-books.page-books-templates h1.pane-title {
+  background-position: -442px -104px;
+}
+
+.node-type-erpal-task .pane-page-content h1.pane-title,
+.page-node-tasks .pane-page-content h1.pane-title,
+.page-tasks h1.pane-title,
+.page-node-add-erpal-task h1.pane-title {
+  background-position: -416px -130px;
+}
+
+.page-projects-pricing .pane-page-content h1.pane-title,
+.page-node-pricing .pane-page-content h1.pane-title,
+.page-invoice-billables .pane-page-content h1.pane-title,
+.page-billable-add .pane-page-content h1.pane-title {
+  background-position: -338px -208px;
+}
+
+.page-projects-budgets .pane-page-content h1.pane-title,
+.page-budget-edit .pane-page-content h1.pane-title,
+.page-budget .pane-page-content h1.pane-title {
+  background-position: -78px -468px;
+}
+
+.page-node-tickets .pane-page-content h1.pane-title {
+  background-position: -468px -78px;
+}
+
+.node-type-erpal-invoice .pane-page-content .pane-page-title h1.pane-title {
+  background-position: -260px -286px;
+}
+
+.pane-invoice-header-fields h2 {
+  padding-left: 0 !important;
+  font-size: 18px !important;
+  margin: 0 !important;
+}
+.pane-invoice-header-fields a:hover {
+  color: #FC9822;
+}
+
+.page-user h1.pane-title {
+  background-position: -546px 0;
+}
+
+.page-user-bookmarks h1.pane-title {
+  background-position: -52px -494px;
+}
+
+.page-user-projects h1.pane-title,
+.page-node-add-erpal-project h1.pane-title {
+  background-position: -364px -182px;
+}
+
+.page-user-tasks h1.pane-title,
+.page-node-add-erpal-task h2.pane-title {
+  background-position: -416px -130px;
+}
+
+.page-reports-crm h1.pane-title,
+.page-reports-project h1.pane-title,
+.page-reports h1.pane-title,
+.page-reports-dashboard h1.pane-title,
+.page-node-add-erpal-task h2.pane-title {
+  background-position: -390px -156px;
+}
+
+.page-calendar h1.pane-title,
+.page-node-add-erpal-date h1.pane-title,
+.page-node-calendar h1.pane-title,
+.node-type-erpal-date h1.pane-title {
+  background-position: -104px -442px;
+}
+
+.profile .user-picture {
+  margin-top: 20px;
+}
+
+#field-phone-values .form-text .form-autocomplete {
+  position: relative;
+  top: 19px;
+}
+
+#edit-field-pricing .select,
+#edit-field-pricing input.form-autocomplete {
+  width: 180px;
+}
+
+.page-node-files td.views-field-title {
+  min-width: 200px;
+}
+
+.page-books-books td.views-field-title a {
+  padding: 3px 0px 3px 25px;
+  background-position: -160px -336px;
+  display: block;
+  line-height: 20px;
+}
+.page-books-books td.views-field-title a:hover, .page-books-books td.views-field-title a.document_hover, .page-books-books td.views-field-title a.document-hover {
+  background-position: -180px -316px;
+}
+.page-books-books td.views-field-title a:hover {
+  background-position: -180px -316px;
+}
+
+.page-books-templates td.views-field-title a {
+  padding: 3px 0px 3px 25px;
+  background-position: -400px -100px;
+  display: block;
+  line-height: 20px;
+}
+.page-books-templates td.views-field-title a:hover, .page-books-templates td.views-field-title a.template_hover, .page-books-templates td.views-field-title a.template-hover {
+  background-position: -418px -80px;
+}
+.page-books-templates td.views-field-title a:hover {
+  background-position: -418px -80px;
+}
+
+/*-------------------------end Page titles--------------------------------*/
+th.views-field-title {
+  width: 200px !important;
+}
+
+th.views-field-created,
+th.views-field-changed {
+  width: 100px;
+}
+
+th.views-field-field-invoice-number {
+  width: 50px;
+}
+
+/*---------- activity pages ----------*/
+.node-type-erpal-crm-activity .erpal-content-right .view-projects {
+  padding-left: 10px;
+}
+.node-type-erpal-crm-activity .erpal-content-right .view-projects .views-label-title {
+  font-size: 11px;
+  display: block;
+  color: #645c57;
+}
+
+/*---------- Quick links on project page and crm sidebars----------*/
+.erpal-content-right .views-field-operations {
+  margin-top: 10px;
+}
+
+.views-field-operations {
+  width: 140px;
+}
+.views-field-operations div.quicklinks a {
+  margin: 0 4px;
+  display: block;
+  font-size: 0px !important;
+  text-indent: -2000;
+  width: 20px;
+  height: 22px;
+  float: left;
+  padding-left: 0 !important;
+}
+.views-field-operations div.quicklinks a.tasks {
+  background-position: 0 -280px;
+}
+.views-field-operations div.quicklinks a.tasks:hover, .views-field-operations div.quicklinks a.tasks.task_hover, .views-field-operations div.quicklinks a.tasks.task-hover {
+  background-position: 0 -455px;
+}
+.views-field-operations div.quicklinks a.tasks:hover {
+  background-position: 0 -455px;
+}
+.views-field-operations div.quicklinks a.tickets {
+  background-position: 0 -945px;
+}
+.views-field-operations div.quicklinks a.tickets:hover, .views-field-operations div.quicklinks a.tickets.ticket_hover, .views-field-operations div.quicklinks a.tickets.ticket-hover {
+  background-position: 0 -1085px;
+}
+.views-field-operations div.quicklinks a.tickets:hover {
+  background-position: 0 -1085px;
+}
+.views-field-operations div.quicklinks a.files {
+  background-position: 0 -210px;
+}
+.views-field-operations div.quicklinks a.files:hover, .views-field-operations div.quicklinks a.files.files_hover, .views-field-operations div.quicklinks a.files.files-hover {
+  background-position: 0 -595px;
+}
+.views-field-operations div.quicklinks a.files:hover {
+  background-position: 0 -595px;
+}
+.views-field-operations div.quicklinks a.calendar {
+  background-position: 0 -245px;
+}
+.views-field-operations div.quicklinks a.calendar:hover, .views-field-operations div.quicklinks a.calendar.calendar_hover, .views-field-operations div.quicklinks a.calendar.calendar-hover {
+  background-position: 0 -385px;
+}
+.views-field-operations div.quicklinks a.calendar:hover {
+  background-position: 0 -385px;
+}
+.views-field-operations div.quicklinks a.timetracking {
+  background-position: 0 -560px;
+}
+.views-field-operations div.quicklinks a.timetracking:hover, .views-field-operations div.quicklinks a.timetracking.timekeeping_hover, .views-field-operations div.quicklinks a.timetracking.timekeeping-hover {
+  background-position: 0 -490px;
+}
+.views-field-operations div.quicklinks a.timetracking:hover {
+  background-position: 0 -490px;
+}
+
+/*---------------------------Task page details-------------------------*/
+.pane-task-basic-fields {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+  font-size: 11px;
+}
+.pane-task-basic-fields .field-type-image,
+.pane-task-basic-fields .field-name-title {
+  margin-top: 2px;
+  float: left;
+}
+.pane-task-basic-fields figure {
+  height: 16px;
+}
+.pane-task-basic-fields .field_time_information {
+  padding-top: 5px;
+  line-height: 15px;
+}
+.pane-task-basic-fields .field_time_information .local_time_information .label_this_task {
+  font-weight: bold;
+}
+.pane-task-basic-fields .field_time_information .label_this_task,
+.pane-task-basic-fields .field_time_information .label_subtasks {
+  float: left;
+  width: 65px;
+}
+.pane-task-basic-fields .field_time_information .time_details {
+  padding-right: 5px;
+  float: left;
+  width: 60px;
+}
+.pane-task-basic-fields .field_time_information .time_details_todo {
+  padding-right: 5px;
+  float: left;
+  width: 70px;
+}
+.pane-task-basic-fields .field_time_information .children_time_information {
+  clear: both;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel {
+  float: left;
+  height: 40px;
+  width: 205px;
+  border-right: 1px solid #d9d5d2;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .panel-panel {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-first {
+  margin-right: 10px;
+  padding-right: 10px;
+  width: 310px;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-first section {
+  float: left;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-last {
+  width: 180px !important;
+  border: none;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-last section {
+  margin: 0;
+  padding-bottom: 5px !important;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-last section.pane-node-field-date {
+  padding-top: 0;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-last section h2.pane-title {
+  margin-right: 10px;
+  padding-right: 5px;
+  float: left;
+  width: 65px;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel.panel-col-last section .block-content {
+  float: left;
+  line-height: 11px;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside {
+  margin: 0 !important;
+  min-width: auto !important;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside .panel-separator {
+  display: none;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside section {
+  margin: 0;
+  padding: 6px 10px;
+  min-width: 65px;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside section h2.pane-title {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 11px;
+  background: none !important;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside section .field-items {
+  margin: 0;
+}
+.pane-task-basic-fields .panel-3col-33 .panel-panel .inside section .field-items .field-name-title h2 {
+  margin: 0 0 0 5px;
+  font-size: 11px;
+  font-weight: normal;
+}
+.pane-task-basic-fields .block {
+  margin: 0;
+}
+
+/*---------------------------Contract page-------------------------*/
+#mini-panel-contract_basic_panel,
+#mini-panel-contract_time_information,
+#mini-panel-contract_budget_information {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d5d2;
+}
+#mini-panel-contract_basic_panel h2.pane-title,
+#mini-panel-contract_time_information h2.pane-title,
+#mini-panel-contract_budget_information h2.pane-title {
+  margin: 0;
+  padding: 0 5px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  background: none;
+}
+
+#mini-panel-contract_basic_panel {
+  padding: 10px;
+}
+#mini-panel-contract_basic_panel #mini-panel-contract_basic_info_panel .panel-separator {
+  display: none;
+}
+#mini-panel-contract_basic_panel .pane-contract-basic-info-panel .panel-pane {
+  margin-bottom: 0;
+  padding-right: 8px;
+  float: left;
+}
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref {
+  padding-right: 0 !important;
+}
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a {
+  padding: 3px 0 3px 25px;
+  background-position: -80px -414px;
+}
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a:hover, #mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a.contact_hover, #mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a.contact-hover,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a:hover,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a.contact_hover,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a.contact-hover {
+  background-position: -100px -396px;
+}
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-contractor-ref a:hover,
+#mini-panel-contract_basic_panel .pane-field-collection-item-field-customer-ref a:hover {
+  background-position: -100px -396px;
+  color: #fc9822;
+}
+#mini-panel-contract_basic_panel .block {
+  margin-bottom: 13px;
+}
+#mini-panel-contract_basic_panel .block h2.pane-title {
+  float: left;
+}
+#mini-panel-contract_basic_panel .block ul.field-items {
+  margin: 0;
+}
+#mini-panel-contract_basic_panel .block.pane-5 {
+  margin-bottom: 0;
+}
+#mini-panel-contract_basic_panel .block.pane-5 p {
+  font-weight: bold;
+}
+#mini-panel-contract_basic_panel .block p {
+  margin-bottom: 0;
+}
+
+#mini-panel-contract_time_information section,
+#mini-panel-contract_budget_information section {
+  margin-bottom: 0;
+  padding: 10px;
+  float: left;
+  width: 120px;
+  border-right: 1px solid #d9d5d2;
+}
+#mini-panel-contract_time_information section.pane-node-field-repeating-duration,
+#mini-panel-contract_budget_information section.pane-node-field-repeating-duration {
+  border: none;
+}
+
+#mini-panel-contract_budget_information a:hover {
+  color: #fc9822;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination {
+  float: none;
+  width: auto;
+  border-right: none;
+  border-bottom: 1px solid #d9d5d2;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a {
+  padding: 3px 0 3px 25px;
+  background-position: -280px -218px;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a:hover, #mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a.projects_hover, #mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a.projects-hover {
+  background-position: -300px -200px;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budget-destination a:hover {
+  background-position: -300px -200px;
+}
+#mini-panel-contract_budget_information .pane-contract-budget-time-information {
+  margin-bottom: 0;
+}
+#mini-panel-contract_budget_information .panel-separator {
+  display: none;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budget-hours {
+  border-right: none;
+}
+#mini-panel-contract_budget_information .pane-field-collection-item-field-budgets {
+  float: none;
+  width: auto;
+  border-right: none;
+  border-top: 1px solid #d9d5d2;
+}
+
+/*---------------------------Comment status-------------------------*/
+.comment-content .item-list ul {
+  margin-left: 12px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  float: left;
+  overflow: hidden;
+  border: 1px solid #d9d5d2;
+}
+.comment-content .item-list ul li {
+  padding: 0 10px;
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  border-right: 1px solid #d9d5d2;
+}
+.comment-content .item-list ul li .nodechange {
+  margin-right: 5px;
+}
+.comment-content .item-list ul li a:hover {
+  color: #fc9822;
+}
+.comment-content .item-list ul li img {
+  position: relative;
+  top: 4px;
+}
+.comment-content .item-list ul li.last {
+  border: none;
+}
+
+/*---------------------------Quick timetracking-------------------------*/
+.page-dashboard #autocomplete li {
+  white-space: normal;
+  cursor: pointer;
+}
+.page-dashboard #autocomplete li .views-field {
+  padding: 0 15px;
+  display: block;
+  font-size: 11px;
+  line-height: 18px;
+}
+.page-dashboard #autocomplete li .views-field span {
+  padding: 1px 0;
+}
+.page-dashboard #autocomplete li .views-field.views-field-title-1 .field-content {
+  background-color: #f2dca7;
+}
+.page-dashboard #autocomplete li .views-field.views-field-title {
+  margin-bottom: 5px;
+  padding: 5px 15px;
+  background-color: #eeeeee;
+  font-weight: bold;
+  font-size: 12px;
+}
+.page-dashboard #autocomplete li .views-field.views-field-nid {
+  padding-bottom: 15px;
+}
+.page-dashboard #autocomplete li .views-field .search_string {
+  background-color: #f2dca7;
+}
+.page-dashboard #autocomplete li .views-field .field-content {
+  font-weight: bold;
+}
+.page-dashboard #autocomplete li.selected {
+  background-color: #faf1dc;
+  color: black;
+}
+.page-dashboard #autocomplete li.selected .views-field-title {
+  background-color: #f2dca7;
+}
+
+.page-date-item .erpal-content-right .local_tasks {
+  top: -22px;
+}
+
+.block-content .view-content td.ui-state-highlight {
+  background-color: #fee0bc;
+  background-image: none;
+  border: 1px solid #fc9822;
+}
+
+.view-erpal-heartbeat .view-content {
+  padding-top: 10px;
+}
+.view-erpal-heartbeat .view-content a:hover {
+  color: #fc9822;
+}
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-node-message,
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-comment-message {
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 10px;
+}
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-node-message .hb_date_time,
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-comment-message .hb_date_time {
+  width: 110px;
+  float: left;
+}
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-node-message .hb_content,
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-comment-message .hb_content {
+  width: 908px;
+  float: left;
+}
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-node-message a,
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-comment-message a {
+  font-weight: normal;
+  font-size: 13px;
+  color: #393431;
+}
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-node-message a:hover,
+.view-erpal-heartbeat .view-content .message-erpal-heartbeat-comment-message a:hover {
+  color: #fc9822;
+}
+
+.erpal-content-layout-template .region-sidebar-left .block {
+  margin-bottom: 20px;
+}

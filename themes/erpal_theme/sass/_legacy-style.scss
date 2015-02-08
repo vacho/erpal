@@ -1,0 +1,2645 @@
+@import 'legacy/**/*'; // old stuff
+
+$title_icons-layout: diagonal;
+@import "title_icons/*.png";
+$menu_tabs_icons-layout: vertical;
+$menu_tabs_icons-spacing: 15px;
+@import "menu_tabs_icons/*.png";
+
+$menu_icons-layout: vertical;
+$menu_icons-spacing: 15px;
+@import "menu_icons/*.png";
+
+$content_icons-layout:diagonal;
+@import "content_icons/*.png";
+
+iframe body,
+body body  {
+  background-color: #fff !important;
+  background-image: none;
+}
+body {
+  &.panels-ipe {
+    margin-bottom: 0 !important;
+  }
+  &.logged-in {
+
+  }
+  #erpal_wrapper {
+    .erpal-region-content {
+      margin-bottom: 10px;
+      padding-top: 20px;
+      background-color: $white;
+      @include border-radius(0px 5px 5px 5px);
+      @include box-shadow($black 0px 0px 5px);
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      min-height: 500px;
+    }
+    .erpal-top {
+      margin-bottom: 15px;
+      margin-left: 10px;
+      background-color: $drub_light;
+      @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+      height: 28px;
+      position: relative;
+      @include border-radius(5px);
+      @include box-shadow(0px 1px 3px rgba(0, 0, 0, 0.5));
+      .block {
+        .block {
+          float: left;
+        }
+      }
+    }
+    .erpal-region-left.panel-col-first {
+      margin:0;
+      width: 150px;
+      max-width: none;
+      height: $value100;
+      float: left;
+      position: absolute;
+      >.inside {
+        margin:0;
+        padding-right: 0;
+        height: $value100;
+      }
+    }
+  }
+  &.page-node-tasks { /*----------begin node task-----------*/
+    li{
+      list-style-type: none;
+    }
+  } /*----------end node task-----------*/
+
+  &.page-node-tickets { /*----------begin node ticket-----------*/
+    li {
+      list-style-type: none;
+    }
+  } /*----------end node ticket-----------*/
+  .inline_fields {
+    clear: both;
+    .field {
+      margin-right: 50px;
+      clear: none !important;
+      float: left;
+    }
+  }
+  &.page-crm-contacts table {
+    .views-field-field-contact-image {
+      width: 160px;
+    }
+    .views-field-title {
+      width: 345px;
+    }
+  }
+  .view-crm-activities {
+    table {
+      border-collapse: collapse;
+    }
+  }
+  #user-login input.form-text {
+    width: 200px;
+  }
+}
+
+
+.pane-system-user-menu { /*----------begin User menu-------------*/
+  ul {
+    margin: 0 0 0 20px;
+    padding: 0 10px 0 2px;
+    overflow: hidden;
+    float: right;
+    border-left: 1px solid $light;
+    border-right: 1px solid $light;
+    li {
+      margin-left: 15px;
+      padding: 0;
+      float: left;
+      text-align: center;
+      width: 25px;
+      a {
+        padding-left: 25px;
+        color: $grey;
+        display: block;
+        text-indent: -2000px;
+        &:hover{
+          color: $orange;
+        }
+      }
+      &.my-bookmarks a{
+        @include menu_tabs_icons-sprite(bookmark, $offset-y: 4px);
+        &:hover{
+          @include menu_tabs_icons-sprite(bookmark_hover, $offset-y: 4px);
+        }
+      }
+      &.my-tasks a{
+        @include menu_tabs_icons-sprite(task, $offset-y: 4px);
+        &:hover{
+          @include menu_tabs_icons-sprite(task_hover, $offset-y: 4px);
+        }
+      }
+      &.heartbeat a{
+        @include menu_tabs_icons-sprite(log, $offset-y: 4px);
+        &:hover{
+          @include menu_tabs_icons-sprite(log_hover, $offset-y: 4px);
+        }
+      }
+      &.my-account a{
+        @include menu_tabs_icons-sprite(user, $offset-y: 4px);
+        &:hover{
+          @include menu_tabs_icons-sprite(user_hover, $offset-y: 4px);
+        }
+      }
+      &.timekeeping a{
+        @include menu_tabs_icons-sprite(timekeeping, $offset-y: 4px);
+        &:hover{
+          @include menu_tabs_icons-sprite(timekeeping_hover, $offset-y: 4px);
+        }
+      }
+      &.my-projects a{
+        @include menu_tabs_icons-sprite(projects, $offset-y: 5px);
+        &:hover{
+          @include menu_tabs_icons-sprite(projects_hover, $offset-y: 5px);
+        }
+      }
+      &.log-out {
+        margin-left: 11px;
+        a{
+          @include menu_tabs_icons-sprite(logout, $offset-y: 4px);
+          &:hover{
+            @include menu_tabs_icons-sprite(logout_hover, $offset-y: 4px);
+          }
+        }
+      }
+      &#erpal_menu_help {
+        a{
+          @include menu_tabs_icons-sprite(help, $offset-y: 4px);
+          &:hover{
+            @include menu_tabs_icons-sprite(help_hover, $offset-y: 4px);
+          }
+        }
+      }
+    }
+  }  /*----------end User menu-------------*/
+}
+.pane-user-bar {
+  .panel-panel {
+    width: auto;
+    .panel-separator {
+      display: none;
+    }
+    .welcome_user {
+      line-height: 27px;
+      img {
+        margin-top: 3px;
+        margin-right: 5px;
+        float: left;
+        max-width: 22px;
+        max-height: 22px;
+      }
+    }
+    .last_timetracking {
+      .timekeeping_link {
+        padding-left: 25px;
+        float: left;
+        @include menu_tabs_icons-sprite(active_timetracking, $offset-y: 4px);
+        line-height: 30px;
+        font-size: 0;
+        &:hover {
+          @include menu_tabs_icons-sprite(active_timetracking_hover, $offset-y: 4px);
+        }
+      }
+      .timetracking_subject {
+        margin-right: 2px;
+        line-height: 30px;
+        float: left;
+        max-width: 300px;
+        overflow: hidden;
+        height: 28px;
+        a:hover {
+          color: $orange;
+        }
+      }
+      .timetracking {
+        float: left;
+        font-weight: bold;
+        a {
+          line-height: 30px;
+        }
+        img {
+          margin-top: 6px;
+          margin-right: 2px;
+          float: left;
+        }
+        .timetracking_text {
+          display: none;
+        }
+      }
+    }
+  }
+  .panel-col-first {
+    width: 160px;
+  }
+}
+
+
+//logout link
+
+#mini-panel-user_bar {
+  .panel-col-last {
+    margin-right: 20px;
+    width: 70px !important;
+    float: right;
+    .inside {
+      margin-left: 0px !important;
+      min-width: 60px;
+      .pane-erpal-basic-helper-logout-block {
+        float: right !important;
+        .block-content a {
+          padding: 6px 0 6px 22px;
+          @include menu_tabs_icons-sprite(logout, $offset-y: 4px);
+          line-height: 27px;
+          &:hover {
+            @include menu_tabs_icons-sprite(logout_hover, $offset-y: 4px);
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*----------Logo-------------*/
+.pane-page-logo {
+  top: -9px;
+  left: 2px;
+  position: absolute;
+  z-index: 100;
+}
+/*----------end Logo-------------*/
+
+
+
+
+
+/*----------begin Search Block-------------*/
+.pane-search-form {
+  margin-bottom: 0px;
+  #search-block-form {
+    margin-bottom: 12px;
+    .form-text {
+      margin-left: 10px;
+      padding: 2px 0;
+      width: 120px;
+      @include border-radius(2px);
+      font-size: 11px;
+    }
+  }
+}
+/*----------end Search Block-------------*/
+
+/*----------begin Erpal menu-------------*/
+/*----------begin Erpal menu items-------------*/
+.pane-menu-menu-erpal-menu {
+  .projects a{
+    @include menu_icons-sprite(projects, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(projects_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.projects a {
+    @include menu_icons-sprite(projects_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(projects_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .documents a{
+    @include menu_icons-sprite(document, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(document_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.documents a {
+    @include menu_icons-sprite(document_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(document_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .invoices a{
+    @include menu_icons-sprite(invoice, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(invoice_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.invoices a {
+    @include menu_icons-sprite(invoice_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(invoice_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .contracts a{
+    @include menu_icons-sprite(contract, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(contract_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.contracts a {
+    @include menu_icons-sprite(contract_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(contract_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .heartbeat a{
+    @include menu_icons-sprite(log, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(log_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.heartbeat a {
+    @include menu_icons-sprite(log_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(log_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .files a{
+    @include menu_icons-sprite(files, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(files_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.files a {
+    @include menu_icons-sprite(files_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(files_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .calendar a{
+    @include menu_icons-sprite(calendar, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(calendar_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.calendar a {
+    @include menu_icons-sprite(calendar_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(calendar_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .contacts a {
+    @include menu_icons-sprite(contact, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(contact_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.contacts a {
+    @include menu_icons-sprite(contact_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(contact_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .activities a{
+    @include menu_icons-sprite(activity, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(activity_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.activities a {
+    @include menu_icons-sprite(activity_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(activity_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .timekeeping a{
+    @include menu_icons-sprite(timekeeping, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(timekeeping_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.timekeeping a {
+    @include menu_icons-sprite(timekeeping_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(timekeeping_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .reports a{
+    @include menu_icons-sprite(reports, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(reports_hover, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+  .active-trail.reports a {
+    @include menu_icons-sprite(reports_active, $offset-y: 6px, $offset-x: 16px);
+    &:hover {
+      @include menu_icons-sprite(reports_active, $offset-y: 6px, $offset-x: 16px);
+    }
+  }
+}
+
+/*-------------end Erpal menu items-----------*/
+.pane-menu-menu-erpal-menu {
+  .contextual-links-wrapper li{
+    background: none;
+  }
+  width: 150px;
+  ul {
+    @include dist_zero;
+    li {
+      margin-left: 0;
+      padding: 0;
+      list-style-image: none;
+      list-style-type: none;
+      position: relative;
+      z-index: 1;
+      background: url("../images/li.png") no-repeat 0 0 ;
+      &.active-trail a,
+      &.active-trail a:hover {
+        background-position: 15px -74px;
+      }
+      &.active-trail {
+        a {
+          color: $white;
+          &:hover {
+            color: $white;
+            text-shadow: none;
+          }
+        }
+        &.active-trail {
+          background: url("../images/li_active.png") no-repeat 0 0 ;
+          color: $white;
+          z-index: 5;
+        }
+      }
+      a {
+        padding: 8px 17px 7px 42px;
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        background-repeat: no-repeat;
+        &:hover {
+          color: rgba($orange, 0.8);
+          text-shadow: 1px 1px 1px $silver, 0 0 0 $black, 1px 1px 1px $silver;
+        }
+        &.active {
+          color: $white;
+        }
+      }
+    }
+    ul {
+      @include dist_zero;
+      li {
+        &.last {
+          border-bottom: none;
+          .active{
+            @include orange_border;
+          }
+        }
+        a {
+          padding-left: 25px;
+        }
+      }
+    }
+  }
+}
+/*----------end Erpal menu-------------*/
+/* =============================================================================
+ *   Middle region
+ * ========================================================================== */
+
+/*----------begin .pane-page-content -------------*/
+.pane-page-content {
+  margin: {
+    right: 20px;
+    left: 20px;
+  }
+  padding-bottom: 20px;
+  max-width: 1070px;
+  .content-inner {
+    clear: both;
+  }
+  .pane-page-title.block {
+    margin-bottom: 0;
+  }
+  .panel-2col-stacked {
+    .panel-col-first {
+      width: 700px;
+    }
+    .panel-col-last {
+      margin-left: 30px;
+      width: 340px !important;
+    }
+    .inside {
+      margin: 0 !important;
+      .inside {
+        background: none;
+        border: none;
+      }
+    }
+  }
+  /*h2,*/
+  h1  {
+    &.pane-title {
+      @include headline(24px, 30px, 15px, bold);
+      color: $black;
+      max-width: 725px;
+    }
+  }
+  .rel-register-build {
+    padding: 10px;
+    @include border-radius(8px 8px 0 0);
+    .views-exposed-widgets {
+      margin-bottom: 0px;
+    }
+  }
+  .portlet-content .views-table {
+    margin-bottom: 0;
+    border: 1px solid $silver_light;
+    border-bottom: none;
+    @include border-radius(5px 5px 0px 0px);
+    border-collapse: separate;
+  }
+  .views-table {
+    margin-top: 0;
+    border-collapse: collapse;
+    border-bottom: none;
+    th {
+      padding: 7px 4px;
+      font-size: 13px;
+    }
+    td {
+      padding: 7px 4px 7px 4px;
+      &.views-field-field-customer-ref {
+
+      }
+    }
+  }
+} /*----------end .pane-page-content -------------*/
+
+
+/*--------- begin foooter section ------ */
+
+/*common styles footer*/
+.powered_by_content {
+  color: $white;
+  font-size: 10px;
+  font-weight: bold;
+  a {
+    font-size: 12px;
+    font-weight: normal;
+    color: $white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .bs_powered_by_logo {
+    width: 130px;
+    height: 24px;
+    @include background(image-url("erpal_logo-weiss_footer.png"));
+  }
+}
+
+/*content footer*/
+.erpal-footer {
+  width: 1019px;
+  padding: 0 20px;
+  padding-bottom: 10px;
+  float: right;
+  .bs_powered_by_logo {
+    float: left;
+  }
+  .support_powered_by {
+    width: 860px;
+    float: right;
+    text-align: right;
+    margin-top: 4px;
+  }
+}
+/*login page footer */
+
+.not-logged-in {
+  .bs_powered_by_logo {
+    margin: 5px auto 20px;
+  }
+  .pane-powered-by {
+    width: 380px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+
+/*--------- end foooter section ------ */
+
+/*----------begin comments------------------------*/
+.comment {
+  padding-bottom: 15px;
+  @include border-radius(5px);
+  border: 1px solid $silver_light;
+  .field-name-field-contacts-ref {
+    padding: 0 15px 15px;
+  }
+  .field-name-comment-body {
+    clear: both;
+    p {
+      font-size: 16px;
+    }
+    ul {
+      margin-left: 40px;
+      li {
+        list-style-type: disc;
+        line-height: 1.3em;
+      }
+    }
+    ol {
+      margin-left: 46px;
+      li {
+        list-style-type: decimal;
+        line-height: 1.3em;
+      }
+    }
+  }
+  .comment-header {
+    padding: {
+      top: 10px;
+      right: 10px;
+      left: 15px;
+    }
+    background-color: $drub_light;
+    @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+    height: 28px;
+    float: left;
+    .new {
+      position: relative;
+      top: -4px;
+    }
+  }
+  .submitted {
+    padding: 10px 15px;
+    background-color: $drub_light;
+    @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+    .author-datetime {
+      margin-bottom: 0px;
+      font-size: 11px;
+      color: $dark_black;
+      a {
+        font-size: 12px;
+      }
+    }
+    .user-picture {
+      margin-right: 5px;
+      float: left;
+      img {
+        max-width: 18px;
+        max-height: 18px;
+      }
+    }
+  }
+  .comment-content {
+    padding-top: 15px;
+    .field-name-comment-body {
+      padding: 0 15px 15px 15px;
+      font-size: 16px;
+    }
+    .field-name-field-asset-files {
+      padding-left: 15px;
+      padding-top: 15px;
+      border-top: 1px solid $silver_light;
+      h2{
+        padding-bottom: 10px;
+      }
+      .field-item {
+        overflow: hidden;
+        float: left;
+      }
+    }
+  }
+  .comment-form {
+    padding: {
+      top: 15px;
+      right: 15px;
+      bottom: 15px;
+      left: 15px;
+    }
+    @include border-radius(5px);
+  }
+  nav {
+    margin-top: 10px;
+    padding: 10px 15px 0 10px;
+    clear: both;
+    border-top: 1px solid $silver_light;
+    ul.links li{
+      margin-right: 10px;
+      float: left;
+      a {
+        padding: 6px 17px;
+        display: block;
+        @include border-radius(5px);
+        background-color: $drub_light;
+        @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+        @include headline(10px, 10px, 0, bold);
+        color: $dark_black;
+        border: 1px solid $silver_light;
+        &:hover {
+          @include background-image(linear-gradient(bottom, #DBD8DB 37%, #E8E8E8 69%));
+        }
+      }
+    }
+  }
+}
+.page-comment-reply {
+  .field-name-comment-body {
+    clear: both;
+  }
+  .form-type-item {
+    float: left;
+  }
+  #comment-form .field-widget-options-select {
+    width: auto;
+  }
+}
+
+/*----------end comments------------------------*/
+
+
+.view-filters .rel-register-build  {
+  background-color: $light_grey;
+  .views-exposed-widget .rel-register-link {
+    padding-top: 12px;
+    padding-right: 20px;
+    float: left;
+  }
+}
+.alert { /*----------------begin red alert-----------------*/
+  .field-name-field-task-status-term,
+  .field_item .field-name-field-date,
+  .views-field-field-date,
+  .field-item,
+  .views-field-field-date-1,
+  .views-field-field-next-contact,
+  .views-field-field-task-status-term,
+  .views-field-field-project-status-term,
+  .views-field-field-activity-status-term {
+    color: $red;
+  }
+}
+.local_time_information,
+.time_information {
+  &.alert {
+    color: $red;
+  }
+  div {
+    font-weight: bold;
+  }
+}
+/*----------------end red alert-----------------*/
+.completed { /*----------------begin alert completed-----------------*/
+  .field-name-field-task-status-term,
+  .field-name-field-completed,
+  .field-item,
+  .views-field-field-date,
+  .views-field-field-date-1,
+  .views-field-field-next-contact,
+  .views-field-field-task-status-term,
+  .views-field-field-project-status-term,
+  .views-field-field-activity-status-term	{
+    color: $green;
+  }
+}   /*----------------end alert completed-----------------*/
+
+/*.region-sidebar-left,*/
+.erpal-content-left { /*----------------begin side-bar-left-----------------*/
+  max-width: 720px;
+  min-width: 360px;
+  width: $value100;
+  float: left;
+  &.single-row {
+    max-width: 100% !important;
+  }
+  #mini-panel-contact_details_panel {
+    margin-top: 2px;
+  }
+  ul {
+    .field-name-task-title  {
+      .field-item a {
+        font-weight: bold;
+        font-size: 16px;
+        &:hover {
+          color: $orange;
+        }
+      }
+      .field-item p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .region-sidebar-right {
+    section {
+      &.field {
+        overflow: hidden;
+      }
+    }
+  }
+} /*----------------end side-bar-left-----------------*/
+
+/*.region-sidebar-right,*/
+.node-type-erpal-date .erpal-content-right .local_tasks,
+.node-type-erpal-timetracking .erpal-content-right .local_tasks {
+  top: 0px; /* to place action button on the same level as title */
+}
+
+
+
+.erpal-content-right { /*----------------begin side-bar-right-----------------*/
+  margin-left: 10px;
+  width: 250px;
+  float: right;
+  color: $dark_black;
+  position: relative;
+  .pane-page-actions {
+    width: 250px;
+  }
+  a:hover {
+    color: $orange;
+  }
+  .block {
+    margin-bottom: 2px;
+  }
+  .local_tasks_menu .local_tasks {
+    position: absolute;
+    width: 248px;
+    z-index: 10;
+  }
+  .local_tasks_menu {
+    height: 35px;
+    margin-bottom: 10px;
+  }
+  .local_tasks {
+    margin: {
+      top: 0;
+      bottom: 0px;
+    }
+    padding: 0px;
+    position: absolute;
+    top: -43px;
+    width: 250px;
+    list-style-type: none;
+    li {
+      margin: 0 2px 4px 0;
+      list-style-type: none;
+      display: block;
+      a {
+        padding: {
+          top: 5px;
+          bottom: 6px;
+        }
+        &:hover {
+          @include background-image(linear-gradient(bottom, #DBD8DB 37%, #E8E8E8 69%));
+        }
+        display: block;
+        @include border-radius(5px);
+        color: $black;
+        background-color: $silver;
+        @include background-image(linear-gradient(top, rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+        border: 1px solid $silver_light;
+      }
+      ul {
+        display: none;
+      }
+    }
+  }   /*----------------end side-bar-right-----------------*/
+
+  /*-------------begin Notifiy, Bookmark------------------*/
+
+  .flag-wrapper {
+    margin-bottom: 6px;
+    margin-left: 5px;
+    display: block;
+    .flag-message {
+      left: 25px;
+      top: 2em;
+    }
+    &.flag-project-subscriptions a,
+    &.flag-task-subscriptions a{
+      @include menu_tabs_icons-sprite(notify, $offset-y: -2px);
+      &:hover {
+        @include menu_tabs_icons-sprite(notify_hover, $offset-y: -2px);
+      }
+    }
+    &.flag-bookmark-flag a{
+      padding-top: 6px;
+      @include menu_tabs_icons-sprite(bookmark, $offset-y: 1px);
+      &:hover {
+        @include menu_tabs_icons-sprite(bookmark_hover, $offset-y: 1px);
+      }
+    }
+    a {
+      padding: 3px 0 5px 26px;
+      $dark_black: #393431;
+      font-size: 11px;
+      font-weight: bold;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+  /*-------------end Notifiy, Bookmark------------------*/
+  .content-inner {
+    padding-bottom: 30px;
+    clear: both;
+    max-width: 1100px;
+    min-width: 1100px;
+    overflow: hidden;
+  }
+  .panel-separator {
+    display: none;
+  }
+  .ctools-collapsible-container {
+    margin-top: 10px;
+    margin-bottom: 1px;
+    padding-top: 5px;
+    font-size: 11px;
+    border-top: 1px solid $silver_light;
+    .node-erpal-contact {
+      h1.node-title {
+        margin-top: 5px;
+        line-height: 20px;
+        a {
+          padding: 3px 0 3px 30px;
+          background-color: red;
+          @include content_icons-sprite(contact);
+          &:hover {
+            @include content_icons-sprite(contact_hover);
+          }
+        }
+      }
+      .field-name-field-phone  {
+        padding-left: 37px;
+        h2.field-label {
+          margin-top: 3px;
+          font-weight: normal;
+        }
+        .field-collection-view {
+          margin: 0;
+          padding: 0;
+          border: none;
+        }
+        .field-item {
+          margin-bottom: 3px;
+          padding-left: 0px;
+          table {
+            margin: 0;
+            border: none;
+            th {
+              font-weight: normal;
+            }
+            tr, th {
+              padding: 0;
+              background: none;
+            }
+            td {
+              padding: 0;
+              font-weight: bold;
+              a {
+                font-size: 11px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+    h3 {
+      font-size: 11px;
+      font-weight: normal;
+      color: $grey;
+    }
+    .field-collection-view-final {
+      @include border-radius(5px 5px 0 0);
+      th {
+        background-color: $drub_light;
+        @include filter-gradient($drub_light, $drub_grey, vertical);
+        @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+      }
+    }
+    .field-name-field-buy-price .field-item,
+    .pane-node-created .block-content,
+    .field-name-field-buy-currency .field-item {
+      font-weight: bold;
+    }
+    .field-item {
+      font-weight: bold;
+      line-height: 15px;
+    }
+    figure {
+      text-align: center;
+    }
+  } /* end .ctools-collapsible-container */
+  .date-display-single {
+    font-weight: bold;
+  }
+} /*----------------end erpal_content_layout-----------------------*/
+
+.page-budget {
+  .local_tasks {
+    top: 0;
+  }
+}
+
+/*----------------begin .panel-display-----------------------*/
+.erpal-content-right .panel-display .pane-entity-field h2.pane-title {
+  padding-right: 5px;
+  @include headline(11px, 11px, 0, normal);
+  color: $grey;
+}
+.panel-display {
+  .pane-entity-field {
+    .block-content {
+      .rel-register-link {
+        float: left;
+      }
+    }
+    .field-type-taxonomy-term-reference {
+      margin: 0px;
+    }
+    .form-item {
+      margin-bottom: 0px;
+    }
+    .ds-form .group-left {
+      width: auto;
+      float: none;
+    }
+    .form-item label {
+      float: left;
+      color: $grey;
+    }
+  }
+  .ui-widget-content {
+    background: none;
+    border: none;
+  }
+  .ui-tabs .ui-tabs-panel {
+    @include rounded_corners_10;
+    @include border-radius(5px);
+    display: block;
+    float: left;
+    background-color: $light_grey;
+  }
+} /*----------------end panel-display-----------------------*/
+/*------------------------end ctools-collapsible-processed -region-sidebar-right----------------------------------*/
+.ctools-collapsible-processed  {
+  .ctools-collapsible-handle {
+    cursor: pointer;
+  }
+  a {
+    font-size: 13px;
+    font-weight: normal;
+  }
+  .pane-node-author a {
+    font-size: 13px;
+  }
+  h2.pane-title {
+    &.ctools-collapsible-handle {
+      padding: 3px 5px 3px 0px;
+    }
+    margin: 0;
+    padding: 3px 5px 0px 30px;
+    @include headline(11px, 11px, 0, normal);
+    color: $grey;
+    background: none !important;
+  }
+  .ctools-collapsible-content {
+    clear: both;
+    h2.pane-title {
+      padding-left: 0;
+      color: $grey;
+      background: none !important;
+    }
+    .field-items  {
+      clear: both;
+    }
+  }
+  .field-name-field-pricing h2.field-label {
+    margin: 0;
+    clear: both;
+    line-height: 12px;
+    color: $grey;
+    font-weight: normal;
+    font-size: 11px;
+  }
+  section, .field-name-field-books-ref {
+    margin-bottom: 5px;
+    padding-left: 10px;
+  }
+  .field-name-field-task-assigned-users {
+    padding-left: 0px;
+  }
+  .panel-separator {
+    height: 1px;
+    overflow: hidden;
+  }
+  ul {
+    @include dist_zero;
+    li {
+      list-style-type: none;
+      font-weight: bold;
+    }
+  }
+  .field-type-taxonomy-term-reference {
+    margin: 0;
+  }
+  .field-name-field-asset-files {
+    margin-bottom: 10px;
+    .field-item {
+      margin-left: 5px;
+      padding-left: 0 !important;
+    }
+  }
+  .field-name-field-contacts-ref .field-item {
+    padding-left: 10px;
+  }
+  .panel-display .pane-entity-field  {
+    .block-content,
+    h2.pane-title {
+      float: none;
+    }
+  }
+  .panel-separator {
+    display: block;
+  }
+  .no-title {
+    padding-left: 10px;
+  }
+  .ctools-toggle {
+    background-position: 7px 6px;
+  }
+}
+
+.comment_erpal_file  {
+  margin-right: 20px;
+}
+
+.comment_erpal_file,
+.node_erpal_file,
+.page-node-files .views-field-title,
+.page-files .views-field-title {
+  .file_download_link {
+    float: left;
+    a {
+      margin-right: 5px;
+      padding: 4px 0 7px 24px;
+      @include content_icons-sprite(files);
+      line-height: 23px;
+      font-size: 13px;
+      &:hover {
+        @include content_icons-sprite(files_hover);
+        color: $orange;
+      }
+    }
+  }
+  .file_node_link {
+    float: left;
+    a {
+      @include content_icons-sprite(view);
+      height: 20px;
+      width: 20px;
+      font-size: 0;
+      text-indent: -2000;
+      display: block;
+      &:hover {
+        @include content_icons-sprite(view_hover);
+        color: $orange;
+      }
+    }
+  }
+}
+.comment_erpal_file,
+.node_erpal_file {
+  margin-bottom: 5px;
+  display: block;
+  overflow: hidden;
+}
+/*------------------------end ctools-collapsible-processed -region-sidebar-right----------------------------------*/
+
+#mini-panel-task_status_panel {
+  padding: 10px 20px;
+  @include rounded_corners_10;
+  background-color: $light_grey;
+  color: $grey;
+  .panel-separator {
+    display: none;
+  }
+  section {
+    margin-bottom: 0;
+    margin-right: 30px;
+    float: left;
+  }
+  ul {
+    padding-left: 5px;
+    li {
+      padding: 0px;
+      list-style-type: none;
+    }
+  }
+}
+
+#mini-panel-activity_status_panel {
+  padding: 10px 20px;
+  @include border-radius(5px);
+  border: 1px solid $silver_light;
+  h2.pane-title {
+    background: none;
+  }
+  .panel-separator {
+    display: none;
+  }
+  .pane-title{
+    padding-left: 0;
+    padding-right: 10px;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 40px;
+  }
+  .block-content {
+    float: left;
+    ul.field-items {
+      margin: 25px 0 0;
+    }
+  }
+  .pane-node-author,
+  .pane-node-created,
+  .pane-node-updated {
+    .pane-title {
+      line-height: 12px;
+      float: none;
+    }
+    .block-content {
+      float: none; // reset floating for block-content in .pane-node-author field
+    }
+  }
+  ul {
+    padding-left: 5px;
+  }
+  section {
+    margin-bottom: 0;
+    margin-right: 10px;
+    float: left;
+    .field-type-datetime {
+      float: left;
+      margin-right: 5px;
+      .date-no-float {
+        width: auto;
+        .form-item {
+          margin-top: 0;
+          float: left;
+          .date-padding {
+            padding-top: 7px;
+          }
+        }
+      }
+    }
+    .form-actions {
+      margin-top: 27px;
+      float: left;
+    }
+  }
+}
+
+.view-empty {
+  padding: 15px;
+}
+
+/*-------------------begin project page----------------------*/
+.page-projects {
+  .views-field-title {
+    width: 200px;
+  }
+  .views-field-field-customer-ref {
+    width: 200px;
+  }
+  .views-field-field-project-status-term,
+  .page-projects .views-field-field-priority-term {
+    width: 100px;
+  }
+  #edit-field-customer-ref-target-id-wrapper {
+    select {
+      max-width: 200px;
+    }
+  }
+  #edit-field-project-status-term-tid-wrapper {
+  }
+}/*-------------------end project page----------------------*/
+
+/*--------------------------------for erpal task view row layout------------------------------------------*/
+.erpal-task-view-row-layout {
+  .region-sidebar-left {
+    width: 70%;
+    float: left;
+  }
+  .region-sidebar-right {
+    margin-left: 20px;
+    width: 28%;
+    float: left;
+  }
+  .content-inner {
+    margin-bottom: 20px;
+    clear: both;
+    max-width: 1100px;
+    min-width: 1100px;
+  }
+}
+/*---------------ticket details-----------*/
+
+.node-erpal-task .columns-inner {
+  border-bottom: 1px solid $silver_light;
+}
+
+.view-mode-view_row_details .content-inner {
+  padding-bottom: 0px;
+}
+.pane-node-body {
+  padding: 20px;
+  min-height: 350px;
+  border: 1px solid $silver_light;
+  @include border-radius(5px);
+  font-size: 16px;
+  line-height: 1.5em;
+  a {
+    color: $green;
+    text-decoration: underline;
+    &:hover {
+      color: $orange;
+    }
+    &:visited {
+      color: $green;
+    }
+  }
+  p {
+    font-size: 16px;
+  }
+  ul {
+    margin-left: 40px;
+    li {
+      list-style-type: disc;
+      line-height: 1.3em;
+    }
+  }
+  ol {
+    margin-left: 46px;
+    li {
+      list-style-type: decimal;
+      line-height: 1.3em;
+    }
+  }
+  .field-name-body {
+    width: 678px;
+  }
+}
+.quicktabs-tabpage  .panel-panel.panel-col {
+  .pane-node-body {
+    margin-top: -1px;
+    @include border-radius(0px 5px 5px 5px);
+    position: relative;
+    z-index: 5;
+  }
+}
+/*-----------------------begin projects-timetrackings--------------------*/
+.page-projects-timetrackings {
+  #edit-field-date-time-value-wrapper{
+    //margin-left: 45px;
+  }
+  #edit-field-project-ref-target-id {
+    width: 120px;
+  }
+  .views-field-field-date-time {
+    width: 140px;
+  }
+  .views-field-title-1,
+  .views-field-title-2 {
+    width: 120px;
+  }
+  #edit-uid {
+    width: 90px;
+  }
+  #edit-uid-wrapper {
+    width: 140px;
+    .description {
+      line-height: 12px;
+    }
+  }
+}
+/*-----------------------begin projects-timetrackings--------------------*/
+
+/*-------------begin comments------------------- */
+.node-type-erpal-crm-activity {
+  #comment-form {
+    margin-top: -1px;
+//    @include border-radius(0px 5px 5px 5px);
+//    border: 1px solid $silver_light;
+  }
+}
+.node-type-erpal-task #comment-form {
+  margin-top: -1px;
+  @include border-radius(0px 5px 5px 5px);
+}
+#comment-form {
+//  padding: 15px;
+//  margin-top: 20px;
+//  @include border-radius(5px);
+//  border: 1px solid $silver_light;
+  #edit-author,
+  .form-type-textfield  {
+    clear: both;
+  }
+  .field-type-datetime {
+    width: 300px;
+    float: left;
+    fieldset {
+      @include dist_zero;
+      border: none;
+      .date-padding {
+        @include dist_zero;
+        width: 270px;
+      }
+    }
+  }
+  #edit-author--2 {
+    clear: both;
+  }
+  #edit-field-contacts-ref {
+    margin-right: 40px;
+    width: 350px;
+    float: left;
+    table {
+      width: 310px;
+      input {
+        width: 310px;
+      }
+    }
+  }
+  #edit-field-asset-files {
+    width: 350px;
+    float: left;
+    table {
+      width: 310px;
+      input {
+        width: 310px;
+      }
+    }
+  }
+  #edit-actions {
+    clear: both;
+  }
+  .field-widget-options-select {
+    margin-right: 15px;
+    padding-top: 5px;
+    float: left;
+  }
+  .field-name-field-activity-status-term  {
+    width: 160px !important;
+    float: left;
+  }
+  .erpal_git {
+    background: $light_grey;
+    border: 1px solid $silver;
+    padding: 10px;
+    .syntax {
+      font-family: monospace;
+      margin-top: 10px;
+    }
+  }
+}
+
+/*-------------end comments------------------- */
+
+/*--------------begin multi select boxes--------------*/
+.views-exposed-form  {
+  padding: 5px 10px;
+  background-color: $drub_light;
+  @include filter-gradient($drub_light, $drub_grey, vertical);
+  @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+  @include border-radius(5px 5px 0 0);
+  border: 1px solid $silver_light;
+  .form-submit {
+    margin-top: 1.3em;
+  }
+  .views-exposed-widget {
+    padding-top: 0;
+    padding-right: 5px !important;
+    label {
+      font-size: 10px;
+      color: $grey;
+    }
+  }
+  button span:not(.ui-icon) {
+    position: absolute;
+    overflow: hidden;
+    width: 105px !important;
+    height: 19px;
+    line-height: 13px;
+  }
+  button {
+    font-size: 11px;
+    height: 25px;
+    width: 130px !important;
+    overflow: hidden;
+  }
+}
+#edit-field-task-status-term-tid-wrapper ,
+#edit-field-activity-status-term-tid-wrapper,
+#edit-field-priority-term-tid-wrapper,
+#edit-field-task-type-term-tid-wrapper,
+#edit-field-project-tags-tid-wrapper,
+#edit-field-task-assigned-users-target-id-wrapper  {
+  width: 130px !important;
+}
+.ui-multiselect-menu {
+  width: 200px !important;
+}
+.ui-helper-reset {
+  position: relative;
+}
+.ui-multiselect-close {
+  position: absolute;
+  right: 0;
+}
+.ui-multiselect-header {
+  padding: 3px 0;
+}
+/*--------------end multi select boxes--------------*/
+/*-------------begin dashboard styles--------------*/
+#homebox {
+  .homebox-column-wrapper-1 .homebox-column{
+    margin-right: 20px;
+  }
+  .homebox-column {
+    @include dist_zero;
+    background: none;
+  }
+  .view-assigned-tasks {
+    a {
+      padding-top: 2px;
+      padding-bottom: 3px;
+      padding-left: 26px;
+      display: block;
+    }
+    td.views-field-title a{
+      @include content_icons-sprite(task);
+      &:hover {
+        @include content_icons-sprite(task_hover);
+      }
+    }
+    th.views-field-field-project-ref {
+      width: 190px;
+    }
+    td.views-field-field-project-ref a{
+      @include content_icons-sprite(projects);
+      &:hover {
+        @include content_icons-sprite(projects_hover);
+      }
+    }
+    td.views-field-field-timetracking-button a{
+      padding-left: 0;
+      img {
+        margin-right: 3px;
+        margin-top: 1px;
+        float: left;
+      }
+    }
+  }
+  .flag-bookmark-flag {
+    vertical-align: middle;
+    .unflag-action {
+      display: block;
+      width: 20px;
+      height: 20px;
+      font-size: 0;
+      @include background(image-url("cross.png"));
+      &:hover {
+        @include background(image-url("cross_hover.png"));
+      }
+    }
+    .flag-throbber {
+      display: none;
+    }
+  }
+  .homebox-portlet {
+    margin-bottom: 40px;
+    border: none;
+    &#homebox-block-views_assigned_tasks-block .portlet-header {
+      @include title_icons-sprite(task_title);
+    }
+    &#homebox-block-timetracking_block .portlet-header,
+    &#homebox-block-views_timetracking_entities-block_1 .portlet-header {
+      @include title_icons-sprite(timetracking_title);
+    }
+    &#homebox-block-views_bookmarks-block .portlet-header {
+      @include title_icons-sprite(bookmark_title);
+    }
+    &[id*="homebox-block-views_full_calendar"] .portlet-header {
+      @include title_icons-sprite(calendar_title);
+    }
+    &[id*="heartbeat"] .portlet-header {
+      @include title_icons-sprite(log_title);
+    }
+    #timetracking-quick-form {
+      @include border-radius(5px);
+      border: 1px solid $silver_light;
+    }
+    .homebox-portlet-inner {
+      border: none;
+      .portlet-header {
+        padding-left: 28px;
+        margin-bottom: 1px;
+        background-color: transparent;
+        @include headline(18px, 23px, 8px, bold);
+        border: none;
+        .portlet-title {
+          padding-left: 8px;
+          background-color: transparent;
+        }
+      }
+      .portlet-content {
+        padding: 0px;
+        .form-item, .view-grouping-header, caption {
+          padding-left: 12px;
+        }
+        .more-link {
+          padding: 4px 10px;
+          background-color: $drub_light;
+          @include filter-gradient($drub_light, $drub_grey, vertical);
+          @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+          @include border-radius(0 0 5px 5px);
+        }
+        .form-submit {
+          margin-left: 12px;
+          padding-left: 12px;
+        }
+        .homebox-column-wrapper {
+          float: left;
+          width: 48% !important;
+        }
+        fieldset {
+          border: none;
+        }
+        .homebox-column {
+          @include dist_zero;
+        }
+      }
+    }
+  }
+}
+/*-------------end dashboard styles--------------*/
+
+/*-------------begin contact styles------------------*/
+.node-type-erpal-contact {
+  .erpal-content-right .pane-custom-node-content{
+    margin-top: 10px;
+  }
+  .region-sidebar-left {
+    .panel-pane {
+      h2.pane-title.block-title {
+        @include headline(26px, 26px, 7px, normal);
+        @include title_icons-sprite(contact_title);
+      }
+      .block-content {
+        h2.pane-title.block-title {
+          padding-left: 0;
+          background: none;
+        }
+      }
+      .field-collection-view {
+        @include dist_zero;
+        border: none;
+      }
+      .field-collection-view table th {
+        padding: 10px;
+        font-size: 13px;
+        background-color: $drub_light;
+        @include filter-gradient($drub_light, $drub_grey, vertical);
+        @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+      }
+      ul {
+        @include dist_zero;
+        float: none;
+        li {
+          padding-right: 7px;
+          list-style-type: none;
+        }
+      }
+      .pane-node-field-fax .block-content,
+      .pane-node-field-email .block-content{
+        padding: 10px;
+        @include border-radius(5px);
+        border: 1px solid $silver_light;
+      }
+      table {
+        margin: 0 0 10px;
+        @include border-radius(5px 5px 0 0);
+        td {
+          padding: 10px;
+        }
+      }
+      .field-collection-container {
+        border: none;
+        .field-items {
+          .field-item {
+            margin: 0px;
+          }
+        }
+      }
+      .action-links {
+        li {
+          padding: 10px 0 10px 10px;
+          text-align: right;
+          a {
+            font-size: 1.2em;
+            text-decoration: underline;
+          }
+        }
+      }
+      .field-type-taxonomy-term-reference {
+//        margin: 0px;
+      }
+      .pane-entity-field {
+        .block-content {
+          float: none;
+        }
+      }
+    }
+  }
+}
+/*-------------end contact styles------------------*/
+
+/* begin hightlight of different states of tasks/projects */
+.page-contacts .views-field-field-contact-image {
+  width: 30px;
+  img {
+    width: 20px;
+  }
+}
+.block-content .view-content {
+  td {
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid $silver_light;
+    &.views-field-views-bulk-operations {
+      padding-right: 0;
+    }
+    a {
+      font-size: 13px;
+      font-weight: normal;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+  th {
+    background-color: $drub_light;
+    @include filter-gradient($drub_light, $drub_grey, vertical);
+    @include background-image(linear-gradient(top,  rgba($drub_light,1) 0%,rgba($drub_grey,1) 100%));
+    &.views-field-field-date-1,
+    &.views-field-field-date,
+    &.views-field-field-priority-term,
+    &.views-field-field-project-status-term {
+      width: 100px;
+    }
+    &.views-field-field-timetracking-button {
+      width: 100px;
+    }
+  }
+  tr.info,
+  tr.even,
+  tr:nth-child(2n+2) {
+    background-color: $white;
+  }
+  tr.odd.alert,
+  tr.even.alert{
+    background-color: $light_pink !important;
+  }
+  tr.odd.completed,
+  tr.even.completed {
+    background-color: $light_grey !important;
+  }
+}
+/* end hightlight of different states of tasks/projects */
+/*-------------begin login styles------------------*/
+.not-logged-in {
+  background-color: $grey;
+  @include filter-gradient(#a69a91, $grey, horizontal);
+  @include background-image(radial-gradient(center top, ellipse cover,  #a69a91 20px, $grey 550px));
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#A69A91', EndColorStr='#645C57');
+  overflow: hidden;
+  #login_mask_logo {
+    margin: 75px auto 8px;
+    background: url('../images/erpal_logo_login.png') no-repeat 0 0;
+    width: 240px;
+    height: 322px;
+  }
+  .pane-page-messages {
+    width: 400px;
+    margin: 0 auto;
+    #messages {
+      .messages {
+        @include border-radius(5px);
+        border: none;
+        @include box-shadow($black 0px 0px 5px);
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+  .pane-page-content {
+    margin: 0 auto 10px;
+    padding: 25px;
+    background-color: $white;
+    @include border-radius(5px);
+    width: 350px;
+    @include box-shadow($black 0px 0px 5px);
+  }
+  #user-login {
+    color: $black;
+    label {
+      padding-right: 25px;
+      float: left;
+      line-height: 32px;
+    }
+    .form-text {
+      border: {
+        top: 1px solid $drab;
+        left: 1px solid $drab;
+        right: 1px solid $light_drab;
+        bottom: 1px solid $light_drab;
+      }
+      height: 22px;
+      line-height: 22px;
+      @include box-shadow($silver_grey 1px 1px 2px 0px inset);
+    }
+    .description {
+      padding-left: 92px;
+    }
+    #edit-actions {
+      padding-top: 5px;
+      input.form-submit {
+        margin: 0 auto;
+        padding: 7px 20px;
+        color: $white;
+        background-color: $orange;
+        @include background(linear-gradient(bottom, #fdae15 37%, #f9b942 69%) !important);
+        font-weight: bold;
+        @include border-radius(12px);
+        display: block;
+        border: 1px solid #fba124;
+        &:hover {
+          background-color: $dark_orange;
+          @include background-image(linear-gradient(bottom, $orange 37%, #f9c25d 69%) !important);
+        }
+      }
+    }
+  }
+}
+/*------------------------------------invoice-----------------------*/
+.page-invoice-invoices {
+  table.views-table {
+    border-collapse: collapse;
+  }
+  .container-inline-date .date-padding {
+    padding-left: 0px;
+  }
+}
+#mini-panel-invoice_content_panel {
+  .panel-col-first.panel-panel {
+    width: 50%;
+  }
+  .panel-col-last.panel-panel {
+    width: 46%;
+  }
+}
+li.jstree-open ul {
+  padding-left: 20px;
+}
+#erpal_wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+#erpal_wrapper,
+.erpal-container,
+.erpal-container-item {
+  height: 100%;
+}
+.node-type-erpal-invoice {
+  fieldset.collapsible {
+    margin-bottom: 3px;
+  }
+  .views-table {
+    @include border-radius(5px);
+    border-collapse: separate;
+  }
+}
+.group-form-left,
+.group-form-right,
+.group-form-advanced-left,
+.group-form-advanced-right {
+  @include border-radius(5px);
+}
+fieldset {
+  margin: 0px;
+}
+.page-contact {
+  .form-textarea-wrapper {
+    width: 500px;
+  }
+}
+.page-projects  td.views-field-title a,
+.page-projects-budgets .views-field-php-1 a,
+.page-projects-timetrackings  td.views-field-title-2  a,
+.page-user-notifications  td.views-field-title-1  a,
+.node-type-erpal-crm-activity .view-projects .field-content a {
+  padding-left: 26px;
+  @include content_icons-sprite(projects);
+  line-height: 18px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(projects_hover);
+  }
+}
+.node-type-erpal-contact  td.views-field-title a,
+.page-activities  td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(activity);
+  line-height: 18px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(activity_hover);
+  }
+}
+.node-type-erpal-contact  td.views-field-title a,
+.page-activities  td.views-field-title a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(activity);
+  line-height: 18px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(activity_hover);
+  }
+}
+.page-user-bookmarks  td.views-field-title  a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(bookmark);
+  line-height: 21px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(bookmark_hover);
+  }
+}
+.page-contracts  td.views-field-title  a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(contract);
+  line-height: 21px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(contract_hover);
+  }
+}
+.page-projects-timetrackings  td.views-field-title  a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(timetracking);
+  line-height: 22px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(timetracking_hover);
+  }
+}
+.page-files  td.views-field-title,
+.page-node-files  td.views-field-title {
+  width: 370px;
+}
+.page-invoice-invoices  td.views-field-title  a {
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(invoice);
+  line-height: 20px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(invoice_hover);
+  }
+}
+.node-type-erpal-task {
+  .pane-page-content .views-table {
+    @include border-radius(0px 5px 0px 0px);
+    border-collapse: separate;
+  }
+}
+.pane-contacts-panel-pane-1 td.views-field-title a,
+.node-type-erpal-crm-activity .node_erpal_contact a{
+  padding-top: 2px;
+  padding-left: 26px;
+  @include content_icons-sprite(contact);
+  line-height: 18px;
+  display: block;
+  &:hover {
+    @include content_icons-sprite(contact_hover);
+  }
+}
+/*-------------------------begin Page titles--------------------------------*/
+
+.pane-page-content h1.pane-title,
+.page-node-pricing .pane-page-content h1.pane-title,
+.node-type-erpal-contract h1.pane-title,
+.page-tasks  h1.pane-title,
+.page-bookmarks h1.pane-title,
+.page-user h1.pane-title,
+.page-projects-timetrackings h1.pane-title  {
+  padding-left: 33px;
+}
+.page-dashboard .pane-page-content h1.pane-title {
+  @include title_icons-sprite(home_title);
+}
+.page-user-notifications .pane-page-content h1.pane-title {
+  @include title_icons-sprite(notify_title);
+}
+.page-node-releases .pane-page-content h1.pane-title,
+.node-type-erpal-project-release .pane-page-content h1.pane-title {
+  @include title_icons-sprite(release_title);
+}
+.page-projects-projects .pane-page-content h1.pane-title,
+.node-type-erpal-project .pane-page-content h1.pane-title {
+  @include title_icons-sprite(project_title);
+}
+.page-contacts .pane-page-content h1.pane-title,
+.page-node-add-erpal-contact .pane-page-content h1.pane-title,
+.node-type-erpal-contact .pane-page-content h1.pane-title,
+.page-field-collection-field-addresses .pane-page-content h1.pane-title,
+.page-field-collection-field-phone .pane-page-content h1.pane-title,
+.page-import-erpal-contacts-delete .pane-page-content h1.pane-title,
+.page-import-erpal-contacts-import .pane-page-content h1.pane-title,
+.page-field-collection-field-bank-accounts .pane-page-content h1.pane-title{
+  @include title_icons-sprite(contact_title);
+}
+.page-activities .pane-page-content h1.pane-title,
+.page-node-add-erpal-crm-activity h1.pane-title,
+.node-type-erpal-crm-activity  h1.pane-title {
+  @include title_icons-sprite(activity_title);
+}
+.page-books .pane-page-content h1.pane-title,
+.page-node-add-erpal-book .pane-page-content h1.pane-title,
+.node-type-erpal-book .pane-page-content h1.pane-title,
+.page-node-add-erpal-book-page .pane-page-content h1.pane-title,
+.node-type-erpal-book-page .pane-page-content h1.pane-title {
+  @include title_icons-sprite(documents_title);
+}
+.page-heartbeat .pane-page-content h1.pane-title {
+  @include title_icons-sprite(log_title);
+}
+.page-files .pane-page-content h1.pane-title,
+.page-node-files .pane-page-content h1.pane-title,
+.page-node-add-erpal-file .pane-page-content h1.pane-title,
+.node-type-erpal-file .pane-page-content h1.pane-title {
+  @include title_icons-sprite(file_title);
+}
+.node-type-erpal-file .erpal-content-left h1.pane-title,
+.page-budget .pane-page-content .pane-budget-node h1.pane-title,
+.page-budget .pane-page-content .pane-views-panes h1.pane-title,
+.page-user-notifications .region-one-main h1.pane-title{
+  padding-left: 0;
+  background: none;
+}
+.page-invoice-invoices h1.pane-title,
+.page-node-add-erpal-invoice .pane-page-content h1.pane-title,
+.node-type-erpal-invoice .pane-page-content h1.pane-title{
+  @include title_icons-sprite(invoice_title);
+}
+
+.page-contracts .pane-page-content h1.pane-title,
+.node-type-erpal-contract h1.pane-title,
+.page-node-add-erpal-contract .pane-page-content h1.pane-title{
+  @include title_icons-sprite(contracts_title);
+}
+.node-type-erpal-contract .pane-page-title h1.pane-title,
+#mini-panel-invoice_header_fields h1.pane-title {
+  background: none;
+  padding-left: 0;
+}
+.page-timekeeping .pane-page-content h1.pane-title,
+.page-node-timetracking .pane-page-content h1.pane-title,
+.page-node-add-erpal-working-time h1.pane-title,
+.node-type-erpal-working-time h1.pane-title,
+.page-node-add-erpal-timetracking h1.pane-title {
+  @include title_icons-sprite(timekeeping_title);
+}
+.page-node-timetracking .pane-page-content h1.pane-title,
+.node-type-erpal-timetracking  h1.pane-title,
+.page-projects-timetrackings  h1.pane-title {
+  @include title_icons-sprite(timetracking_title);
+}
+.page-projects-timetrackings-tmp h1.pane-title {
+  @include title_icons-sprite(active_timetrackings_title);
+}
+.page-books.page-books-templates  h1.pane-title {
+  @include title_icons-sprite(template_title);
+}
+.node-type-erpal-task .pane-page-content h1.pane-title,
+.page-node-tasks .pane-page-content h1.pane-title,
+.page-tasks  h1.pane-title,
+.page-node-add-erpal-task h1.pane-title {
+  @include title_icons-sprite(task_title);
+}
+.page-projects-pricing .pane-page-content h1.pane-title,
+.page-node-pricing .pane-page-content h1.pane-title,
+.page-invoice-billables .pane-page-content h1.pane-title,
+.page-billable-add .pane-page-content h1.pane-title{
+  @include title_icons-sprite(price);
+}
+.page-projects-budgets .pane-page-content h1.pane-title,
+.page-budget-edit .pane-page-content h1.pane-title,
+.page-budget .pane-page-content h1.pane-title{
+  @include title_icons-sprite(budget_titles);
+}
+.page-node-tickets .pane-page-content h1.pane-title {
+  @include title_icons-sprite(ticket_title);
+}
+.node-type-erpal-invoice .pane-page-content .pane-page-title h1.pane-title {
+  @include title_icons-sprite(invoice_title);
+}
+.pane-invoice-header-fields {
+  h2 {
+    padding-left: 0 !important;
+    font-size: 18px !important;
+    margin:  0 !important;
+  }
+  a:hover {
+    color: #FC9822;
+  }
+}
+.page-user h1.pane-title {
+  @include title_icons-sprite(users);
+}
+.page-user-bookmarks h1.pane-title {
+  @include title_icons-sprite(bookmark_title);
+}
+.page-user-projects  h1.pane-title,
+.page-node-add-erpal-project  h1.pane-title {
+  @include title_icons-sprite(project_title);
+}
+.page-user-tasks h1.pane-title,
+.page-node-add-erpal-task h2.pane-title {
+  @include title_icons-sprite(task_title);
+}
+.page-reports-crm h1.pane-title,
+.page-reports-project  h1.pane-title,
+.page-reports  h1.pane-title,
+.page-reports-dashboard  h1.pane-title,
+.page-node-add-erpal-task h2.pane-title {
+  @include title_icons-sprite(reports_title);
+}
+.page-calendar h1.pane-title,
+.page-node-add-erpal-date h1.pane-title,
+.page-node-calendar h1.pane-title,
+.node-type-erpal-date h1.pane-title {
+  @include title_icons-sprite(calendar_title);
+}
+.profile .user-picture {
+  margin-top: 20px;
+}
+#field-phone-values .form-text .form-autocomplete {
+  position: relative;
+  top: 19px;
+}
+#edit-field-pricing {
+  .select,
+  input.form-autocomplete {
+    width: 180px;
+  }
+}
+.page-node-files td.views-field-title {
+  min-width: 200px;
+}
+.page-books-books td.views-field-title a {
+  padding: 3px 0px 3px 25px;
+  @include content_icons-sprite(document);
+  display: block;
+  line-height: 20px;
+  &:hover {
+    @include content_icons-sprite(document_hover);
+  }
+}
+.page-books-templates td.views-field-title a {
+  padding: 3px 0px 3px 25px;
+  @include content_icons-sprite(template);
+  display: block;
+  line-height: 20px;
+  &:hover {
+    @include content_icons-sprite(template_hover);
+  }
+}
+/*-------------------------end Page titles--------------------------------*/
+th.views-field-title {
+  width: 200px !important;
+}
+th.views-field-created,
+th.views-field-changed {
+  width: 100px;
+}
+th.views-field-field-invoice-number {
+  width: 50px;
+}
+
+
+/*---------- activity pages ----------*/
+.node-type-erpal-crm-activity {
+  .erpal-content-right {
+    .view-projects {
+      padding-left: 10px;
+      .views-label-title {
+        font-size: 11px;
+        display: block;
+        color: $grey;
+      }
+    }
+  }
+}
+
+/*---------- Quick links on project page and crm sidebars----------*/
+
+.erpal-content-right {
+  .views-field-operations {
+    margin-top: 10px;
+  }
+}
+
+.views-field-operations {
+  width: 140px;
+  div.quicklinks {
+
+    a {
+      margin: 0 4px;
+      display: block;
+      font-size: 0px !important;
+      text-indent: -2000;
+      width: 20px;
+      height: 22px;
+      float: left;
+      padding-left: 0 !important;
+      &.tasks {
+        @include menu_tabs_icons-sprite(task);
+        &:hover {
+          @include menu_tabs_icons-sprite(task_hover);
+        }
+      }
+      &.tickets {
+        @include menu_tabs_icons-sprite(ticket);
+        &:hover {
+          @include menu_tabs_icons-sprite(ticket_hover);
+        }
+      }
+      &.files {
+        @include menu_tabs_icons-sprite(files);
+        &:hover {
+          @include menu_tabs_icons-sprite(files_hover);
+        }
+      }
+      &.calendar {
+        @include menu_tabs_icons-sprite(calendar);
+        &:hover {
+          @include menu_tabs_icons-sprite(calendar_hover);
+        }
+      }
+      &.timetracking {
+        @include menu_tabs_icons-sprite(timetracking);
+        &:hover {
+          @include menu_tabs_icons-sprite(timetracking_hover);
+        }
+      }
+    }
+  }
+}
+
+/*---------------------------Task page details-------------------------*/
+.pane-task-basic-fields {
+  @include border-radius(5px);
+  border: 1px solid $silver_light;
+  font-size: 11px;
+  .field-type-image,
+  .field-name-title {
+    margin-top: 2px;
+    float: left;
+  }
+  figure{
+    height: 16px;
+  }
+  .field_time_information {
+    padding-top: 5px;
+    line-height: 15px;
+    .local_time_information {
+      .label_this_task {
+        font-weight: bold;
+      }
+    }
+    .label_this_task,
+    .label_subtasks	{
+      float: left;
+      width: 65px;
+    }
+    .time_details{
+      padding-right: 5px;
+      float: left;
+      width: 60px;
+    }
+    .time_details_todo{
+      padding-right: 5px;
+      float: left;
+      width: 70px;
+    }
+    .children_time_information {
+      clear: both;
+    }
+  }
+  .panel-3col-33 .panel-panel {
+    float: left;
+    height: 40px;
+    width: 205px;
+    border-right: 1px solid $silver_light;
+    .panel-panel {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    &.panel-col-first {
+      margin-right: 10px;
+      padding-right: 10px;
+      width: 310px;
+      section {
+        float: left;
+      }
+    }
+    &.panel-col-last {
+      width: 180px !important;
+      border: none;
+      section {
+        margin: 0;
+        padding-bottom: 5px !important;
+        &.pane-node-field-date {
+          padding-top: 0;
+        }
+        h2.pane-title {
+          margin-right: 10px;
+          padding-right: 5px;
+          float: left;
+          width: 65px;
+        }
+        .block-content {
+          float: left;
+          line-height: 11px;
+        }
+      }
+    }
+    .inside {
+      margin: 0 !important;
+      min-width: auto !important;
+      .panel-separator {
+        display: none;
+      }
+      section {
+        margin: 0;
+        padding: 6px 10px;
+        min-width: 65px;
+        h2.pane-title {
+          margin: 0;
+          padding: 0;
+          font-size: 11px;
+          line-height: 11px;
+          background: none !important;
+        }
+        .field-items {
+          margin: 0;
+          .field-name-title h2 {
+            margin: 0 0 0 5px;
+            font-size: 11px;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+  .block{
+    margin: 0;
+  }
+}
+
+/*---------------------------Contract page-------------------------*/
+#mini-panel-contract_basic_panel,
+#mini-panel-contract_time_information,
+#mini-panel-contract_budget_information {
+  @include border-radius(5px);
+  border: 1px solid $silver_light;
+  h2.pane-title {
+    margin: 0;
+    padding: 0 5px 0 0;
+    font-size: 12px;
+    line-height: 16px;
+    background: none;
+  }
+}
+#mini-panel-contract_basic_panel {
+  padding: 10px;
+  #mini-panel-contract_basic_info_panel {
+    .panel-separator {
+      display: none;
+    }
+  }
+  .pane-contract-basic-info-panel .panel-pane {
+    margin-bottom: 0;
+    padding-right: 8px;
+    float: left;
+  }
+  .pane-field-collection-item-field-customer-ref {
+    padding-right: 0 !important;
+  }
+  .pane-field-collection-item-field-contractor-ref a,
+  .pane-field-collection-item-field-customer-ref a {
+    padding: 3px 0 3px 25px;
+    @include content_icons-sprite(contact);
+    &:hover {
+      @include content_icons-sprite(contact_hover);
+      color: $orange;
+    }
+  }
+  .block {
+    margin-bottom: 13px;
+    h2.pane-title {
+      float: left;
+    }
+    ul.field-items {
+      margin: 0;
+    }
+    &.pane-5 {
+      margin-bottom: 0;
+      p{
+        font-weight: bold;
+      }
+    }
+    p{
+      margin-bottom: 0;
+    }
+  }
+}
+#mini-panel-contract_time_information,
+#mini-panel-contract_budget_information {
+  section {
+    margin-bottom: 0;
+    padding: 10px;
+    float: left;
+    width: 120px;
+    border-right: 1px solid $silver_light;
+    &.pane-node-field-repeating-duration {
+      border: none;
+    }
+  }
+}
+#mini-panel-contract_budget_information {
+  a:hover {
+    color: $orange;
+  }
+  .pane-field-collection-item-field-budget-destination {
+    float: none;
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid $silver_light;
+    a {
+      padding: 3px 0 3px 25px;
+      @include content_icons-sprite(projects);
+      &:hover {
+        @include content_icons-sprite(projects_hover);
+      }
+    }
+  }
+  .pane-contract-budget-time-information {
+    margin-bottom: 0;
+  }
+  .panel-separator {
+    display: none;
+  }
+  .pane-field-collection-item-field-budget-hours {
+    border-right: none;
+  }
+  .pane-field-collection-item-field-budgets {
+    float: none;
+    width: auto;
+    border-right: none;
+    border-top: 1px solid $silver_light;
+  }
+}
+/*---------------------------Comment status-------------------------*/
+
+
+/*---------------------------Quick timetracking-------------------------*/
+.page-dashboard {
+  #autocomplete {
+    li {
+      white-space: normal;
+      cursor: pointer;
+      .views-field {
+        padding: 0 15px;
+        display: block;
+        font-size: 11px;
+        line-height: 18px;
+        span {
+          padding: 1px 0;
+        }
+        &.views-field-title-1 {
+          .field-content {
+            background-color: $orange_dark;
+          }
+        }
+        &.views-field-title {
+          margin-bottom: 5px;
+          padding: 5px 15px;
+          background-color: $light_grey;
+          font-weight: bold;
+          font-size: 12px;
+        }
+        &.views-field-nid {
+          padding-bottom: 15px;
+        }
+        .search_string {
+          background-color: $orange_dark;
+        }
+        .field-content {
+          font-weight: bold;
+        }
+      }
+      &.selected {
+        background-color: $orange_light;
+        color: $black;
+        .views-field-title {
+          background-color: $orange_dark;
+        }
+      }
+    }
+  }
+}
+.page-date-item  {
+  .erpal-content-right {
+    .local_tasks {
+      top: -22px;
+    }
+  }
+}
+
+.block-content .view-content td {
+  &.ui-state-highlight {
+    background-color: $orange_tint;
+    background-image: none;
+    border: 1px solid $orange;
+  }
+}
+
+.erpal-content-layout-template{
+  .region-sidebar-left {
+    .block {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.pane-system-user-menu {
+  margin-right: 15px;
+  li a {
+    font-size: 12px;
+    line-height: 28px;
+  }
+}
+
+/*
+ * left region
+ */
+
+/*
+ * middle region
+ */
+.panels-ipe-display-container{
+  height: 100%;
+}
+.panels-flexible-row-erpal_panel_layout-main-row-middle {
+  margin-right: 0;
+}
+.panels-flexible-region-erpal_panel_layout-center{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+#erpal_wrapper>.panel-col-first .inside {
+  margin: 0 0 1em;
+}

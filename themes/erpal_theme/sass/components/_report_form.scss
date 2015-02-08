@@ -1,0 +1,51 @@
+#erpal-crm-reports-sales-report-form,
+#erpal-project-reports-active-projects-report-form,
+#erpal-project-reports-profit-margin-report-form,
+#erpal-project-reports-time-tracking-report-form,
+#erpal-crm-reports-expense-report-form,
+#erpal-crm-reports-lead-report-form,
+#erpal-crm-reports-customer-report-form,
+#erpal-crm-reports-sales-forecast-report-form {
+  margin-top: 10px;
+  .container-inline-date {
+    clear: none;
+    float: left;
+    .date-padding {
+      padding: 0;
+      label {
+        display: none;
+      }
+    }
+  }
+  
+  .form-item-scaling,
+  .form-item-status,
+  .form-item-profit-status,
+  .form-item-min-orders,
+  .form-type-checkbox {
+    clear: both;
+  }
+  
+  .form-item-projects, // used in profit margin only
+  .form-item-task-categories, // used in timetracking only 
+  .form-item-customers,
+  .form-item-customer-categories,
+  .form-item-service-categories {
+    float: left;
+    margin-right: 15px;
+  }
+  
+  .form-item-dim-customer {
+    clear: both;
+    margin-top: 1em;
+  }
+  
+  .form-type-checkbox {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  .form-item-no-cache {
+    margin-bottom: 1em;
+  }
+}

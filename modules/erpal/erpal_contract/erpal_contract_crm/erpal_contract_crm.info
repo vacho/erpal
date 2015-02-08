@@ -1,0 +1,21 @@
+name = ERPAL Contract CRM
+description = Integrates ERPAL contract feature with ERPAL CRM
+core = 7.x
+package = ERPAL
+version = 7.x-1.0-dev
+project = erpal_contract_crm
+dependencies[] = entityreference
+dependencies[] = erpal_contract
+dependencies[] = erpal_crm
+dependencies[] = erpal_crm_ui
+dependencies[] = features
+features[features_api][] = api:2
+features[field_instance][] = node-erpal_contract-field_activity_ref
+features_exclude[dependencies][erpal_basic_helper] = erpal_basic_helper
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_contract"
+datestamp = "1413471916"
+

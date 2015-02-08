@@ -1,0 +1,14 @@
+.icon{
+  &:before{
+    @include font-awesome-content('star');
+  }
+
+  @each $icon in $font-awesome-icons{
+    $glyph: nth($icon, 1);
+    $code: nth($icon, 2);
+
+    &.-icon-#{$glyph}:before{content:'#{$code}';}
+  }
+}
+
+.boxjs-box .icon:before{display:none;}

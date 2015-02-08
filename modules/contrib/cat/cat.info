@@ -1,0 +1,22 @@
+name = Context Actions and Tasks (CAT)
+description = The Context Actions and Tasks (CAT) module provide creation or hide local actions and local tasks for existing menu path.
+package = Administration
+core = 7.x
+
+configure = admin/structure/menu/cat
+
+dependencies[] = menu
+dependencies[] = ctools
+dependencies[] = token
+
+files[] = cat.module
+files[] = cat.drush.inc
+
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "cat"
+datestamp = "1413471949"
+

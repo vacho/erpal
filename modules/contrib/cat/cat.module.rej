@@ -1,0 +1,42 @@
+--- a/cat.module
++++ b/cat.module
+@@ -224,7 +224,7 @@
+       }
+ 
+       // add new tabs
+-      foreach ($cat_item->cat_tabs as $cat_tab) {
++      foreach ($cat_item->cat_tabs as $key => $cat_tab) {
+         $path = $cat_tab['path_original'];
+         if ($token_fast_replacers) {
+           $path = strtr($path, $token_fast_replacers);
+@@ -245,6 +245,10 @@
+ 
+         $tab_item['title'] = $cat_tab['title'];
+ 
++        if (module_exists('cat_i18n') && !empty($cat_item->translatable)) {
++          $tab_item['title'] = cat_i18n_string($tab_item['title'], $cat_item, $key);
++        }
++
+         if (cat_token_exists($tab_item['title'])) {
+           $tab_item['title'] = _cat_token_replace($tab_item['title'], $contexts);
+         }
+@@ -304,7 +308,7 @@
+ 
+     // Add new Actions
+     if (!empty($cat_item->cat_actions)) {
+-      foreach ($cat_item->cat_actions as $cat_action) {
++      foreach ($cat_item->cat_actions as $key => $cat_action) {
+         $path = $cat_action['path_original'];
+         if ($token_fast_replacers) {
+           $path = strtr($path, $token_fast_replacers);
+@@ -325,6 +329,10 @@
+ 
+         $action_item['title'] = $cat_action['title'];
+ 
++        if (module_exists('cat_i18n') && !empty($cat_item->translatable)) {
++          $action_item['title'] = cat_i18n_string($action_item['title'], $cat_item, $key, 'cat_actions');
++        }
++
+         if (cat_token_exists($action_item['title'])) {
+           $action_item['title'] = _cat_token_replace($action_item['title'], $contexts);
+         }

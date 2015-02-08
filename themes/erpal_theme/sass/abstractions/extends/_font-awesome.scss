@@ -1,0 +1,5 @@
+@include font-face($font-awesome, font-files('fontawesome.eot', 'fontawesome.woff', 'fontawesome.ttf', 'fontawesome.svg'));
+
+%font-awesome{
+  font-family:$font-awesome;
+}

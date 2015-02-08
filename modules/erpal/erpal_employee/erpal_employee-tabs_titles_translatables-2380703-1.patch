@@ -1,0 +1,316 @@
+From e093a8f7a6bb03b3d4907ca3a7024adfcbbc78a3 Mon Sep 17 00:00:00 2001
+From: vacho <vacho@koala-soft.com>
+Date: Sun, 23 Nov 2014 16:59:33 -0400
+Subject: [PATCH] tabs an titles translatables issue #2380703 by vacho: Fixed
+
+---
+ erpal_employee.cat.inc                             | 26 +++++++++++-----------
+ .../erpal_employee_ui.pages_default.inc            | 24 ++++++++++----------
+ erpal_employee_ui/erpal_employee_ui.quicktabs.inc  | 16 ++++++-------
+ 3 files changed, 33 insertions(+), 33 deletions(-)
+
+diff --git a/erpal_employee.cat.inc b/erpal_employee.cat.inc
+index 68b2a5d..4de3342 100644
+--- a/erpal_employee.cat.inc
++++ b/erpal_employee.cat.inc
+@@ -33,7 +33,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'node/%/%',
+         'path_query' => array(),
+         'path_destination' => TRUE,
+-        'title' => 'Create a new working time',
++        'title' => t('Create a new working time'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => TRUE,
+@@ -47,7 +47,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Timekeeping',
++        'title' => t('Timekeeping'),
+         'css_id' => '',
+         'css_class' => 'active-trail',
+         'active' => TRUE,
+@@ -63,7 +63,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'All Timekeeping',
++        'title' => t('All Timekeeping'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -108,7 +108,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Timekeeping',
++        'title' => t('Timekeeping'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -124,7 +124,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'All Timekeeping',
++        'title' => t('All Timekeeping'),
+         'css_id' => '',
+         'css_class' => 'active-trail',
+         'active' => TRUE,
+@@ -169,7 +169,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Timekeeping',
++        'title' => t('Timekeeping'),
+         'css_id' => '',
+         'css_class' => 'active-trail',
+         'active' => TRUE,
+@@ -185,7 +185,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'All Timekeeping',
++        'title' => t('All Timekeeping'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -254,7 +254,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Timekeeping',
++        'title' => t('Timekeeping'),
+         'css_id' => '',
+         'css_class' => 'active-trail',
+         'active' => TRUE,
+@@ -270,7 +270,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'All Timekeeping',
++        'title' => t('All Timekeeping'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -339,7 +339,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Timekeeping',
++        'title' => t('Timekeeping'),
+         'css_id' => '',
+         'css_class' => 'active-trail',
+         'active' => TRUE,
+@@ -355,7 +355,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'timekeeping/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'All Timekeeping',
++        'title' => t('All Timekeeping'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -420,7 +420,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'working_times/%/%',
+         'path_query' => array(),
+         'path_destination' => TRUE,
+-        'title' => 'Create a new offset',
++        'title' => t('Create a new offset'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+@@ -434,7 +434,7 @@ function erpal_employee_cat_items_settings_info() {
+         'path_pattern' => 'user/%/%',
+         'path_query' => array(),
+         'path_destination' => FALSE,
+-        'title' => 'Notifications',
++        'title' => t('Notifications'),
+         'css_id' => '',
+         'css_class' => '',
+         'active' => FALSE,
+diff --git a/erpal_employee_ui/erpal_employee_ui.pages_default.inc b/erpal_employee_ui/erpal_employee_ui.pages_default.inc
+index 82d6e38..fb56374 100644
+--- a/erpal_employee_ui/erpal_employee_ui.pages_default.inc
++++ b/erpal_employee_ui/erpal_employee_ui.pages_default.inc
+@@ -13,7 +13,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $page->api_version = 1;
+   $page->name = 'all_timekeepings';
+   $page->task = 'page';
+-  $page->admin_title = 'All timekeepings';
++  $page->admin_title = t('All timekeepings');
+   $page->admin_description = '';
+   $page->path = 'timekeeping/all';
+   $page->access = array(
+@@ -31,7 +31,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   );
+   $page->menu = array(
+     'type' => 'none',
+-    'title' => 'All timekeeping',
++    'title' => t('All timekeeping'),
+     'name' => 'navigation',
+     'weight' => '0',
+     'parent' => array(
+@@ -55,7 +55,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $handler->handler = 'panel_context';
+   $handler->weight = 0;
+   $handler->conf = array(
+-    'title' => 'All timekeeping panel',
++    'title' => t('All timekeeping panel'),
+     'no_blocks' => 1,
+     'pipeline' => 'standard',
+     'body_classes_to_remove' => '',
+@@ -78,7 +78,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+     ),
+   );
+   $display->cache = array();
+-  $display->title = 'All timekeeping';
++  $display->title = t('All timekeeping');
+   $display->uuid = '94180d3e-0530-d4e4-9daa-7786a82561b2';
+   $display->content = array();
+   $display->panels = array();
+@@ -115,7 +115,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $page->api_version = 1;
+   $page->name = 'timekeeping';
+   $page->task = 'page';
+-  $page->admin_title = 'Timekeeping';
++  $page->admin_title = t('Timekeeping');
+   $page->admin_description = '';
+   $page->path = 'timekeeping';
+   $page->access = array(
+@@ -133,12 +133,12 @@ function erpal_employee_ui_default_page_manager_pages() {
+   );
+   $page->menu = array(
+     'type' => 'none',
+-    'title' => 'Timekeeping',
++    'title' => t('Timekeeping'),
+     'name' => 'menu-erpal-menu',
+     'weight' => '10',
+     'parent' => array(
+       'type' => 'tab',
+-      'title' => 'Timekeeping',
++      'title' => t('Timekeeping'),
+       'name' => 'navigation',
+       'weight' => '0',
+     ),
+@@ -157,7 +157,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $handler->handler = 'panel_context';
+   $handler->weight = 0;
+   $handler->conf = array(
+-    'title' => 'Timekeeping panel',
++    'title' => t('Timekeeping panel'),
+     'no_blocks' => 1,
+     'pipeline' => 'standard',
+     'body_classes_to_remove' => '',
+@@ -180,7 +180,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+     ),
+   );
+   $display->cache = array();
+-  $display->title = 'Timekeeping';
++  $display->title = t('Timekeeping');
+   $display->uuid = '0b4ba2c7-c3c5-fbd4-715d-ada6a9292573';
+   $display->content = array();
+   $display->panels = array();
+@@ -236,7 +236,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $page->api_version = 1;
+   $page->name = 'user_working_time_offset';
+   $page->task = 'page';
+-  $page->admin_title = 'User working time offset';
++  $page->admin_title = t('User working time offset');
+   $page->admin_description = '';
+   $page->path = 'user/%user/timekeeping-offsets';
+   $page->access = array(
+@@ -254,7 +254,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   );
+   $page->menu = array(
+     'type' => 'tab',
+-    'title' => 'Timekeeping offset',
++    'title' => t('Timekeeping offset'),
+     'name' => 'navigation',
+     'weight' => '0',
+     'parent' => array(
+@@ -285,7 +285,7 @@ function erpal_employee_ui_default_page_manager_pages() {
+   $handler->handler = 'panel_context';
+   $handler->weight = 0;
+   $handler->conf = array(
+-    'title' => 'Timekeeping offset panel',
++    'title' => t('Timekeeping offset panel'),
+     'no_blocks' => 1,
+     'pipeline' => 'standard',
+     'body_classes_to_remove' => '',
+diff --git a/erpal_employee_ui/erpal_employee_ui.quicktabs.inc b/erpal_employee_ui/erpal_employee_ui.quicktabs.inc
+index 61b4d37..7a3daa4 100644
+--- a/erpal_employee_ui/erpal_employee_ui.quicktabs.inc
++++ b/erpal_employee_ui/erpal_employee_ui.quicktabs.inc
+@@ -17,13 +17,13 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+   $quicktabs->ajax = 0;
+   $quicktabs->hide_empty_tabs = FALSE;
+   $quicktabs->default_tab = 0;
+-  $quicktabs->title = 'All timekeeping tabs';
++  $quicktabs->title = t('All timekeeping tabs');
+   $quicktabs->tabs = array(
+     0 => array(
+       'vid' => 'working_time',
+       'display' => 'panel_pane_2',
+       'args' => '',
+-      'title' => 'Day',
++      'title' => t('Day'),
+       'weight' => '-100',
+       'type' => 'view',
+     ),
+@@ -31,7 +31,7 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+       'vid' => 'working_times',
+       'display' => 'panel_pane_5',
+       'args' => '',
+-      'title' => 'Month',
++      'title' => t('Month'),
+       'weight' => '-99',
+       'type' => 'view',
+     ),
+@@ -39,7 +39,7 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+       'vid' => 'working_times',
+       'display' => 'panel_pane_4',
+       'args' => '',
+-      'title' => 'Year',
++      'title' => t('Year'),
+       'weight' => '-98',
+       'type' => 'view',
+     ),
+@@ -64,13 +64,13 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+   $quicktabs->ajax = 0;
+   $quicktabs->hide_empty_tabs = FALSE;
+   $quicktabs->default_tab = 0;
+-  $quicktabs->title = 'User timekeeping tabs';
++  $quicktabs->title = t('User timekeeping tabs');
+   $quicktabs->tabs = array(
+     0 => array(
+       'vid' => 'working_time',
+       'display' => 'panel_pane_1',
+       'args' => '',
+-      'title' => 'Day',
++      'title' => t('Day'),
+       'weight' => '-100',
+       'type' => 'view',
+     ),
+@@ -78,7 +78,7 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+       'vid' => 'working_times',
+       'display' => 'panel_pane_2',
+       'args' => '',
+-      'title' => 'Month',
++      'title' => t('Month'),
+       'weight' => '-99',
+       'type' => 'view',
+     ),
+@@ -86,7 +86,7 @@ function erpal_employee_ui_quicktabs_default_quicktabs() {
+       'vid' => 'working_times',
+       'display' => 'panel_pane_1',
+       'args' => '',
+-      'title' => 'Year',
++      'title' => t('Year'),
+       'weight' => '-98',
+       'type' => 'view',
+     ),
+-- 
+1.9.1
+

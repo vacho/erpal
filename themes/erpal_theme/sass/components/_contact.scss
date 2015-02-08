@@ -1,0 +1,173 @@
+$imageWidth: 150px;
+
+.node-type-erpal-contact {
+  .content-inner {
+    clear: none;
+  }
+
+  .field-name-field-contact-type {
+    display: none;
+  }
+
+  div.horizontal-tabs .horizontal-tabs-panes > fieldset.group-contact-basics {
+    min-height: 165px; // for contact to be at least as high as the image
+    padding-left: $imageWidth + $pd;
+
+    .field-collection-container {
+      margin-top: 2em;
+
+      .field-collection-view-links {
+        display: none;
+      }
+      // drupal-option?
+    }
+  }
+
+  .group_contact_image {
+    @include transition-delay(0s);
+    left: $pd;
+    position: absolute;
+    top: $pd;
+    max-width: $imageWidth;
+    z-index: 5;
+
+    img {
+      @include single-box-shadow(rgba(#000, .3), 0, 1px, 3px);
+      float: left;
+      max-width: 100%;
+    }
+
+    &:hover {
+      @include single-transition(all, 1s);
+      @include transition-delay(.5s);
+      @include single-box-shadow(rgba(#000, .75), 0, 3px, 7px);
+      left: $pd - 5px;
+      top: $pd - 5px;
+      max-width: 220px;
+    }
+  }
+
+  .pane-menu-menu-contact-menu {
+    border: 1px solid $border;
+    background-color: $contentBackground;
+    @include border-radius();
+    padding-left: 15px;
+    h2.pane-title {
+      @include font-size(12px);
+    }
+    ul.menu {
+      li {
+        list-style-image: none;
+        margin-bottom: 5px;
+        a {
+          padding-left: 30px;
+          min-height: 20px;
+          display: inline-block;
+          text-decoration: underline;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &.activities a {
+          @include menu_icons-sprite(activity);
+          &:hover {
+            @include menu_icons-sprite(activity_hover);
+          }
+        }
+        &.projects a {
+          @include menu_icons-sprite(projects);
+          &:hover {
+            @include menu_icons-sprite(projects_hover);
+          }
+        }
+        &.contract a {
+          @include menu_icons-sprite(contract);
+          &:hover {
+            @include menu_icons-sprite(contract_hover);
+          }
+        }
+        &.invoice a {
+          @include menu_icons-sprite(invoice);
+          &:hover {
+            @include menu_icons-sprite(invoice_hover);
+          }
+        }
+        &.forecast a {
+          @include menu_icons-sprite(reports);
+          &:hover {
+            @include menu_icons-sprite(reports_hover);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//communication labels
+.field-name-field-communication {
+  .entity-field-collection-item {
+    .field{
+      float: left;
+      margin: 0 5px 0 0;
+      &.field-name-field-communication-category{
+        color: $grey;
+        font-size: 11px;
+        ul{
+          margin: 0;
+        }
+      }
+    }
+    $labels: ('phone', 'phone'), // ~ .-label-{1}:before{ @include font-awesome-content( {2} ); }
+      ('mail', 'envelope-alt');
+
+    @each $label in $labels {
+      .-label-communication-#{nth($label, 1)} {
+
+        div {
+          display: none;
+        }
+        &:before {
+          @include font-awesome-content(nth($label, 2));
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.node.node-erpal-contact.view-mode-in_activity{
+  margin-bottom: 15px;
+  .group-left{
+    width: 150px;
+  }
+}
+
+.group-contact-addresses,
+.group-contact-banking {
+  .field-collection-view-final {
+    border-bottom: 1px solid $silver_light; //overwriting field-collection css default borderbottom none styles
+  }
+}
+
+//beautify contacts table:
+.views-field-field-target-audience .ui-multiselect {
+  max-width: 160px;
+}
+
+//beautify contacts table:
+.views-field-field-contact-tags {
+  max-width: 250px;
+  input.form-autocomplete {
+    max-width: 250px;
+  }
+}
+
+//double contact
+
+.form-item-proceed-on-nonunique {
+  label {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}

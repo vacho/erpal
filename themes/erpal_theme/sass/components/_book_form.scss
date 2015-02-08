@@ -1,0 +1,79 @@
+.node-erpal_book-form {
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+
+  .field-name-field-contact-ref-form {
+    .form-item {
+      float: left;
+      width: 260px;
+      .description {
+        margin-left: 0px;
+      }
+    }
+    .dialog-links {
+      float: left;
+      margin-left: 10px;
+      ul {
+        margin: 0;
+        li {
+          float: left;
+        }
+      }
+    }
+  }
+
+  .field-name-field-files-ref-form {
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  #edit-field-files-ref {
+    padding-left: 0;
+  }
+}
+
+.node-erpal_book_page-form {
+  .field-name-field-page-exclude-from-form {
+    .form-item.form-item-field-page-exclude-from-und-pdf {
+      label {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .group-form-left {
+    div.field-name-body {
+      padding: 0;
+      div.form-item-body-und-0-value label {
+        display: none;
+      }
+      div.form-wrapper {
+        padding-left: 1.5em;
+      }
+      div.description {
+        display: none;
+      }
+    }
+  }
+
+  .field-name-field-files-ref-form {
+    @extend %multi-table;
+    @extend %field-collection;
+  }
+  #edit-field-files-ref {
+    padding-left: 0;
+  }
+
+}

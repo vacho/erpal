@@ -1,0 +1,35 @@
+name = ERPAL Contract Projects
+description = Integration of ERPAL contracts with projects
+core = 7.x
+package = ERPAL
+version = 7.x-1.0-dev
+project = erpal_contract_projects
+dependencies[] = ctools
+dependencies[] = erpal_contract_ui
+dependencies[] = erpal_project_ui
+dependencies[] = features
+dependencies[] = features_override
+dependencies[] = panels_mini
+features[ctools][] = panels_mini:panels_default:1
+features[features_api][] = api:2
+features[features_override_items][] = page_manager_handlers.node_view_panel_context_9
+features[features_overrides][] = page_manager_handlers.node_view_panel_context_9.conf|display|content|new-6cbac466-b1f1-3bc4-e1a3-d3d1b4f6d5f6
+features[features_overrides][] = page_manager_handlers.node_view_panel_context_9.conf|display|content|new-fa3436a7-e353-3584-fdda-360a36de23cf|position
+features[features_overrides][] = page_manager_handlers.node_view_panel_context_9.conf|display|panels|sidebar_second_left|2
+features[features_overrides][] = page_manager_handlers.node_view_panel_context_9.conf|display|panels|sidebar_second_left|3
+features[field_base][] = field_budget_destination
+features[field_instance][] = field_collection_item-field_budget_booking-field_budget_destination
+features[field_instance][] = field_collection_item-field_budget_booking-field_budgets
+features[panels_mini][] = contract_budget_information
+features[panels_mini][] = contract_budget_time_information
+features_exclude[dependencies][entityreference] = entityreference
+features_exclude[dependencies][erpal_basic_helper] = erpal_basic_helper
+features_exclude[dependencies][erpal_field_pricing] = erpal_field_pricing
+
+
+; Information added by drush on 2014-10-16
+version = "7.x-stable-dev"
+core = "7.x"
+project = "erpal_contract"
+datestamp = "1413471916"
+
